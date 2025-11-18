@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4kiqkiydnonn"]
+
+[ext_resource type="Script" path="res://nine_box_manager.gd" id="1_loflr"]
+[ext_resource type="PackedScene" uid="uid://w0uogmtdd4fr" path="res://prefabs/button.tscn" id="2_qtcse"]
+
+[node name="nine-box-container" type="VBoxContainer"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_loflr")
+
+[node name="line1-container" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="button-1" parent="line1-container" instance=ExtResource("2_qtcse")]
+layout_mode = 2
+
+[node name="button-2" parent="line1-container" instance=ExtResource("2_qtcse")]
+layout_mode = 2
+
+[node name="button-3" parent="line1-container" instance=ExtResource("2_qtcse")]
+layout_mode = 2
+
+[node name="line2-container" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="button-4" parent="line2-container" instance=ExtResource("2_qtcse")]
+layout_mode = 2
+
+[node name="button-5" parent="line2-container" instance=ExtResource("2_qtcse")]
+layout_mode = 2
+
+[node name="button-6" parent="line2-container" instance=ExtResource("2_qtcse")]
+layout_mode = 2
+
+[node name="line3-container" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="button-7" parent="line3-container" instance=ExtResource("2_qtcse")]
+layout_mode = 2
+
+[node name="button-8" parent="line3-container" instance=ExtResource("2_qtcse")]
+layout_mode = 2
+
+[node name="button-9" parent="line3-container" instance=ExtResource("2_qtcse")]
+layout_mode = 2

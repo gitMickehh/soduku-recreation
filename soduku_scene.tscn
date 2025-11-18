@@ -1,0 +1,96 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5g2biw27mdvg"]
+
+[ext_resource type="PackedScene" uid="uid://c4kiqkiydnonn" path="res://prefabs/nine_box_container.tscn" id="1_aq4rj"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Soduku_Container" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="big-separator-1" type="Control" parent="MarginContainer/Soduku_Container"]
+layout_mode = 2
+
+[node name="BigLine-1-Contianer" type="HBoxContainer" parent="MarginContainer/Soduku_Container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="separator-1" type="Control" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer"]
+layout_mode = 2
+
+[node name="nine-box-container" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer" instance=ExtResource("1_aq4rj")]
+layout_mode = 2
+
+[node name="nine-box-container2" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer" instance=ExtResource("1_aq4rj")]
+layout_mode = 2
+
+[node name="nine-box-container3" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer" instance=ExtResource("1_aq4rj")]
+layout_mode = 2
+
+[node name="separator-2" type="Control" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer"]
+layout_mode = 2
+
+[node name="BigLine-1-Contianer2" type="HBoxContainer" parent="MarginContainer/Soduku_Container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="separator-1" type="Control" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer2"]
+layout_mode = 2
+
+[node name="nine-box-container" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer2" instance=ExtResource("1_aq4rj")]
+layout_mode = 2
+
+[node name="nine-box-container2" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer2" instance=ExtResource("1_aq4rj")]
+layout_mode = 2
+
+[node name="nine-box-container3" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer2" instance=ExtResource("1_aq4rj")]
+layout_mode = 2
+
+[node name="separator-2" type="Control" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer2"]
+layout_mode = 2
+
+[node name="BigLine-1-Contianer3" type="HBoxContainer" parent="MarginContainer/Soduku_Container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="separator-1" type="Control" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer3"]
+layout_mode = 2
+
+[node name="nine-box-container" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer3" instance=ExtResource("1_aq4rj")]
+layout_mode = 2
+
+[node name="nine-box-container2" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer3" instance=ExtResource("1_aq4rj")]
+layout_mode = 2
+
+[node name="nine-box-container3" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer3" instance=ExtResource("1_aq4rj")]
+layout_mode = 2
+
+[node name="separator-2" type="Control" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer3"]
+layout_mode = 2
+
+[node name="big-separator-2" type="Control" parent="MarginContainer/Soduku_Container"]
+layout_mode = 2
