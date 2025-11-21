@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://w0uogmtdd4fr"]
 
 [node name="button-1" type="Button"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(85, 85)
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 50

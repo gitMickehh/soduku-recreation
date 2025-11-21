@@ -4,7 +4,7 @@ var buttons: Array[Button]
 
 func _ready() -> void:
 	_get_buttons_from_childrens_children()
-	_debug_buttons_order()
+	#_debug_buttons_order()
 
 func _get_buttons_from_childrens_children() -> void:
 	var children = get_children()
@@ -22,3 +22,27 @@ func _debug_buttons_order() -> void:
 	for button in buttons:
 		button.text = str(count)
 		count = count + 1
+
+func get_horizontal_line(line_number: int = 0) -> Array[int]:
+	var return_array: Array[int] = []
+	
+	line_number = clampi(line_number,0,2)
+	var starting_point = line_number * 3
+	
+	return_array.append(int(buttons[starting_point].text))
+	return_array.append(int(buttons[starting_point + 1].text))
+	return_array.append(int(buttons[starting_point + 2].text))
+	
+	return return_array
+
+func get_vertical_line(line_number: int = 0) -> Array[int]:
+	var return_array: Array[int] = []
+	
+	line_number = clampi(line_number,0,2)
+	var point_jump = 3
+	
+	return_array.append(int(buttons[line_number].text))
+	return_array.append(int(buttons[line_number + 3].text))
+	return_array.append(int(buttons[line_number + (3*2)].text))
+	
+	return return_array

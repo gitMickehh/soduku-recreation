@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5g2biw27mdvg"]
+[gd_scene load_steps=3 format=3 uid="uid://b5g2biw27mdvg"]
 
 [ext_resource type="PackedScene" uid="uid://c4kiqkiydnonn" path="res://prefabs/nine_box_container.tscn" id="1_aq4rj"]
+[ext_resource type="PackedScene" uid="uid://w0uogmtdd4fr" path="res://prefabs/button.tscn" id="2_wdpfm"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -20,77 +21,138 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Soduku_Container" type="VBoxContainer" parent="MarginContainer"]
+[node name="Whole_Game_Container" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Soduku_Container" type="VBoxContainer" parent="MarginContainer/Whole_Game_Container"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="big-separator-1" type="Control" parent="MarginContainer/Soduku_Container"]
+[node name="big-separator-1" type="Control" parent="MarginContainer/Whole_Game_Container/Soduku_Container"]
 layout_mode = 2
 
-[node name="BigLine-1-Contianer" type="HBoxContainer" parent="MarginContainer/Soduku_Container"]
+[node name="BigLine-1-Contianer" type="HBoxContainer" parent="MarginContainer/Whole_Game_Container/Soduku_Container"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="separator-1" type="Control" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer"]
+[node name="separator-1" type="Control" parent="MarginContainer/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer"]
 layout_mode = 2
 
-[node name="nine-box-container" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer" instance=ExtResource("1_aq4rj")]
+[node name="nine-box-container" parent="MarginContainer/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer" instance=ExtResource("1_aq4rj")]
 layout_mode = 2
 
-[node name="nine-box-container2" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer" instance=ExtResource("1_aq4rj")]
+[node name="nine-box-container2" parent="MarginContainer/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer" instance=ExtResource("1_aq4rj")]
 layout_mode = 2
 
-[node name="nine-box-container3" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer" instance=ExtResource("1_aq4rj")]
+[node name="nine-box-container3" parent="MarginContainer/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer" instance=ExtResource("1_aq4rj")]
 layout_mode = 2
 
-[node name="separator-2" type="Control" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer"]
+[node name="separator-2" type="Control" parent="MarginContainer/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer"]
 layout_mode = 2
 
-[node name="BigLine-1-Contianer2" type="HBoxContainer" parent="MarginContainer/Soduku_Container"]
+[node name="BigLine-1-Contianer2" type="HBoxContainer" parent="MarginContainer/Whole_Game_Container/Soduku_Container"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="separator-1" type="Control" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer2"]
+[node name="separator-1" type="Control" parent="MarginContainer/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer2"]
 layout_mode = 2
 
-[node name="nine-box-container" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer2" instance=ExtResource("1_aq4rj")]
+[node name="nine-box-container" parent="MarginContainer/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer2" instance=ExtResource("1_aq4rj")]
 layout_mode = 2
 
-[node name="nine-box-container2" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer2" instance=ExtResource("1_aq4rj")]
+[node name="nine-box-container2" parent="MarginContainer/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer2" instance=ExtResource("1_aq4rj")]
 layout_mode = 2
 
-[node name="nine-box-container3" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer2" instance=ExtResource("1_aq4rj")]
+[node name="nine-box-container3" parent="MarginContainer/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer2" instance=ExtResource("1_aq4rj")]
 layout_mode = 2
 
-[node name="separator-2" type="Control" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer2"]
+[node name="separator-2" type="Control" parent="MarginContainer/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer2"]
 layout_mode = 2
 
-[node name="BigLine-1-Contianer3" type="HBoxContainer" parent="MarginContainer/Soduku_Container"]
+[node name="BigLine-1-Contianer3" type="HBoxContainer" parent="MarginContainer/Whole_Game_Container/Soduku_Container"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="separator-1" type="Control" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer3"]
+[node name="separator-1" type="Control" parent="MarginContainer/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer3"]
 layout_mode = 2
 
-[node name="nine-box-container" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer3" instance=ExtResource("1_aq4rj")]
+[node name="nine-box-container" parent="MarginContainer/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer3" instance=ExtResource("1_aq4rj")]
 layout_mode = 2
 
-[node name="nine-box-container2" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer3" instance=ExtResource("1_aq4rj")]
+[node name="nine-box-container2" parent="MarginContainer/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer3" instance=ExtResource("1_aq4rj")]
 layout_mode = 2
 
-[node name="nine-box-container3" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer3" instance=ExtResource("1_aq4rj")]
+[node name="nine-box-container3" parent="MarginContainer/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer3" instance=ExtResource("1_aq4rj")]
 layout_mode = 2
 
-[node name="separator-2" type="Control" parent="MarginContainer/Soduku_Container/BigLine-1-Contianer3"]
+[node name="separator-2" type="Control" parent="MarginContainer/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer3"]
 layout_mode = 2
 
-[node name="big-separator-2" type="Control" parent="MarginContainer/Soduku_Container"]
+[node name="big-separator-2" type="Control" parent="MarginContainer/Whole_Game_Container/Soduku_Container"]
 layout_mode = 2
+
+[node name="input_lines_container" type="VBoxContainer" parent="MarginContainer/Whole_Game_Container"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Input_Line_1" type="HBoxContainer" parent="MarginContainer/Whole_Game_Container/input_lines_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="1" parent="MarginContainer/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+text = "1"
+
+[node name="2" parent="MarginContainer/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+text = "2"
+
+[node name="3" parent="MarginContainer/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+text = "3"
+
+[node name="4" parent="MarginContainer/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+text = "4"
+
+[node name="5" parent="MarginContainer/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+text = "5"
+
+[node name="Input_Line_2" type="HBoxContainer" parent="MarginContainer/Whole_Game_Container/input_lines_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="6" parent="MarginContainer/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+text = "6"
+
+[node name="7" parent="MarginContainer/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+text = "7"
+
+[node name="8" parent="MarginContainer/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+text = "8"
+
+[node name="9" parent="MarginContainer/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+text = "9"
+
+[node name="X" parent="MarginContainer/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+text = "X"
