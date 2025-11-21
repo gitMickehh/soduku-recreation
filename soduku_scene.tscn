@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5g2biw27mdvg"]
 
-[ext_resource type="PackedScene" uid="uid://c4kiqkiydnonn" path="res://prefabs/nine_box_container.tscn" id="1_aq4rj"]
 [ext_resource type="Script" path="res://game_container_manager.gd" id="1_h12q3"]
+[ext_resource type="PackedScene" uid="uid://m5xxplu1ba4p" path="res://prefabs/horizontal_blocks_container.tscn" id="2_fegsa"]
 [ext_resource type="PackedScene" uid="uid://w0uogmtdd4fr" path="res://prefabs/button.tscn" id="2_wdpfm"]
 [ext_resource type="Script" path="res://input_lines_container_manager.gd" id="3_v4e6g"]
 
@@ -28,77 +28,24 @@ script = ExtResource("1_h12q3")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 10
 
 [node name="Soduku_Container" type="VBoxContainer" parent="Game_Container/Whole_Game_Container"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 20
+theme_override_constants/separation = 10
 
 [node name="big-separator-1" type="Control" parent="Game_Container/Whole_Game_Container/Soduku_Container"]
 layout_mode = 2
 
-[node name="BigLine-1-Contianer" type="HBoxContainer" parent="Game_Container/Whole_Game_Container/Soduku_Container"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_constants/separation = 20
-
-[node name="separator-1" type="Control" parent="Game_Container/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer"]
+[node name="horizontal_blocks_container-1" parent="Game_Container/Whole_Game_Container/Soduku_Container" instance=ExtResource("2_fegsa")]
 layout_mode = 2
 
-[node name="nine-box-container" parent="Game_Container/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer" instance=ExtResource("1_aq4rj")]
+[node name="horizontal_blocks_container-2" parent="Game_Container/Whole_Game_Container/Soduku_Container" instance=ExtResource("2_fegsa")]
 layout_mode = 2
 
-[node name="nine-box-container2" parent="Game_Container/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer" instance=ExtResource("1_aq4rj")]
-layout_mode = 2
-
-[node name="nine-box-container3" parent="Game_Container/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer" instance=ExtResource("1_aq4rj")]
-layout_mode = 2
-
-[node name="separator-2" type="Control" parent="Game_Container/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer"]
-layout_mode = 2
-
-[node name="BigLine-1-Contianer2" type="HBoxContainer" parent="Game_Container/Whole_Game_Container/Soduku_Container"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_constants/separation = 20
-
-[node name="separator-1" type="Control" parent="Game_Container/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer2"]
-layout_mode = 2
-
-[node name="nine-box-container" parent="Game_Container/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer2" instance=ExtResource("1_aq4rj")]
-layout_mode = 2
-
-[node name="nine-box-container2" parent="Game_Container/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer2" instance=ExtResource("1_aq4rj")]
-layout_mode = 2
-
-[node name="nine-box-container3" parent="Game_Container/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer2" instance=ExtResource("1_aq4rj")]
-layout_mode = 2
-
-[node name="separator-2" type="Control" parent="Game_Container/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer2"]
-layout_mode = 2
-
-[node name="BigLine-1-Contianer3" type="HBoxContainer" parent="Game_Container/Whole_Game_Container/Soduku_Container"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_constants/separation = 20
-
-[node name="separator-1" type="Control" parent="Game_Container/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer3"]
-layout_mode = 2
-
-[node name="nine-box-container" parent="Game_Container/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer3" instance=ExtResource("1_aq4rj")]
-layout_mode = 2
-
-[node name="nine-box-container2" parent="Game_Container/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer3" instance=ExtResource("1_aq4rj")]
-layout_mode = 2
-
-[node name="nine-box-container3" parent="Game_Container/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer3" instance=ExtResource("1_aq4rj")]
-layout_mode = 2
-
-[node name="separator-2" type="Control" parent="Game_Container/Whole_Game_Container/Soduku_Container/BigLine-1-Contianer3"]
+[node name="horizontal_blocks_container-3" parent="Game_Container/Whole_Game_Container/Soduku_Container" instance=ExtResource("2_fegsa")]
 layout_mode = 2
 
 [node name="big-separator-2" type="Control" parent="Game_Container/Whole_Game_Container/Soduku_Container"]

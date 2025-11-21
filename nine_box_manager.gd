@@ -1,6 +1,6 @@
-extends VBoxContainer
+class_name Nine_Box_Manager extends VBoxContainer
 
-var buttons: Array[Button]
+var buttons: Array[Button_Logic]
 
 func _ready() -> void:
 	_get_buttons_from_childrens_children()
@@ -9,12 +9,12 @@ func _ready() -> void:
 func _get_buttons_from_childrens_children() -> void:
 	var children = get_children()
 	for child in children:
-		if child is Button:
+		if child is Button_Logic:
 			buttons.append(child)
 		else:
 			var childrens_children = child.get_children()
 			for child_2 in childrens_children:
-				if child_2 is Button:
+				if child_2 is Button_Logic:
 					buttons.append(child_2)
 
 func _debug_buttons_order() -> void:
@@ -46,3 +46,18 @@ func get_vertical_line(line_number: int = 0) -> Array[int]:
 	return_array.append(int(buttons[line_number + (3*2)].text))
 	
 	return return_array
+
+func fill_in_square(data_to_fill: Array[int]) -> void:
+	var index = 0
+	for button in buttons:
+		if data_to_fill[index] != 0:
+			button.text = str(data_to_fill[index])
+			button.set_selected(true)
+		index = index + 1
+	print(data_to_fill)
+
+func check_for_repetition_in_square(number: int) -> bool:
+	for button in buttons:
+		if int(button.text) == number:
+			return true
+	return false
