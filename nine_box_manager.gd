@@ -1,10 +1,10 @@
 class_name Nine_Box_Manager extends VBoxContainer
 
 var buttons: Array[Button_Logic]
+var vector_identifier: Vector2i
 
 func _ready() -> void:
 	_get_buttons_from_childrens_children()
-	#_debug_buttons_order()
 
 func _get_buttons_from_childrens_children() -> void:
 	var children = get_children()
@@ -23,7 +23,8 @@ func _debug_buttons_order() -> void:
 		button.text = str(count)
 		count = count + 1
 
-func fill_in_square(data_to_fill: Array[int]) -> void:
+func fill_in_square(data_to_fill: Array[int], vec_id: Vector2i) -> void:
+	vector_identifier = vec_id
 	var index = 0
 	for button in buttons:
 		if data_to_fill[index] != 0:

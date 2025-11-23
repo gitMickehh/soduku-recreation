@@ -11,7 +11,7 @@ func _get_blocks() -> void:
 		if child is Nine_Box_Manager:
 			blocks.append(child)
 
-func set_blocks_numbers(block_one: Array[int], block_two: Array[int], block_three: Array[int])-> void:
-	blocks[0].fill_in_square(block_one)
-	blocks[1].fill_in_square(block_two)
-	blocks[2].fill_in_square(block_three)
+func set_blocks_numbers(block_one: Array[int], block_two: Array[int], block_three: Array[int], board_x: int)-> void:
+	blocks[0].fill_in_square(block_one, Vector2i(board_x, 0))
+	blocks[1].fill_in_square(block_two, Vector2i(board_x, 1))
+	blocks[2].fill_in_square(block_three, Vector2i(board_x, 2))

@@ -38,9 +38,11 @@ func _on_new_input_chosen(new_input: int) -> void:
 
 func _set_numbers(game_array) -> void:
 	var index = 0
+	var loops = 0
 	for block_group in horizontal_boxes_containers:
-		block_group.set_blocks_numbers(game_array[index], game_array[index+1],game_array[index+2])
+		block_group.set_blocks_numbers(game_array[index], game_array[index+1],game_array[index+2], loops)
 		index = index + 3
+		loops = loops + 1
 
 func _check_duplicate_in_block(new_number: int, block: Array[int]) -> bool:
 	return block.has(new_number)
