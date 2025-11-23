@@ -27,11 +27,9 @@ func _ready() -> void:
 	horizontal_boxes_containers.append(horizontal_blocks_container_1)
 	horizontal_boxes_containers.append(horizontal_blocks_container_2)
 	horizontal_boxes_containers.append(horizontal_blocks_container_3)
+	
 	_set_numbers(game_array)
-	
-	print("middle horizontal line: " + str(_get_line_from_point(Vector2i(1,1), Vector2i(1,1), true)))
-	print("middle vertical line: " + str(_get_line_from_point(Vector2i(1,1), Vector2i(1,1), false)))
-	
+
 func _on_new_input_chosen(new_input: int) -> void:
 	current_input = new_input
 	print(current_input)

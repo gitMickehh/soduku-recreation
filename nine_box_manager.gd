@@ -1,4 +1,4 @@
-class_name Nine_Box_Manager extends VBoxContainer
+class_name Block_Manager extends VBoxContainer
 
 var buttons: Array[Button_Logic]
 var vector_identifier: Vector2i
@@ -30,5 +30,6 @@ func fill_in_square(data_to_fill: Array[int], vec_id: Vector2i) -> void:
 		if data_to_fill[index] != 0:
 			button.text = str(data_to_fill[index])
 			button.set_selected(true)
+		button.set_index_id(index, vector_identifier)
 		index = index + 1
 	#print(data_to_fill)
