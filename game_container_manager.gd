@@ -17,7 +17,7 @@ var block_7: Array[int] = [0,0,6,4,0,7,0,3,9]
 var block_8: Array[int] = [4,0,1,0,0,9,0,2,0]
 var block_9: Array[int] = [7,3,0,0,0,0,6,0,4]
 
-var placeholder_game = [block_1, block_2, block_3, block_4, block_5, block_6, block_7, block_8, block_9]
+var game_array = [block_1, block_2, block_3, block_4, block_5, block_6, block_7, block_8, block_9]
 
 var horizontal_boxes_containers: Array[Horizontal_Boxes_Container] = []
 
@@ -27,8 +27,11 @@ func _ready() -> void:
 	horizontal_boxes_containers.append(horizontal_blocks_container_1)
 	horizontal_boxes_containers.append(horizontal_blocks_container_2)
 	horizontal_boxes_containers.append(horizontal_blocks_container_3)
-	_set_numbers(placeholder_game)
-
+	_set_numbers(game_array)
+	
+	print("middle horizontal line: " + str(_get_line_from_point(Vector2i(1,1), Vector2i(1,1), true)))
+	print("middle vertical line: " + str(_get_line_from_point(Vector2i(1,1), Vector2i(1,1), false)))
+	
 func _on_new_input_chosen(new_input: int) -> void:
 	current_input = new_input
 	print(current_input)
@@ -76,17 +79,42 @@ func _get_vector_from_index(index: int) -> Vector2i:
 func _get_index_from_vector(vector: Vector2i) -> int:
 	return ((vector.x * 3) + vector.y)
 
-func _get_intersecting_vector2(vector: Vector2i) -> Array[Vector2i]:
+func _get_horizontal_neighbor_block_vectors(vector: Vector2i) -> Array[Vector2i]:
 	var return_array:Array[Vector2i] = []
 	
-	#horizontal:
-	for x in range(3):
-		if x == vector.x: continue
-		return_array.append(Vector2i(x,vector.y))
-	
-	#vertical:
 	for y in range(3):
 		if y == vector.y: continue
-		return_array.append(Vector2i(vector.x, y))
+		return_array.append(Vector2i(vector.x,y))
+	
+	return return_array
+
+func _get_vertical_neighbor_block_vectors(vector: Vector2i) -> Array[Vector2i]:
+	var return_array:Array[Vector2i] = []
+	
+	for x in range(3):
+		if x == vector.x: continue
+		return_array.append(Vector2i(x, vector.y))
+	
+	return return_array
+
+func _get_line_from_point(point: Vector2i, block_point: Vector2i, horizontal: bool) -> Array[int]:
+	var block_vectors_to_check 
+	
+	if horizontal: block_vectors_to_check = _get_horizontal_neighbor_block_vectors(point)
+	else: block_vectors_to_check = _get_vertical_neighbor_block_vectors(point)
+	
+	var return_array: Array[int] = []
+	
+	var point_index = _get_index_from_vector(point)
+	
+	for block_vector in block_vectors_to_check:
+		if horizontal:
+			return_array.append_array(
+				_get_horizontal_line_in_block(point.x, game_array[_get_index_from_vector(block_vector)])
+			)
+		else:
+			return_array.append_array(
+				_get_vertical_line_in_block(point.y, game_array[_get_index_from_vector(block_vector)])
+			)
 	
 	return return_array

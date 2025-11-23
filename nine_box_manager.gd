@@ -30,4 +30,4 @@ func fill_in_square(data_to_fill: Array[int]) -> void:
 			button.text = str(data_to_fill[index])
 			button.set_selected(true)
 		index = index + 1
-	print(data_to_fill)
+	#print(data_to_fill)
