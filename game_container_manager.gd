@@ -38,3 +38,55 @@ func _set_numbers(game_array) -> void:
 	for block_group in horizontal_boxes_containers:
 		block_group.set_blocks_numbers(game_array[index], game_array[index+1],game_array[index+2])
 		index = index + 3
+
+func _check_duplicate_in_block(new_number: int, block: Array[int]) -> bool:
+	return block.has(new_number)
+
+func _get_horizontal_line_in_block(line_number: int, block:Array[int]) -> Array[int]:
+	var return_array: Array[int] = []
+	
+	line_number = clampi(line_number,0,2)
+	var starting_point = line_number * 3
+	
+	return_array.append(block[starting_point])
+	return_array.append(block[starting_point + 1])
+	return_array.append(block[starting_point + 2])
+	
+	return return_array
+
+func _get_vertical_line_in_block(line_number: int, block:Array[int]) -> Array[int]:
+	var return_array: Array[int] = []
+	
+	line_number = clampi(line_number,0,2)
+	var jump = 3
+	
+	return_array.append(block[line_number])
+	return_array.append(block[line_number + jump])
+	return_array.append(block[line_number + (jump * 2)])
+	
+	return return_array
+
+func _check_duplicates_horizontally() -> bool:
+	
+	return false
+
+func _get_vector_from_index(index: int) -> Vector2i:
+	return Vector2i(floori(index / 3),index % 3)
+
+func _get_index_from_vector(vector: Vector2i) -> int:
+	return ((vector.x * 3) + vector.y)
+
+func _get_intersecting_vector2(vector: Vector2i) -> Array[Vector2i]:
+	var return_array:Array[Vector2i] = []
+	
+	#horizontal:
+	for x in range(3):
+		if x == vector.x: continue
+		return_array.append(Vector2i(x,vector.y))
+	
+	#vertical:
+	for y in range(3):
+		if y == vector.y: continue
+		return_array.append(Vector2i(vector.x, y))
+	
+	return return_array

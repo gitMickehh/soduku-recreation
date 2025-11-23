@@ -23,30 +23,6 @@ func _debug_buttons_order() -> void:
 		button.text = str(count)
 		count = count + 1
 
-func get_horizontal_line(line_number: int = 0) -> Array[int]:
-	var return_array: Array[int] = []
-	
-	line_number = clampi(line_number,0,2)
-	var starting_point = line_number * 3
-	
-	return_array.append(int(buttons[starting_point].text))
-	return_array.append(int(buttons[starting_point + 1].text))
-	return_array.append(int(buttons[starting_point + 2].text))
-	
-	return return_array
-
-func get_vertical_line(line_number: int = 0) -> Array[int]:
-	var return_array: Array[int] = []
-	
-	line_number = clampi(line_number,0,2)
-	var point_jump = 3
-	
-	return_array.append(int(buttons[line_number].text))
-	return_array.append(int(buttons[line_number + 3].text))
-	return_array.append(int(buttons[line_number + (3*2)].text))
-	
-	return return_array
-
 func fill_in_square(data_to_fill: Array[int]) -> void:
 	var index = 0
 	for button in buttons:
@@ -55,9 +31,3 @@ func fill_in_square(data_to_fill: Array[int]) -> void:
 			button.set_selected(true)
 		index = index + 1
 	print(data_to_fill)
-
-func check_for_repetition_in_square(number: int) -> bool:
-	for button in buttons:
-		if int(button.text) == number:
-			return true
-	return false
