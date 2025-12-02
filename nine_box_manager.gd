@@ -33,3 +33,7 @@ func fill_in_square(data_to_fill: Array[int], vec_id: Vector2i) -> void:
 		button.set_index_id(index, vector_identifier)
 		index = index + 1
 	#print(data_to_fill)
+
+func connect_press(function_to_connect: Callable) -> void:
+	for button in buttons:
+		button.connect("pressed_with_info", function_to_connect)

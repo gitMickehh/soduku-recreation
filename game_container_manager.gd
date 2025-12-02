@@ -39,6 +39,7 @@ func _set_numbers(game_array) -> void:
 	var loops = 0
 	for block_group in horizontal_boxes_containers:
 		block_group.set_blocks_numbers(game_array[index], game_array[index+1],game_array[index+2], loops)
+		block_group.connect_press(_on_board_button_pressed)
 		index = index + 3
 		loops = loops + 1
 
@@ -118,3 +119,10 @@ func _get_line_from_point(point: Vector2i, block_point: Vector2i, horizontal: bo
 			)
 	
 	return return_array
+
+func _on_board_button_pressed(button: Button_Logic) -> void:
+	if button.number_is_equal(current_input): return
+	button.set_number_text(current_input)
+	game_array[_get_index_from_vector(button.parent_block_id)][button.index_identifier] = current_input
+	#do a check on duplicates here
+	print(game_array)
