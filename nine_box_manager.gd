@@ -37,3 +37,14 @@ func fill_in_square(data_to_fill: Array[int], vec_id: Vector2i) -> void:
 func connect_press(function_to_connect: Callable) -> void:
 	for button in buttons:
 		button.connect("pressed_with_info", function_to_connect)
+
+func get_string() -> String:
+	var buttons_str = "["
+	var index = 0
+	for butt in buttons:
+		buttons_str = buttons_str + butt.text
+		if index < buttons.size()-1:
+			buttons_str = buttons_str + ", "
+		index = index + 1
+	buttons_str = buttons_str + "]" 
+	return buttons_str

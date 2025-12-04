@@ -16,8 +16,10 @@ var block_6: Array[int] = [0,4,7,0,0,6,3,2,0]
 var block_7: Array[int] = [0,0,6,4,0,7,0,3,9]
 var block_8: Array[int] = [4,0,1,0,0,9,0,2,0]
 var block_9: Array[int] = [7,3,0,0,0,0,6,0,4]
+var blocks: Array[Block_Manager] = []
 
 var game_array = [block_1, block_2, block_3, block_4, block_5, block_6, block_7, block_8, block_9]
+var solver: Soduku_Solver = Soduku_Solver.new()
 
 var horizontal_boxes_containers: Array[Horizontal_Boxes_Container] = []
 
@@ -27,12 +29,13 @@ func _ready() -> void:
 	horizontal_boxes_containers.append(horizontal_blocks_container_1)
 	horizontal_boxes_containers.append(horizontal_blocks_container_2)
 	horizontal_boxes_containers.append(horizontal_blocks_container_3)
+	blocks = _get_block_objects()
 	
 	_set_numbers(game_array)
 
 func _on_new_input_chosen(new_input: int) -> void:
 	current_input = new_input
-	print(current_input)
+	#print(current_input)
 
 func _set_numbers(game_array) -> void:
 	var index = 0
@@ -43,86 +46,21 @@ func _set_numbers(game_array) -> void:
 		index = index + 3
 		loops = loops + 1
 
-func _check_duplicate_in_block(new_number: int, block: Array[int]) -> bool:
-	return block.has(new_number)
-
-func _get_horizontal_line_in_block(line_number: int, block:Array[int]) -> Array[int]:
-	var return_array: Array[int] = []
-	
-	line_number = clampi(line_number,0,2)
-	var starting_point = line_number * 3
-	
-	return_array.append(block[starting_point])
-	return_array.append(block[starting_point + 1])
-	return_array.append(block[starting_point + 2])
-	
-	return return_array
-
-func _get_vertical_line_in_block(line_number: int, block:Array[int]) -> Array[int]:
-	var return_array: Array[int] = []
-	
-	line_number = clampi(line_number,0,2)
-	var jump = 3
-	
-	return_array.append(block[line_number])
-	return_array.append(block[line_number + jump])
-	return_array.append(block[line_number + (jump * 2)])
-	
-	return return_array
-
-func _check_duplicates_horizontally() -> bool:
-	
-	return false
-
-func _get_vector_from_index(index: int) -> Vector2i:
-	return Vector2i(floori(index / 3),index % 3)
-
-func _get_index_from_vector(vector: Vector2i) -> int:
-	return ((vector.x * 3) + vector.y)
-
-func _get_horizontal_neighbor_block_vectors(vector: Vector2i) -> Array[Vector2i]:
-	var return_array:Array[Vector2i] = []
-	
-	for y in range(3):
-		if y == vector.y: continue
-		return_array.append(Vector2i(vector.x,y))
-	
-	return return_array
-
-func _get_vertical_neighbor_block_vectors(vector: Vector2i) -> Array[Vector2i]:
-	var return_array:Array[Vector2i] = []
-	
-	for x in range(3):
-		if x == vector.x: continue
-		return_array.append(Vector2i(x, vector.y))
-	
-	return return_array
-
-func _get_line_from_point(point: Vector2i, block_point: Vector2i, horizontal: bool) -> Array[int]:
-	var block_vectors_to_check 
-	
-	if horizontal: block_vectors_to_check = _get_horizontal_neighbor_block_vectors(point)
-	else: block_vectors_to_check = _get_vertical_neighbor_block_vectors(point)
-	
-	var return_array: Array[int] = []
-	
-	var point_index = _get_index_from_vector(point)
-	
-	for block_vector in block_vectors_to_check:
-		if horizontal:
-			return_array.append_array(
-				_get_horizontal_line_in_block(point.x, game_array[_get_index_from_vector(block_vector)])
-			)
-		else:
-			return_array.append_array(
-				_get_vertical_line_in_block(point.y, game_array[_get_index_from_vector(block_vector)])
-			)
-	
-	return return_array
+func _get_block_objects() -> Array[Block_Manager]:
+	var in_blocks: Array[Block_Manager] = []
+	for container in horizontal_boxes_containers:
+		in_blocks.append_array(container.get_blocks())
+	return in_blocks
 
 func _on_board_button_pressed(button: Button_Logic) -> void:
 	if button.number_is_equal(current_input): return
 	button.set_number_text(current_input)
-	game_array[_get_index_from_vector(button.parent_block_id)][button.index_identifier] = current_input
-	#do a check on duplicates here
-	print(game_array)
+	game_array[solver.get_index_from_vector(button.parent_block_id)][button.index_identifier] = current_input
+	
+	#if current_input == 0: return
+	# #i think i need to check for duplicats for all possible numbers in case of a zero
+	
+	# #do a check on duplicates here
+	# #block duplicates
+	#var block_dupes = solver.get_instances_indexes_in_block(current_input, game_array[solver.get_index_from_vector(button.parent_block_id)])
+	#if block_dupes.size() > 1: print("There are duplicates")
