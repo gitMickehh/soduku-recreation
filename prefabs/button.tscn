@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://w0uogmtdd4fr"]
 
-[ext_resource type="Script" path="res://prefabs/button_logic.gd" id="1_2bxnj"]
+[ext_resource type="Script" path="res://scripts/button_logic.gd" id="1_2bxnj"]
 
 [node name="button" type="Button"]
 custom_minimum_size = Vector2(85, 85)

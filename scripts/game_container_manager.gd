@@ -55,7 +55,7 @@ func _get_block_objects() -> Array[Block_Manager]:
 func _on_board_button_pressed(button: Button_Logic) -> void:
 	if button.number_is_equal(current_input): return
 	button.set_number_text(current_input)
-	game_array[solver.get_index_from_vector(button.parent_block_id)][button.index_identifier] = current_input
+	game_array[solver.get_index_from_vector(button.cell_data.parent_block_id)][button.cell_data.index_identifier] = current_input
 	
 	#if current_input == 0: return
 	# #i think i need to check for duplicats for all possible numbers in case of a zero

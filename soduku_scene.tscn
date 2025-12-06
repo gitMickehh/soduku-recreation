@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5g2biw27mdvg"]
 
-[ext_resource type="Script" path="res://game_container_manager.gd" id="1_h12q3"]
+[ext_resource type="Script" path="res://scripts/game_container_manager.gd" id="1_h12q3"]
 [ext_resource type="PackedScene" uid="uid://m5xxplu1ba4p" path="res://prefabs/horizontal_blocks_container.tscn" id="2_fegsa"]
 [ext_resource type="PackedScene" uid="uid://w0uogmtdd4fr" path="res://prefabs/button.tscn" id="2_wdpfm"]
-[ext_resource type="Script" path="res://input_lines_container_manager.gd" id="3_v4e6g"]
+[ext_resource type="Script" path="res://scripts/input_lines_container_manager.gd" id="3_v4e6g"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

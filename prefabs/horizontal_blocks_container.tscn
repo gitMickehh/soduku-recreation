@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://m5xxplu1ba4p"]
 
-[ext_resource type="Script" path="res://horizontal_square_blocks_container_manager.gd" id="1_k6mt6"]
+[ext_resource type="Script" path="res://scripts/horizontal_square_blocks_container_manager.gd" id="1_k6mt6"]
 [ext_resource type="PackedScene" uid="uid://c4kiqkiydnonn" path="res://prefabs/nine_box_container.tscn" id="2_fqjry"]
 
 [node name="horizontal_blocks_container" type="HBoxContainer"]
