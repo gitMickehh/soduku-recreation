@@ -9,8 +9,8 @@ func _ready() -> void:
 	)
 
 func set_index_id(index_id: int, block_id: Vector2i) -> void:
-	cell_data.index_identifier = index_id
-	cell_data.parent_block_id = block_id
+	cell_data.cell_location.index_identifier = index_id
+	cell_data.cell_location.parent_block_id = block_id
 
 func set_selected(selected: bool) -> void:
 	disabled = selected

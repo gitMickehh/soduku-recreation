@@ -81,3 +81,38 @@ func get_vector_from_index(index: int) -> Vector2i:
 
 func get_index_from_vector(vector: Vector2i) -> int:
 	return ((vector.x * 3) + vector.y)
+
+func find_duplicates_in_game_array(number: int, cell_location: CellLocation, game_array) -> Array[CellLocation]:
+	var return_array:Array[CellLocation] = []
+	var cell_vector = get_vector_from_index(cell_location.index_identifier)
+	
+	#check block
+	var points_in_block = get_instances_indexes_in_block(number, game_array[get_index_from_vector(cell_location.parent_block_id)])
+	for cell in points_in_block:
+		return_array.append(CellLocation.new_cell(cell, cell_location.parent_block_id))
+	
+	if return_array.size() == 1:
+		return_array.clear()
+	
+	#check lines
+	#horizontal
+	var numbers_in_horizontal_line = _get_line_from_point(cell_vector, cell_location.parent_block_id, true, game_array)
+	var loop_index = 0
+	for num in numbers_in_horizontal_line:
+		if num == number:
+			var dupe_cell_location = (loop_index % 3) + (cell_vector.y * 3)
+			var location_of_neighbor_block = Vector2i(floor(loop_index/3), cell_location.parent_block_id.y)
+			return_array.append(CellLocation.new_cell(dupe_cell_location, location_of_neighbor_block))
+		loop_index = loop_index + 1
+	
+	#vertical
+	var numbers_in_vertical_line = _get_line_from_point(cell_vector, cell_location.parent_block_id, false, game_array)
+	loop_index = 0
+	for num in numbers_in_vertical_line:
+		if num == number:
+			var dupe_cell_location = cell_vector.x + ((loop_index % 3) * 3)
+			var location_of_neighbor_block = Vector2i(cell_location.parent_block_id.x, floor(loop_index/3))
+			return_array.append(CellLocation.new_cell(dupe_cell_location, location_of_neighbor_block))
+		loop_index = loop_index + 1
+	
+	return return_array

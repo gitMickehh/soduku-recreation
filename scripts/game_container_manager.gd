@@ -55,7 +55,7 @@ func _get_block_objects() -> Array[Block_Manager]:
 func _on_board_button_pressed(button: Button_Logic) -> void:
 	if button.number_is_equal(current_input): return
 	button.set_number_text(current_input)
-	game_array[solver.get_index_from_vector(button.cell_data.parent_block_id)][button.cell_data.index_identifier] = current_input
+	game_array[solver.get_index_from_vector(button.cell_data.cell_location.parent_block_id)][button.cell_data.cell_location.index_identifier] = current_input
 	
 	#if current_input == 0: return
 	# #i think i need to check for duplicats for all possible numbers in case of a zero
@@ -64,3 +64,6 @@ func _on_board_button_pressed(button: Button_Logic) -> void:
 	# #block duplicates
 	#var block_dupes = solver.get_instances_indexes_in_block(current_input, game_array[solver.get_index_from_vector(button.parent_block_id)])
 	#if block_dupes.size() > 1: print("There are duplicates")
+	
+	var dupes = solver.find_duplicates_in_game_array(current_input, CellLocation.new_cell(button.cell_data.cell_location.index_identifier, button.cell_data.cell_location.parent_block_id), game_array)
+	print(dupes.size())
