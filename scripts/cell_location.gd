@@ -8,3 +8,6 @@ static func new_cell(ind_id: int, block_id: Vector2i) -> CellLocation:
 	cell.index_identifier = ind_id
 	cell.parent_block_id = block_id
 	return cell
+
+func print_cell() -> String:
+	return "(" + str(index_identifier) + ", "  + str(parent_block_id) + ")"
