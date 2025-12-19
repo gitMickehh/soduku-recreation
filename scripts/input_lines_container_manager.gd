@@ -1,11 +1,14 @@
 class_name Input_Line_Manager extends VBoxContainer
 
-@export var input_color: Color = Color("#68a183")
-@export var clear_color: Color = Color("#a66068")
+#@export var input_color: Color = Color("#68a183")
+#@export var clear_color: Color = Color("#a66068")
+
+@export var input_stylebox: StyleBox
+@export var input_disabled_stylebox: StyleBox
+
 
 signal new_input_chosen(new_input: int)
 var buttons: Array[Button_Logic] = []
-var stylebox_theme: StyleBoxFlat
 
 func _ready() -> void:
 	var children = get_children()
@@ -24,12 +27,7 @@ func _ready() -> void:
 						_on_input_button_pressed(child_2)
 					)
 	
-	stylebox_theme = buttons[0].get_theme_stylebox("normal").duplicate()
-	var cancel_button_stylebox_theme = buttons[0].get_theme_stylebox("normal").duplicate()
-	
-	for button in buttons:
-		_set_stylebox_color(button, stylebox_theme,"normal", input_color)
-		if button.text == "X": _set_stylebox_color(button, cancel_button_stylebox_theme, "normal", clear_color)
+	_update_buttons_colors()
 
 func _on_input_button_pressed(button: Button_Logic) -> void:
 		new_input_chosen.emit(int(button.text))
@@ -39,7 +37,8 @@ func _set_selected(selected_button: Button_Logic) -> void:
 	for button in buttons:
 		button.set_selected(selected_button == button)
 
-func _set_stylebox_color(button: Button_Logic, sent_stylebox_theme: StyleBoxFlat, style_box_type: String, color: Color):
-	sent_stylebox_theme.bg_color = color
-	sent_stylebox_theme.border_color = color
-	button.add_theme_stylebox_override(style_box_type, sent_stylebox_theme)
+func _update_buttons_colors() -> void:
+	for button in buttons:
+		#if button.text == "X": button.update_button_color(clear_color)
+		#else: button.update_button_color(input_color)
+		button.update_button_styleboxes(input_stylebox ,input_disabled_stylebox)

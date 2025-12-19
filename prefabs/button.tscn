@@ -1,10 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://w0uogmtdd4fr"]
+[gd_scene load_steps=6 format=3 uid="uid://w0uogmtdd4fr"]
 
 [ext_resource type="Script" path="res://scripts/button_logic.gd" id="1_2bxnj"]
+[ext_resource type="StyleBox" uid="uid://1q0afdvwiq7" path="res://colors_styleboxes/board_disabled_stylebox.tres" id="1_j1eec"]
+[ext_resource type="StyleBox" uid="uid://ctjoce27b0jde" path="res://colors_styleboxes/board_normal_stylebox.tres" id="2_r1yug"]
+[ext_resource type="StyleBox" uid="uid://cvtaatra1py5d" path="res://colors_styleboxes/mistake_normal_stylebox.tres" id="4_i5i5o"]
+[ext_resource type="StyleBox" uid="uid://cdk80yb1hus8t" path="res://colors_styleboxes/mistake_disabled_stylebox.tres" id="5_ytc1k"]
 
 [node name="button" type="Button"]
 custom_minimum_size = Vector2(85, 85)
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 50
+theme_override_styles/disabled = ExtResource("1_j1eec")
+theme_override_styles/normal = ExtResource("2_r1yug")
 script = ExtResource("1_2bxnj")
+default_color_stylebox = ExtResource("2_r1yug")
+default_color_disabled_stylebox = ExtResource("1_j1eec")
+duplicate_color_stylebox = ExtResource("4_i5i5o")
+duplicate_color_disabled_stylebox = ExtResource("5_ytc1k")
