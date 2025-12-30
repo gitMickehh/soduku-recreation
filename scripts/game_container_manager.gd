@@ -65,17 +65,16 @@ func _get_block_objects() -> Array[Block_Manager]:
 func _on_board_button_pressed(button: Button_Logic) -> void:
 	if button.number_is_equal(current_input): return
 	button.set_number_text(current_input)
-	game_array[solver.get_index_from_vector(button.cell_data.cell_location.parent_block_id)][button.cell_data.cell_location.index_identifier] = current_input
+	game_array[Soduku_Solver.get_index_from_vector(button.cell_data.cell_location.parent_block_vector)][Soduku_Solver.get_index_from_vector(button.cell_data.cell_location.location_vector)] = current_input
 	
-	var dupes:Array[CellLocation] = []
-	if current_input != 0:
-		dupes = solver.find_duplicates_in_game_array(current_input, CellLocation.new_cell(button.cell_data.cell_location.index_identifier, button.cell_data.cell_location.parent_block_id), game_array)
+	#var dupes:Array[CellLocation] = []
+	#if current_input != 0:
+		#dupes = solver.find_duplicates_in_game_array(current_input, CellLocation.new_cell(button.cell_data.cell_location.location_vector, button.cell_data.cell_location.parent_block_vector), game_array)
 	
-	if dupes.size() > 0:
-		for dupe in dupes:
-			var dupe_butt:Button_Logic = blocks[solver.get_index_from_vector(dupe.parent_block_id)].buttons[dupe.index_identifier]
-			dupe_butt.mistake_color()
-		button.mistake_color()
+	var dupes = solver.check_duplicates(game_array)
 	
-	var solver_dict = solver.get_solver_dict_of_game(game_array)
-	print(solver.print_solver_dict(solver_dict))
+	#if dupes.size() > 0:
+		#for dupe in dupes:
+			#var dupe_butt:Button_Logic = blocks[solver.get_index_from_vector(dupe.parent_block_vector)].buttons[dupe.index_identifier]
+			#dupe_butt.mistake_color()
+		#button.mistake_color()

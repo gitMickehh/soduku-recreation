@@ -14,9 +14,10 @@ func _ready() -> void:
 		pressed_with_info.emit(self)
 	)
 
-func set_index_id(index_id: int, block_id: Vector2i) -> void:
-	cell_data.cell_location.index_identifier = index_id
-	cell_data.cell_location.parent_block_id = block_id
+#func set_index_id(index_id: int, block_vector: Vector2i) -> void:
+func set_index_id(index_vector: Vector2i, block_vector: Vector2i) -> void:
+	cell_data.cell_location.location_vector = index_vector
+	cell_data.cell_location.parent_block_vector = block_vector
 
 func set_selected(selected: bool) -> void:
 	disabled = selected

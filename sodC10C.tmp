@@ -1,0 +1,233 @@
+[gd_scene load_steps=27 format=3 uid="uid://b5g2biw27mdvg"]
+
+[ext_resource type="Script" path="res://scripts/game_container_manager.gd" id="1_h12q3"]
+[ext_resource type="PackedScene" uid="uid://m5xxplu1ba4p" path="res://prefabs/horizontal_blocks_container.tscn" id="2_fegsa"]
+[ext_resource type="PackedScene" uid="uid://w0uogmtdd4fr" path="res://prefabs/button.tscn" id="2_wdpfm"]
+[ext_resource type="Script" path="res://scripts/input_lines_container_manager.gd" id="3_v4e6g"]
+[ext_resource type="StyleBox" uid="uid://flfg52j1au7u" path="res://colors_styleboxes/input_normal_stylebox.tres" id="4_3vvpe"]
+[ext_resource type="StyleBox" uid="uid://lhus7qs01goa" path="res://colors_styleboxes/input_disabled_stylebox.tres" id="5_3pkcj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxfg1"]
+resource_local_to_scene = true
+bg_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujfi5"]
+resource_local_to_scene = true
+bg_color = Color(0.46, 0.46, 0.46, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bijva"]
+resource_local_to_scene = true
+bg_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0w42b"]
+resource_local_to_scene = true
+bg_color = Color(0.46, 0.46, 0.46, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3rbg"]
+resource_local_to_scene = true
+bg_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eaawk"]
+resource_local_to_scene = true
+bg_color = Color(0.46, 0.46, 0.46, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gm072"]
+resource_local_to_scene = true
+bg_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5o3t"]
+resource_local_to_scene = true
+bg_color = Color(0.46, 0.46, 0.46, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2s7a"]
+resource_local_to_scene = true
+bg_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tlhw8"]
+resource_local_to_scene = true
+bg_color = Color(0.46, 0.46, 0.46, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsj30"]
+resource_local_to_scene = true
+bg_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dd5xj"]
+resource_local_to_scene = true
+bg_color = Color(0.46, 0.46, 0.46, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbtt3"]
+resource_local_to_scene = true
+bg_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wbjyk"]
+resource_local_to_scene = true
+bg_color = Color(0.46, 0.46, 0.46, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pi8nm"]
+resource_local_to_scene = true
+bg_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fvpbj"]
+resource_local_to_scene = true
+bg_color = Color(0.46, 0.46, 0.46, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckp2n"]
+resource_local_to_scene = true
+bg_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ia2y3"]
+resource_local_to_scene = true
+bg_color = Color(0.46, 0.46, 0.46, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g62ab"]
+resource_local_to_scene = true
+bg_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0y88"]
+resource_local_to_scene = true
+bg_color = Color(0.46, 0.46, 0.46, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Game_Container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h12q3")
+
+[node name="Whole_Game_Container" type="VBoxContainer" parent="Game_Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Soduku_Container" type="VBoxContainer" parent="Game_Container/Whole_Game_Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="big-separator-1" type="Control" parent="Game_Container/Whole_Game_Container/Soduku_Container"]
+layout_mode = 2
+
+[node name="horizontal_blocks_container-1" parent="Game_Container/Whole_Game_Container/Soduku_Container" instance=ExtResource("2_fegsa")]
+layout_mode = 2
+
+[node name="horizontal_blocks_container-2" parent="Game_Container/Whole_Game_Container/Soduku_Container" instance=ExtResource("2_fegsa")]
+layout_mode = 2
+
+[node name="horizontal_blocks_container-3" parent="Game_Container/Whole_Game_Container/Soduku_Container" instance=ExtResource("2_fegsa")]
+layout_mode = 2
+
+[node name="big-separator-2" type="Control" parent="Game_Container/Whole_Game_Container/Soduku_Container"]
+layout_mode = 2
+
+[node name="input_lines_container" type="VBoxContainer" parent="Game_Container/Whole_Game_Container"]
+layout_mode = 2
+theme_override_constants/separation = 10
+script = ExtResource("3_v4e6g")
+input_stylebox = ExtResource("4_3vvpe")
+input_disabled_stylebox = ExtResource("5_3pkcj")
+
+[node name="Input_Line_1" type="HBoxContainer" parent="Game_Container/Whole_Game_Container/input_lines_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="1" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_lxfg1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ujfi5")
+text = "1"
+default_color_stylebox = SubResource("StyleBoxFlat_ujfi5")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_lxfg1")
+
+[node name="2" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_bijva")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0w42b")
+text = "2"
+default_color_stylebox = SubResource("StyleBoxFlat_0w42b")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_bijva")
+
+[node name="3" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_n3rbg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_eaawk")
+text = "3"
+default_color_stylebox = SubResource("StyleBoxFlat_eaawk")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_n3rbg")
+
+[node name="4" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_gm072")
+theme_override_styles/normal = SubResource("StyleBoxFlat_l5o3t")
+text = "4"
+default_color_stylebox = SubResource("StyleBoxFlat_l5o3t")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_gm072")
+
+[node name="5" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_t2s7a")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tlhw8")
+text = "5"
+default_color_stylebox = SubResource("StyleBoxFlat_tlhw8")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_t2s7a")
+
+[node name="Input_Line_2" type="HBoxContainer" parent="Game_Container/Whole_Game_Container/input_lines_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="6" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_wsj30")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dd5xj")
+text = "6"
+default_color_stylebox = SubResource("StyleBoxFlat_dd5xj")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_wsj30")
+
+[node name="7" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_tbtt3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wbjyk")
+text = "7"
+default_color_stylebox = SubResource("StyleBoxFlat_wbjyk")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_tbtt3")
+
+[node name="8" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_pi8nm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fvpbj")
+text = "8"
+default_color_stylebox = SubResource("StyleBoxFlat_fvpbj")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_pi8nm")
+
+[node name="9" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ckp2n")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ia2y3")
+text = "9"
+default_color_stylebox = SubResource("StyleBoxFlat_ia2y3")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_ckp2n")
+
+[node name="X" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_g62ab")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h0y88")
+text = "X"
+default_color_stylebox = SubResource("StyleBoxFlat_h0y88")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_g62ab")
