@@ -76,3 +76,6 @@ func _on_board_button_pressed(button: Button_Logic) -> void:
 			var dupe_butt:Button_Logic = blocks[solver.get_index_from_vector(dupe.parent_block_id)].buttons[dupe.index_identifier]
 			dupe_butt.mistake_color()
 		button.mistake_color()
+	
+	var solver_dict = solver.get_solver_dict_of_game(game_array)
+	print(solver.print_solver_dict(solver_dict))
