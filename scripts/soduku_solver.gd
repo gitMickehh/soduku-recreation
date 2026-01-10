@@ -26,7 +26,7 @@ func check_duplicates(game_array) -> Array[CellLocation]:
 	var solver_dict = get_solver_dict_of_game(game_array)
 	
 	for n in range(1,10):
-		for cell_location in solver_dict[n]:
+		for cell_locations in solver_dict[n]:
 			pass
 	
 	#print(print_solver_dict(solver_dict))
@@ -55,3 +55,13 @@ func print_solver_dict(solver_dict_to_print) -> String:
 		ret_string = ret_string + "],\n"
 	ret_string = ret_string + "]"
 	return ret_string
+
+func sort_dict_array_x(a,b) -> bool:
+	if a.x <= b.x:
+		return true
+	return false
+
+func sort_dict_array_y(a,b) -> bool:
+	if a.y <= b.y:
+		return true
+	return false
