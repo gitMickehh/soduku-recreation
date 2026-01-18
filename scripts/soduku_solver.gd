@@ -21,15 +21,22 @@ static func get_vector_from_index(index: int) -> Vector2i:
 static func get_index_from_vector(vector: Vector2i) -> int:
 	return ((vector.x * 3) + vector.y)
 
-func check_duplicates(game_array) -> Array[CellLocation]:
+func check_duplicates(game_array, number: int = 0) -> Array[CellLocation]:
 	var retrn_array:Array[CellLocation] = []
 	var solver_dict = get_solver_dict_of_game(game_array)
 	
-	for n in range(1,10):
-		for cell_locations in solver_dict[n]:
-			pass
-	
-	#print(print_solver_dict(solver_dict))
+	if number != 0:
+		pass
+	else:
+		for n in range(1,10):
+			var x_array: Array[CellLocation] = solver_dict[n].duplicate(false)
+			x_array.sort_custom(sort_dict_array_x)
+			append_array_unique(retrn_array, find_duplicates(x_array, true))
+			
+			var y_array: Array[CellLocation] = solver_dict[n].duplicate(false)
+			y_array.sort_custom(sort_dict_array_y)
+			append_array_unique(retrn_array, find_duplicates(y_array, false))
+		
 	return retrn_array
 
 func get_solver_dict_of_game(game_array) -> Dictionary:
@@ -55,6 +62,19 @@ func print_solver_dict(solver_dict_to_print) -> String:
 		ret_string = ret_string + "],\n"
 	ret_string = ret_string + "]"
 	return ret_string
+
+func append_array_unique(original_array: Array, array_to_be_added) -> Array[CellLocation]:
+	for element in array_to_be_added:
+		if !original_array.has(element):
+			original_array.append(element)
+	return original_array
+
+func find_duplicates(sorted_array: Array[CellLocation], on_x: bool = true) -> Array[CellLocation]:
+	for n in range(1, sorted_array.size()):
+		if on_x:
+			if sorted_array[n-1].x !=  sorted_array[n].x: continue
+				
+	return []
 
 func sort_dict_array_x(a,b) -> bool:
 	if a.x <= b.x:
