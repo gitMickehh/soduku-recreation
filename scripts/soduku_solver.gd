@@ -1,21 +1,5 @@
 class_name Soduku_Solver extends Node
 
-var solver_dict_template = {
-	1: get_empty_cellLocation_array(),
-	2: get_empty_cellLocation_array(),
-	3: get_empty_cellLocation_array(),
-	4: get_empty_cellLocation_array(),
-	5: get_empty_cellLocation_array(),
-	6: get_empty_cellLocation_array(),
-	7: get_empty_cellLocation_array(),
-	8: get_empty_cellLocation_array(),
-	9: get_empty_cellLocation_array()
-}
-
-func get_empty_cellLocation_array()-> Array[CellLocation]:
-	var ret_array: Array[CellLocation] = []
-	return ret_array
-
 func _init() -> void:
 	pass
 
@@ -25,99 +9,83 @@ static func get_vector_from_index(index: int) -> Vector2i:
 static func get_index_from_vector(vector: Vector2i) -> int:
 	return ((vector.x * 3) + vector.y)
 
-func check_duplicates(game_array, number: int = 0) -> Array[CellLocation]:
+func check_duplicates_in_location(game_array, location: CellLocation) -> Array[CellLocation]:
 	var retrn_array:Array[CellLocation] = []
-	var solver_dict = get_solver_dict_of_game(game_array)
+	var block_index = get_index_from_vector(location.parent_block_vector)
+	var number_in_question = (game_array[block_index])[get_index_from_vector(location.location_vector)]
+	#print("parent block of input: " + str(location.parent_block_vector))
 	
-	if number != 0:
-		pass
-	else:
-		for n in range(1,10):
-			var x_array: Array[CellLocation] = solver_dict.get(n).duplicate(false)
-			x_array.sort_custom(sort_dict_array_x)
-			append_array_unique(retrn_array, find_duplicates(x_array, true))
-			
-			var y_array: Array[CellLocation] = solver_dict[n].duplicate(false)
-			y_array.sort_custom(sort_dict_array_y)
-			append_array_unique(retrn_array, find_duplicates(y_array, false))
+	#check block
+	retrn_array.append_array(check_duplicates_in_block(game_array[block_index], location.parent_block_vector,get_index_from_vector(location.location_vector) , number_in_question))
+	
+	#check horizontal
+	retrn_array.append_array(check_duplicate_horizontal(game_array, location, number_in_question))
+	
+	#check vertical
+	retrn_array.append_array(check_duplicate_vertical(game_array,location, number_in_question))
+	
+	#add self
+	if retrn_array.size() > 0:
+		retrn_array.append(location)
+	
+	return retrn_array
+
+func check_duplicates_in_block(block: Array[int],block_id: Vector2i, index_of_newest:int ,number:int) -> Array[CellLocation]:
+	var retrn_array:Array[CellLocation] = []
+	for elm in range(0,block.size()):
+		if elm == index_of_newest: continue
+		if number == block[elm]: retrn_array.append(CellLocation.new_cell(get_vector_from_index(elm), block_id))
+	return retrn_array
+
+#on y
+func check_duplicate_horizontal(game_array, location: CellLocation, number: int) -> Array[CellLocation]:
+	var retrn_array:Array[CellLocation] = []
+	#print("number to compare: " + str(number))
+	
+	#x is the same, check y in block locations and inside each block
+	for block_y in range(0,3):
+		#print("blocky: " + str(block_y) + ", parent blocky: " + str(location.parent_block_vector.y))
+		if block_y == location.parent_block_vector.y: continue
 		
+		var block_vector = Vector2i(location.parent_block_vector.x, block_y)
+		var block_index = get_index_from_vector(block_vector)
+		
+		#print("block to inspect: " + str(block_vector))
+		
+		for inside_y in range(0,3):
+			var element_vector = Vector2i(location.location_vector.x, inside_y)
+			var element_index = get_index_from_vector(element_vector)
+			
+			#print("element to inspect: block: " + str(block_vector) + ", place: " + str(element_vector) + ", number: " + str((game_array[block_index])[element_index]))
+			
+			if (game_array[block_index])[element_index] == number:
+				#print("DING")
+				retrn_array.append(CellLocation.new_cell(element_vector, block_vector))
+	
 	return retrn_array
 
-func get_solver_dict_of_game(game_array) -> Dictionary:
-	var solver_dict = solver_dict_template.duplicate()
-	#var solver_dict = {}
-	
-	var block_index = 0
-	for block in game_array:
-		var index = 0
-		for n in block:
-			if n != 0:
-				if !solver_dict.has(n):
-					solver_dict.get_or_add(n, [CellLocation.new_cell(get_vector_from_index(index), get_vector_from_index(block_index))])
-				else:
-					var arr = solver_dict.get(n)
-					arr.append(CellLocation.new_cell(get_vector_from_index(index), get_vector_from_index(block_index)))
-					solver_dict[n] = arr
-			index = index + 1
-		block_index = block_index + 1
-	
-	return solver_dict
-
-func print_solver_dict(solver_dict_to_print) -> String:
-	var ret_string = "["
-	for n in range(1,10):
-		ret_string = ret_string + str(n) + ": [\n\t"
-		for cell_location in solver_dict_to_print[n]:
-			ret_string = ret_string + cell_location.print_cell() + ", "
-		ret_string = ret_string + "],\n"
-	ret_string = ret_string + "]"
-	return ret_string
-
-func append_array_unique(original_array: Array[CellLocation], array_to_be_added) -> Array[CellLocation]:
-	for element in array_to_be_added:
-		if !original_array.has(element):
-			original_array.append(element)
-	return original_array
-
-func find_duplicates(sorted_array: Array[CellLocation], on_x: bool = true) -> Array[CellLocation]:
+#on x
+func check_duplicate_vertical(game_array, location: CellLocation, number: int) -> Array[CellLocation]:
 	var retrn_array:Array[CellLocation] = []
 	
-	for n in range(1, sorted_array.size()):
-		if on_x:
-			if sorted_array[n-1].parent_block_vector == sorted_array[n].parent_block_vector:
-				if !retrn_array.has(sorted_array[n]): retrn_array.append(sorted_array[n])
-				continue
-			
-			if sorted_array[n-1].parent_block_vector.x !=  sorted_array[n].parent_block_vector.x: continue
-			if sorted_array[n-1].location_vector.x !=  sorted_array[n].location_vector.x: continue
-			
-			if !retrn_array.has(sorted_array[n]): retrn_array.append(sorted_array[n])
-		else:
-			if sorted_array[n-1].parent_block_vector == sorted_array[n].parent_block_vector:
-				if !retrn_array.has(sorted_array[n]): retrn_array.append(sorted_array[n])
-				continue
-			
-			if sorted_array[n-1].parent_block_vector.y !=  sorted_array[n].parent_block_vector.y: continue
-			if sorted_array[n-1].location_vector.y !=  sorted_array[n].location_vector.y: continue
-			
-			if !retrn_array.has(sorted_array[n]): retrn_array.append(sorted_array[n])
+	#y is the same, check x in block locations and inside each block
+	for block_x in range(0,3):
+		if block_x == location.parent_block_vector.x: continue
+		
+		var block_vector = Vector2i(block_x, location.parent_block_vector.y)
+		var block_index = get_index_from_vector(block_vector)
+		
+		for inside_x in range(0,3):
+			var element_vector = Vector2i(inside_x, location.location_vector.y)
+			var element_index = get_index_from_vector(element_vector)
+			if (game_array[block_index])[element_index] == number:
+				retrn_array.append(CellLocation.new_cell(element_vector, block_vector))
+	
 	return retrn_array
-
-func sort_dict_array_x(a,b) -> bool:
-	if a.location_vector.x <= b.location_vector.x:
-		return true
-	return false
-
-func sort_dict_array_y(a,b) -> bool:
-	if a.location_vector.y <= b.location_vector.y:
-		return true
-	return false
 
 func print_cellLocation_array(array: Array[CellLocation]) -> String:
-	var ret_string = "["
-	ret_string = ret_string + "[\n\t"
+	var ret_string = "[\n"
 	for cell_location in array:
-		ret_string = ret_string + cell_location.print_cell() + ", "
-		ret_string = ret_string + "],\n"
+		ret_string = ret_string + cell_location.print_cell() + ",\n"
 	ret_string = ret_string + "]"
 	return ret_string

@@ -14,4 +14,4 @@ static func new_cell(ind_vector: Vector2i, block_vector: Vector2i) -> CellLocati
 
 func print_cell() -> String:
 	#return "(" + str(index_identifier) + ", "  + str(parent_block_vector) + ")"
-	return "{" + str(location_vector) + ", "  + str(parent_block_vector) + "}"
+	return "{block: " + str(parent_block_vector) + ", location: " + str(location_vector) + "}"

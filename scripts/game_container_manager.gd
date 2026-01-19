@@ -71,11 +71,11 @@ func _on_board_button_pressed(button: Button_Logic) -> void:
 	#if current_input != 0:
 		#dupes = solver.find_duplicates_in_game_array(current_input, CellLocation.new_cell(button.cell_data.cell_location.location_vector, button.cell_data.cell_location.parent_block_vector), game_array)
 	
-	var dupes = solver.check_duplicates(game_array)
+	var dupes = solver.check_duplicates_in_location(game_array, button.cell_data.cell_location)
 	print(solver.print_cellLocation_array(dupes))
 	
-	#if dupes.size() > 0:
-		#for dupe in dupes:
-			#var dupe_butt:Button_Logic = blocks[solver.get_index_from_vector(dupe.parent_block_vector)].buttons[dupe.index_identifier]
-			#dupe_butt.mistake_color()
-		#button.mistake_color()
+	if dupes.size() > 0:
+		for dupe in dupes:
+			var dupe_butt:Button_Logic = blocks[solver.get_index_from_vector(dupe.parent_block_vector)].buttons[solver.get_index_from_vector(dupe.location_vector)]
+			dupe_butt.mistake_color()
+		button.mistake_color()
