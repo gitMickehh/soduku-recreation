@@ -72,6 +72,7 @@ func _on_board_button_pressed(button: Button_Logic) -> void:
 		#dupes = solver.find_duplicates_in_game_array(current_input, CellLocation.new_cell(button.cell_data.cell_location.location_vector, button.cell_data.cell_location.parent_block_vector), game_array)
 	
 	var dupes = solver.check_duplicates(game_array)
+	print(solver.print_cellLocation_array(dupes))
 	
 	#if dupes.size() > 0:
 		#for dupe in dupes:
