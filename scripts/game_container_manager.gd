@@ -7,6 +7,17 @@ var current_input: int = 0
 @onready var horizontal_blocks_container_2: Horizontal_Boxes_Container = $"Whole_Game_Container/Soduku_Container/horizontal_blocks_container-2"
 @onready var horizontal_blocks_container_3: Horizontal_Boxes_Container = $"Whole_Game_Container/Soduku_Container/horizontal_blocks_container-3"
 
+#var block_1: Array[int] = [8,4,0,7,0,0,0,1,0]
+#var block_2: Array[int] = [6,0,0,1,0,0,2,8,0]
+#var block_3: Array[int] = [0,7,2,5,6,0,0,0,3]
+#var block_4: Array[int] = [0,6,0,5,2,0,9,0,0]
+#var block_5: Array[int] = [0,1,0,0,0,3,0,0,6]
+#var block_6: Array[int] = [0,4,7,0,0,6,3,2,0]
+#var block_7: Array[int] = [0,0,6,4,0,7,0,3,9]
+#var block_8: Array[int] = [4,0,1,0,0,9,0,2,0]
+#var block_9: Array[int] = [7,3,0,0,0,0,6,0,4]
+
+#basic standard starting point
 var block_1: Array[int] = [8,4,0,7,0,0,0,1,0]
 var block_2: Array[int] = [6,0,0,1,0,0,2,8,0]
 var block_3: Array[int] = [0,7,2,5,6,0,0,0,3]
