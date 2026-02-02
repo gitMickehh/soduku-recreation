@@ -37,16 +37,24 @@ func shift_horizontal_line(x_1: int, x_2: int) -> void:
 	var x_1_x_locs = get_block_x(x_1)
 	var x_2_x_locs = get_block_x(x_2)
 	
-	var x1_numbers = []
-	var x2_numbers = []
+	#var x1_numbers = []
+	#var x2_numbers = []
 	
 	for y_board in range(0,3):
 		for y_block in range(0,3):
 			var block1 = board_array[Soduku_Solver.get_index_from_vector(Vector2i(x_1_x_locs.x,y_board))]
+			#x1_numbers.append(block1[Soduku_Solver.get_index_from_vector(Vector2i(x_1_x_locs.y,y_block))])
+			var x1_original_index = Soduku_Solver.get_index_from_vector(Vector2i(x_1_x_locs.y,y_block))
+			
 			var block2 = board_array[Soduku_Solver.get_index_from_vector(Vector2i(x_2_x_locs.x,y_board))]
-			x1_numbers.append(block1[Soduku_Solver.get_index_from_vector(Vector2i(x_1_x_locs.y,y_block))])
-			x2_numbers.append(block2[Soduku_Solver.get_index_from_vector(Vector2i(x_2_x_locs.y,y_block))])
-	
+			#x2_numbers.append(block2[Soduku_Solver.get_index_from_vector(Vector2i(x_2_x_locs.y,y_block))])
+			var x2_original_index = Soduku_Solver.get_index_from_vector(Vector2i(x_2_x_locs.y,y_block))
+			
+			#swap
+			var temp_x1 = block1[x1_original_index]
+			block1[x1_original_index] = block2[x2_original_index]
+			block2[x2_original_index] = temp_x1
+
 func get_block_x(x) -> Vector2i:
 	#vector.x -> block x to the game board    [0,1,2 => 0] [3,4,5 => 1]
 	#vector.y -> x in the block in the game board, x%3 will get that

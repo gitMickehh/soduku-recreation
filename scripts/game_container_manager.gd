@@ -90,7 +90,3 @@ func _on_board_button_pressed(button: Button_Logic) -> void:
 			var dupe_butt:Button_Logic = blocks[solver.get_index_from_vector(dupe.parent_block_vector)].buttons[solver.get_index_from_vector(dupe.location_vector)]
 			dupe_butt.mistake_color()
 		button.mistake_color()
-	
-	var creator = Soduku_Creator.new()
-	creator.board_array = game_array
-	creator.shift_horizontal_line(0,6)
