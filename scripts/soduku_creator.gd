@@ -15,6 +15,31 @@ var board_array = [block_1, block_2, block_3, block_4, block_5, block_6, block_7
 func _init() -> void:
 	pass
 
+func setup_new_game() -> Array:
+	randomize()
+	
+	#shuffle part
+	
+	var shuffle_original = [0,1,2,3,4,5,6,7,8]
+	var shuffle_numbers = shuffle_original.duplicate()
+	shuffle_numbers.shuffle()
+	for r in range(4,randi_range(8,20)):
+		var one = shuffle_numbers.pop_back()
+		var two = shuffle_numbers.pop_front()
+		
+		randomize()
+		if randf_range(0,1.87) > randf_range(0.8,1.2):
+			shift_horizontal_line(one,two)
+		else:
+			shift_vertical_line(one, two)
+		
+		shuffle_numbers = shuffle_original.duplicate()
+		shuffle_numbers.shuffle()
+	
+	
+	
+	return board_array
+
 func get_rotational_counterpart_int(index: int) -> int:
 	match index:
 		0:
@@ -54,6 +79,35 @@ func shift_horizontal_line(x_1: int, x_2: int) -> void:
 			var temp_x1 = block1[x1_original_index]
 			block1[x1_original_index] = block2[x2_original_index]
 			block2[x2_original_index] = temp_x1
+			
+			board_array[Soduku_Solver.get_index_from_vector(Vector2i(x_1_x_locs.x,y_board))] = block1
+			board_array[Soduku_Solver.get_index_from_vector(Vector2i(x_2_x_locs.x,y_board))] = block2
+
+func shift_vertical_line(y_1: int, y_2: int) -> void:
+	y_1 = clampi(y_1, 0, 8)
+	y_2 = clampi(y_2, 0, 8)
+	
+	var y_1_y_locs = get_block_x(y_1)
+	var y_2_y_locs = get_block_x(y_2)
+	
+	#var x1_numbers = []
+	#var x2_numbers = []
+	
+	for x_board in range(0,3):
+		for x_block in range(0,3):
+			var block1 = board_array[Soduku_Solver.get_index_from_vector(Vector2i(x_board, y_1_y_locs.x))]
+			var y1_original_index = Soduku_Solver.get_index_from_vector(Vector2i(x_block, y_1_y_locs.y))
+			
+			var block2 = board_array[Soduku_Solver.get_index_from_vector(Vector2i(x_board, y_2_y_locs.x))]
+			var y2_original_index = Soduku_Solver.get_index_from_vector(Vector2i(x_block, y_2_y_locs.y))
+			
+			#swap
+			var temp_y1 = block1[y1_original_index]
+			block1[y1_original_index] = block2[y2_original_index]
+			block2[y2_original_index] = temp_y1
+			
+			board_array[Soduku_Solver.get_index_from_vector(Vector2i(x_board, y_1_y_locs.x))] = block1
+			board_array[Soduku_Solver.get_index_from_vector(Vector2i(x_board, y_2_y_locs.x))] = block2
 
 func get_block_x(x) -> Vector2i:
 	#vector.x -> block x to the game board    [0,1,2 => 0] [3,4,5 => 1]

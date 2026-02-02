@@ -18,15 +18,15 @@ var current_input: int = 0
 #var block_9: Array[int] = [7,3,0,0,0,0,6,0,4]
 
 #basic standard starting point
-var block_1: Array[int] = [8,4,0,7,0,0,0,1,0]
-var block_2: Array[int] = [6,0,0,1,0,0,2,8,0]
-var block_3: Array[int] = [0,7,2,5,6,0,0,0,3]
-var block_4: Array[int] = [0,6,0,5,2,0,9,0,0]
-var block_5: Array[int] = [0,1,0,0,0,3,0,0,6]
-var block_6: Array[int] = [0,4,7,0,0,6,3,2,0]
-var block_7: Array[int] = [0,0,6,4,0,7,0,3,9]
-var block_8: Array[int] = [4,0,1,0,0,9,0,2,0]
-var block_9: Array[int] = [7,3,0,0,0,0,6,0,4]
+#var block_1: Array[int] = [8,4,0,7,0,0,0,1,0]
+#var block_2: Array[int] = [6,0,0,1,0,0,2,8,0]
+#var block_3: Array[int] = [0,7,2,5,6,0,0,0,3]
+#var block_4: Array[int] = [0,6,0,5,2,0,9,0,0]
+#var block_5: Array[int] = [0,1,0,0,0,3,0,0,6]
+#var block_6: Array[int] = [0,4,7,0,0,6,3,2,0]
+#var block_7: Array[int] = [0,0,6,4,0,7,0,3,9]
+#var block_8: Array[int] = [4,0,1,0,0,9,0,2,0]
+#var block_9: Array[int] = [7,3,0,0,0,0,6,0,4]
 
 #var block_1: Array[int] = [1,0,0,0,0,0,0,0,0]
 #var block_2: Array[int] = [0,2,0,0,0,0,0,0,0]
@@ -39,7 +39,9 @@ var block_9: Array[int] = [7,3,0,0,0,0,6,0,4]
 #var block_9: Array[int] = [0,0,0,0,0,0,0,0,9]
 var blocks: Array[Block_Manager] = []
 
-var game_array = [block_1, block_2, block_3, block_4, block_5, block_6, block_7, block_8, block_9]
+#var game_array = [block_1, block_2, block_3, block_4, block_5, block_6, block_7, block_8, block_9]
+var game_array = []
+var creator: Soduku_Creator = Soduku_Creator.new()
 var solver: Soduku_Solver = Soduku_Solver.new()
 
 var horizontal_boxes_containers: Array[Horizontal_Boxes_Container] = []
@@ -52,6 +54,7 @@ func _ready() -> void:
 	horizontal_boxes_containers.append(horizontal_blocks_container_3)
 	blocks = _get_block_objects()
 	
+	game_array = creator.setup_new_game()
 	_set_numbers(game_array)
 
 func _on_new_input_chosen(new_input: int) -> void:
