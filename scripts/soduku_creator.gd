@@ -19,12 +19,19 @@ func setup_new_game() -> Array:
 	randomize()
 	
 	#shuffle part
-	var shuffle_original = [0,1,2,3,4,5,6,7,8]
+	var shuffle_original = [
+		[0,1,2],
+		[3,4,5],
+		[6,7,8]
+	]
 	var shuffle_numbers = shuffle_original.duplicate()
 	shuffle_numbers.shuffle()
+	
 	for r in range(4,randi_range(8,20)):
-		var one = shuffle_numbers.pop_back()
-		var two = shuffle_numbers.pop_front()
+		var picked_array = shuffle_numbers.pop_back().duplicate()
+		picked_array.shuffle()
+		var one = picked_array.pop_back()
+		var two = picked_array.pop_back()
 		
 		randomize()
 		if randf_range(0,1.87) > randf_range(0.8,1.2):
@@ -35,11 +42,17 @@ func setup_new_game() -> Array:
 		shuffle_numbers = shuffle_original.duplicate()
 		shuffle_numbers.shuffle()
 	
-	
+	#random cells to take out
+	for rcells in range(randi_range(12,22)):
+		var one_cell = get_cell_location_from_global_index(randi_range(0,81))
+		var other_cell = get_rotational_counterpart(one_cell)
+		
+		(board_array[Soduku_Solver.get_index_from_vector(one_cell.parent_block_vector)])[Soduku_Solver.get_index_from_vector(one_cell.location_vector)] = 0
+		(board_array[Soduku_Solver.get_index_from_vector(other_cell.parent_block_vector)])[Soduku_Solver.get_index_from_vector(other_cell.location_vector)] = 0
 	
 	return board_array
 
-func get_rotational_counterpart_int(index: int) -> int:
+func _get_rotational_counterpart_int(index: int) -> int:
 	match index:
 		0:
 			return 2
@@ -50,8 +63,8 @@ func get_rotational_counterpart_int(index: int) -> int:
 	return 0
 
 func get_rotational_counterpart(cell_selected:CellLocation) -> CellLocation:
-	var new_block_vector = Vector2i(get_rotational_counterpart_int(cell_selected.parent_block_vector.x), get_rotational_counterpart_int(cell_selected.parent_block_vector.y))
-	var new_index_vector = Vector2i(get_rotational_counterpart_int(cell_selected.location_vector.x), get_rotational_counterpart_int(cell_selected.location_vector.y))
+	var new_block_vector = Vector2i(_get_rotational_counterpart_int(cell_selected.parent_block_vector.x), _get_rotational_counterpart_int(cell_selected.parent_block_vector.y))
+	var new_index_vector = Vector2i(_get_rotational_counterpart_int(cell_selected.location_vector.x), _get_rotational_counterpart_int(cell_selected.location_vector.y))
 	return CellLocation.new_cell(new_index_vector, new_block_vector)
 
 func shift_horizontal_line(x_1: int, x_2: int) -> void:
