@@ -5,7 +5,8 @@ class_name Input_Line_Manager extends VBoxContainer
 
 @export var input_stylebox: StyleBox
 @export var input_disabled_stylebox: StyleBox
-
+@export var clear_stylebox: StyleBox
+@export var clear_disabled_stylebox: StyleBox
 
 signal new_input_chosen(new_input: int)
 var buttons: Array[Button_Logic] = []
@@ -39,6 +40,8 @@ func _set_selected(selected_button: Button_Logic) -> void:
 
 func _update_buttons_colors() -> void:
 	for button in buttons:
-		#if button.text == "X": button.update_button_color(clear_color)
-		#else: button.update_button_color(input_color)
-		button.update_button_styleboxes(input_stylebox ,input_disabled_stylebox)
+		if button.text == "X": 
+			button.update_button_styleboxes(clear_stylebox ,clear_disabled_stylebox)
+		else: 
+			button.update_button_styleboxes(input_stylebox ,input_disabled_stylebox)
+		button.toggle_hints(false)

@@ -4,10 +4,24 @@ var cell_data: CellData = CellData.new()
 signal pressed_with_info(button: Button_Logic)
 var stylebox_theme: StyleBoxFlat
 
+var filled: bool = false
+
 @export var default_color_stylebox: StyleBox
 @export var default_color_disabled_stylebox: StyleBox
 @export var duplicate_color_stylebox: StyleBox
 @export var duplicate_color_disabled_stylebox: StyleBox
+
+@onready var hints_container: VBoxContainer = $hints_container
+@onready var hint_label_1: Label = $"hints_container/line-1/hint-label-1"
+@onready var hint_label_2: Label = $"hints_container/line-1/hint-label-2"
+@onready var hint_label_3: Label = $"hints_container/line-1/hint-label-3"
+@onready var hint_label_4: Label = $"hints_container/line-2/hint-label-4"
+@onready var hint_label_5: Label = $"hints_container/line-2/hint-label-5"
+@onready var hint_label_6: Label = $"hints_container/line-2/hint-label-6"
+@onready var hint_label_7: Label = $"hints_container/line-3/hint-label-7"
+@onready var hint_label_8: Label = $"hints_container/line-3/hint-label-8"
+@onready var hint_label_9: Label = $"hints_container/line-3/hint-label-9"
+
 
 func _ready() -> void:
 	connect("pressed", func():
@@ -21,11 +35,27 @@ func set_index_id(index_vector: Vector2i, block_vector: Vector2i) -> void:
 
 func set_selected(selected: bool) -> void:
 	disabled = selected
+	#if selected:
+		#toggle_hints(false)
+
+func toggle_hints(toggleHints: bool) -> void:
+	hints_container.visible = toggleHints
+
+func get_hints_status() -> bool:
+	return hints_container.visible
 
 func set_number_text(number: int) -> void:
 	cell_data.content = number
-	if number == 0: text = ""
-	else: text = str(number)
+	if number == 0: 
+		text = ""
+		set_filled(false)
+	else:
+		text = str(number)
+		set_filled(true)
+
+func set_filled(fill: bool) -> void:
+	filled = fill
+	toggle_hints(!filled)
 
 func number_is_equal(number: int) -> bool:
 	return number == cell_data.content

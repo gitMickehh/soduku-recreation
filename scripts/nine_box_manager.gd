@@ -27,9 +27,12 @@ func fill_in_square(data_to_fill: Array[int], vec_id: Vector2i) -> void:
 	vector_identifier = vec_id
 	var index = 0
 	for button in buttons:
-		if data_to_fill[index] != 0:
-			button.text = str(data_to_fill[index])
-			button.set_selected(true)
+		#if data_to_fill[index] != 0:
+			#button.text = str(data_to_fill[index])
+			#button.set_selected(true)
+		button.set_number_text(data_to_fill[index])
+		button.set_selected(data_to_fill[index] != 0)
+		
 		#button.set_index_id(index, vector_identifier)
 		button.set_index_id(Soduku_Solver.get_vector_from_index(index), vector_identifier)
 		index = index + 1

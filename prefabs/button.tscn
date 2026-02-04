@@ -1,20 +1,133 @@
 [gd_scene load_steps=6 format=3 uid="uid://w0uogmtdd4fr"]
 
 [ext_resource type="Script" path="res://scripts/button_logic.gd" id="1_2bxnj"]
-[ext_resource type="StyleBox" uid="uid://1q0afdvwiq7" path="res://colors_styleboxes/board_disabled_stylebox.tres" id="1_j1eec"]
-[ext_resource type="StyleBox" uid="uid://ctjoce27b0jde" path="res://colors_styleboxes/board_normal_stylebox.tres" id="2_r1yug"]
-[ext_resource type="StyleBox" uid="uid://cvtaatra1py5d" path="res://colors_styleboxes/mistake_normal_stylebox.tres" id="4_i5i5o"]
-[ext_resource type="StyleBox" uid="uid://cdk80yb1hus8t" path="res://colors_styleboxes/mistake_disabled_stylebox.tres" id="5_ytc1k"]
+[ext_resource type="StyleBox" uid="uid://bjskxw7f2u6ps" path="res://texture_stylebox/dark_grey_button.tres" id="1_28fcb"]
+[ext_resource type="StyleBox" uid="uid://eio24cdvq0xp" path="res://texture_stylebox/grey_button.tres" id="3_12a4u"]
+[ext_resource type="StyleBox" uid="uid://2cpbmovxh251" path="res://texture_stylebox/red_button.tres" id="4_t5ts8"]
+[ext_resource type="StyleBox" uid="uid://7pv4i3nt31s5" path="res://texture_stylebox/disabled_red_button.tres" id="5_12idx"]
 
 [node name="button" type="Button"]
 custom_minimum_size = Vector2(85, 85)
+offset_right = 85.0
+offset_bottom = 85.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 50
-theme_override_styles/disabled = ExtResource("1_j1eec")
-theme_override_styles/normal = ExtResource("2_r1yug")
+theme_override_styles/disabled = ExtResource("1_28fcb")
+theme_override_styles/normal = ExtResource("3_12a4u")
 script = ExtResource("1_2bxnj")
-default_color_stylebox = ExtResource("2_r1yug")
-default_color_disabled_stylebox = ExtResource("1_j1eec")
-duplicate_color_stylebox = ExtResource("4_i5i5o")
-duplicate_color_disabled_stylebox = ExtResource("5_ytc1k")
+default_color_stylebox = ExtResource("3_12a4u")
+default_color_disabled_stylebox = ExtResource("1_28fcb")
+duplicate_color_stylebox = ExtResource("4_t5ts8")
+duplicate_color_disabled_stylebox = ExtResource("5_12idx")
+
+[node name="hints_container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -40.5
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+
+[node name="divier1" type="Control" parent="hints_container"]
+layout_mode = 2
+
+[node name="line-1" type="HBoxContainer" parent="hints_container"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="divider-1" type="Control" parent="hints_container/line-1"]
+layout_mode = 2
+
+[node name="hint-label-1" type="Label" parent="hints_container/line-1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hint-label-2" type="Label" parent="hints_container/line-1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hint-label-3" type="Label" parent="hints_container/line-1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="divider-2" type="Control" parent="hints_container/line-1"]
+layout_mode = 2
+
+[node name="line-2" type="HBoxContainer" parent="hints_container"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="divider-3" type="Control" parent="hints_container/line-2"]
+layout_mode = 2
+
+[node name="hint-label-4" type="Label" parent="hints_container/line-2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hint-label-5" type="Label" parent="hints_container/line-2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hint-label-6" type="Label" parent="hints_container/line-2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="divider-4" type="Control" parent="hints_container/line-2"]
+layout_mode = 2
+
+[node name="line-3" type="HBoxContainer" parent="hints_container"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="divider-5" type="Control" parent="hints_container/line-3"]
+layout_mode = 2
+
+[node name="hint-label-7" type="Label" parent="hints_container/line-3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hint-label-8" type="Label" parent="hints_container/line-3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hint-label-9" type="Label" parent="hints_container/line-3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="divider-6" type="Control" parent="hints_container/line-3"]
+layout_mode = 2
+
+[node name="divider2" type="Control" parent="hints_container"]
+layout_mode = 2
