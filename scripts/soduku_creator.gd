@@ -128,6 +128,6 @@ func get_block_x(x) -> Vector2i:
 
 func get_cell_location_from_global_index(global_index: int) -> CellLocation:
 	var block_index = floori(global_index / 9)
-	var index_id = (global_index - (9 * block_index)) - 1
+	var index_id = (global_index - (9 * block_index))
 	
 	return CellLocation.new_cell(Soduku_Solver.get_vector_from_index(index_id),Soduku_Solver.get_vector_from_index(block_index))
