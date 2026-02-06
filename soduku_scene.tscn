@@ -24,11 +24,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hssn3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecogi"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gt084"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_183bm"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -61,11 +61,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35lcv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rb7q8"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8tdo"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vo80t"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -98,11 +98,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akvsf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ev2j"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvbog"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qe03"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -135,11 +135,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5gqfr"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_byy3s"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ew8u5"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sp41u"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -172,11 +172,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tf1mq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0u66"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eafcu"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4wwaw"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -213,11 +213,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0j3dw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4voh3"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3e4j"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utpjl"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -250,11 +250,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6joab"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3wl7"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kotjg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0f54"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -287,11 +287,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gc1xg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_256is"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c55cj"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dumto"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -324,11 +324,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ea2t"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44yo4"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmnbd"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anwol"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -442,8 +442,8 @@ layout_mode = 2
 theme_override_styles/disabled = SubResource("StyleBoxTexture_fvs7s")
 theme_override_styles/normal = SubResource("StyleBoxTexture_rnb3f")
 text = "1"
-default_color_stylebox = SubResource("StyleBoxFlat_hssn3")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_gt084")
+default_color_stylebox = SubResource("StyleBoxFlat_ecogi")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_183bm")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_v38a0")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_ksfl7")
 
@@ -452,8 +452,8 @@ layout_mode = 2
 theme_override_styles/disabled = SubResource("StyleBoxTexture_lpbg1")
 theme_override_styles/normal = SubResource("StyleBoxTexture_obdvu")
 text = "2"
-default_color_stylebox = SubResource("StyleBoxFlat_35lcv")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_f8tdo")
+default_color_stylebox = SubResource("StyleBoxFlat_rb7q8")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_vo80t")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_wb0g3")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_lf7t4")
 
@@ -462,8 +462,8 @@ layout_mode = 2
 theme_override_styles/disabled = SubResource("StyleBoxTexture_f802o")
 theme_override_styles/normal = SubResource("StyleBoxTexture_6a6mp")
 text = "3"
-default_color_stylebox = SubResource("StyleBoxFlat_akvsf")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_xvbog")
+default_color_stylebox = SubResource("StyleBoxFlat_8ev2j")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_0qe03")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_8maoq")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_6hr52")
 
@@ -472,8 +472,8 @@ layout_mode = 2
 theme_override_styles/disabled = SubResource("StyleBoxTexture_mtj2a")
 theme_override_styles/normal = SubResource("StyleBoxTexture_q5moq")
 text = "4"
-default_color_stylebox = SubResource("StyleBoxFlat_5gqfr")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_ew8u5")
+default_color_stylebox = SubResource("StyleBoxFlat_byy3s")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_sp41u")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_p2yl0")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_tuuuk")
 
@@ -482,8 +482,8 @@ layout_mode = 2
 theme_override_styles/disabled = SubResource("StyleBoxTexture_4tq1c")
 theme_override_styles/normal = SubResource("StyleBoxTexture_1bnpf")
 text = "5"
-default_color_stylebox = SubResource("StyleBoxFlat_tf1mq")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_eafcu")
+default_color_stylebox = SubResource("StyleBoxFlat_g0u66")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_4wwaw")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_2wo3a")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_jhuua")
 
@@ -504,8 +504,8 @@ layout_mode = 2
 theme_override_styles/disabled = SubResource("StyleBoxTexture_0634b")
 theme_override_styles/normal = SubResource("StyleBoxTexture_5rhqr")
 text = "6"
-default_color_stylebox = SubResource("StyleBoxFlat_0j3dw")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_k3e4j")
+default_color_stylebox = SubResource("StyleBoxFlat_4voh3")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_utpjl")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_6u0c0")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_k5pnj")
 
@@ -514,8 +514,8 @@ layout_mode = 2
 theme_override_styles/disabled = SubResource("StyleBoxTexture_hytfa")
 theme_override_styles/normal = SubResource("StyleBoxTexture_celni")
 text = "7"
-default_color_stylebox = SubResource("StyleBoxFlat_6joab")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_kotjg")
+default_color_stylebox = SubResource("StyleBoxFlat_l3wl7")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_e0f54")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_0iqfk")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_wm2cp")
 
@@ -524,8 +524,8 @@ layout_mode = 2
 theme_override_styles/disabled = SubResource("StyleBoxTexture_nlqx4")
 theme_override_styles/normal = SubResource("StyleBoxTexture_7yblu")
 text = "8"
-default_color_stylebox = SubResource("StyleBoxFlat_gc1xg")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_c55cj")
+default_color_stylebox = SubResource("StyleBoxFlat_256is")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_dumto")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_q8hyw")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_qrfl0")
 
@@ -534,8 +534,8 @@ layout_mode = 2
 theme_override_styles/disabled = SubResource("StyleBoxTexture_gs5h1")
 theme_override_styles/normal = SubResource("StyleBoxTexture_jjcdc")
 text = "9"
-default_color_stylebox = SubResource("StyleBoxFlat_8ea2t")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_rmnbd")
+default_color_stylebox = SubResource("StyleBoxFlat_44yo4")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_anwol")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_frq4v")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_k8wm2")
 

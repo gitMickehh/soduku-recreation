@@ -72,6 +72,7 @@ func update_button_styleboxes(normal: StyleBox, disabled_box: StyleBox) -> void:
 	remove_theme_stylebox_override("normal")
 	add_theme_stylebox_override("normal", normal)
 	add_theme_stylebox_override("disabled", disabled_box)
+	add_theme_stylebox_override("pressed", disabled_box)
 	add_theme_stylebox_override("hover", disabled_box)
 
 #func update_button_color(color: Color) -> void:
