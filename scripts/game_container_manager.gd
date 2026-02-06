@@ -47,6 +47,7 @@ var solver: Soduku_Solver = Soduku_Solver.new()
 var horizontal_boxes_containers: Array[Horizontal_Boxes_Container] = []
 
 func _ready() -> void:
+	RenderingServer.set_default_clear_color(Color.DARK_GRAY)
 	input_lines_container.new_input_chosen.connect(_on_new_input_chosen)
 	
 	horizontal_boxes_containers.append(horizontal_blocks_container_1)

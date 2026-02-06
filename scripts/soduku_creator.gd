@@ -44,7 +44,7 @@ func setup_new_game() -> Array:
 	
 	#random cells to take out
 	for rcells in range(randi_range(12,22)):
-		var one_cell = get_cell_location_from_global_index(randi_range(0,81))
+		var one_cell = get_cell_location_from_global_index(randi_range(0,80))
 		var other_cell = get_rotational_counterpart(one_cell)
 		
 		(board_array[Soduku_Solver.get_index_from_vector(one_cell.parent_block_vector)])[Soduku_Solver.get_index_from_vector(one_cell.location_vector)] = 0
