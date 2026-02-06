@@ -89,3 +89,32 @@ func print_cellLocation_array(array: Array[CellLocation]) -> String:
 		ret_string = ret_string + cell_location.print_cell() + ",\n"
 	ret_string = ret_string + "]"
 	return ret_string
+
+func get_numbers_counts(game_array: Array) -> Dictionary:
+	var ret_dict:Dictionary = {}
+	
+	for b in range(9):
+		for n in game_array[b]:
+			ret_dict.get_or_add(n, 0)
+			ret_dict[n] = ret_dict[n] + 1
+	
+	return ret_dict
+
+func get_full_numbers(game_array: Array) -> Array[int]:
+	#to optimize i probably need to send the numbers i know already are full to lessen the numebr of loops
+	var ret_array: Array[int] = []
+	var counts = get_numbers_counts(game_array)
+	for n in range(1,10):
+		if counts[n] == 9:
+			ret_array.append(n)
+	return ret_array
+
+func get_number_locations(number: int, game_array: Array) -> Array[CellLocation]:
+	var ret_array: Array[CellLocation] = []
+	
+	for b in range(9):
+		for n in range(9):
+			if (game_array[b])[n] == number:
+				ret_array.append(CellLocation.new_cell_indexes(n,b))
+		
+	return ret_array

@@ -11,6 +11,9 @@ var filled: bool = false
 @export var duplicate_color_stylebox: StyleBox
 @export var duplicate_color_disabled_stylebox: StyleBox
 
+@export var complete_color_stylebox: StyleBox
+
+
 @onready var hints_container: VBoxContainer = $hints_container
 @onready var hint_label_1: Label = $"hints_container/line-1/hint-label-1"
 @onready var hint_label_2: Label = $"hints_container/line-1/hint-label-2"
@@ -65,6 +68,9 @@ func default_color() -> void:
 
 func mistake_color() -> void:
 	update_button_styleboxes(duplicate_color_stylebox, duplicate_color_disabled_stylebox)
+
+func complete_color() -> void:
+	update_button_styleboxes(complete_color_stylebox, complete_color_stylebox)
 
 func update_button_styleboxes(normal: StyleBox, disabled_box: StyleBox) -> void:
 	remove_theme_stylebox_override("disabled")

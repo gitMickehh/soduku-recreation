@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://w0uogmtdd4fr"]
+[gd_scene load_steps=7 format=3 uid="uid://w0uogmtdd4fr"]
 
 [ext_resource type="Script" path="res://scripts/button_logic.gd" id="1_2bxnj"]
 [ext_resource type="StyleBox" uid="uid://bjskxw7f2u6ps" path="res://texture_stylebox/dark_grey_button.tres" id="1_28fcb"]
 [ext_resource type="StyleBox" uid="uid://eio24cdvq0xp" path="res://texture_stylebox/grey_button.tres" id="3_12a4u"]
 [ext_resource type="StyleBox" uid="uid://2cpbmovxh251" path="res://texture_stylebox/red_button.tres" id="4_t5ts8"]
 [ext_resource type="StyleBox" uid="uid://7pv4i3nt31s5" path="res://texture_stylebox/disabled_red_button.tres" id="5_12idx"]
+[ext_resource type="StyleBox" uid="uid://dj4p2q2hdm7s6" path="res://texture_stylebox/complete_button.tres" id="6_m6ugw"]
 
 [node name="button" type="Button"]
 custom_minimum_size = Vector2(85, 85)
@@ -22,6 +23,7 @@ default_color_stylebox = ExtResource("3_12a4u")
 default_color_disabled_stylebox = ExtResource("1_28fcb")
 duplicate_color_stylebox = ExtResource("4_t5ts8")
 duplicate_color_disabled_stylebox = ExtResource("5_12idx")
+complete_color_stylebox = ExtResource("6_m6ugw")
 
 [node name="hints_container" type="VBoxContainer" parent="."]
 layout_mode = 1

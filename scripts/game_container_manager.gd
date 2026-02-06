@@ -94,3 +94,15 @@ func _on_board_button_pressed(button: Button_Logic) -> void:
 			var dupe_butt:Button_Logic = blocks[solver.get_index_from_vector(dupe.parent_block_vector)].buttons[solver.get_index_from_vector(dupe.location_vector)]
 			dupe_butt.mistake_color()
 		button.mistake_color()
+	
+	after_input_check()
+
+func after_input_check() -> void:
+	var full_numbers = solver.get_full_numbers(game_array)
+	for f in full_numbers:
+		light_up_complete_number(solver.get_number_locations(f, game_array))
+
+func light_up_complete_number(cell_locations:Array[CellLocation]) -> void:
+	for cl in cell_locations:
+		var btn = (blocks[solver.get_index_from_vector(cl.parent_block_vector)]).buttons[solver.get_index_from_vector(cl.location_vector)]
+		btn.complete_color()
