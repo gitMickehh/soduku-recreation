@@ -61,4 +61,9 @@ func _update_buttons_colors() -> void:
 		button.toggle_hints(false)
 	
 	mode_change.update_button_styleboxes(sight_stylebox, sight_disabled_stylebox)
+	mode_change.toggle_hints(false)
+	
 	toggle_candidates.update_button_styleboxes(candidate_stylebox, candidate_disabled_stylebox)
+	toggle_candidates.toggle_hints(false)
+	
+	
