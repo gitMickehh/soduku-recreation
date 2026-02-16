@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://c3jfd0bqk6bsf"]
+
+[ext_resource type="Texture2D" uid="uid://dmqntpq2bfb4p" path="res://art/soduku_ui.png" id="1_48gaa"]
+
+[resource]
+resource_local_to_scene = true
+texture = ExtResource("1_48gaa")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(512, 1536, 512, 512)
