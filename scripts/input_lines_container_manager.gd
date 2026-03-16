@@ -16,6 +16,8 @@ class_name Input_Line_Manager extends VBoxContainer
 @onready var toggle_candidates: Button_Logic = $Input_Line_1/s
 
 signal new_input_chosen(new_input: int)
+signal toggle_candidate_signal(togglethingy: bool)
+
 var buttons: Array[Button_Logic] = []
 
 func _ready() -> void:
@@ -56,7 +58,7 @@ func _update_buttons_colors() -> void:
 		if button.text == "X": 
 			button.update_button_styleboxes(clear_stylebox ,clear_disabled_stylebox)
 			button.text = ""
-		else: 
+		else:
 			button.update_button_styleboxes(input_stylebox ,input_disabled_stylebox)
 		button.toggle_hints(false)
 	
@@ -65,5 +67,4 @@ func _update_buttons_colors() -> void:
 	
 	toggle_candidates.update_button_styleboxes(candidate_stylebox, candidate_disabled_stylebox)
 	toggle_candidates.toggle_hints(false)
-	
 	
