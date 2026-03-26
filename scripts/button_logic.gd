@@ -26,6 +26,7 @@ var filled: bool = false
 @onready var hint_label_9: Label = $"hints_container/line-3/hint-label-9"
 
 func _ready() -> void:
+	toggle_hints(false)
 	connect("pressed", func():
 		pressed_with_info.emit(self)
 	)
@@ -60,7 +61,8 @@ func set_number_text(number: int) -> void:
 
 func set_filled(fill: bool) -> void:
 	filled = fill
-	toggle_hints(!filled)
+	if filled:
+		toggle_hints(false)
 
 func number_is_equal(number: int) -> bool:
 	return number == cell_data.content

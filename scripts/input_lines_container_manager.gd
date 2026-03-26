@@ -50,8 +50,8 @@ func _ready() -> void:
 	_update_buttons_colors()
 	
 	#toggle candidates button stuff
+	toggle_candidates_view_state = false
 	candidates_view_mode_button.connect("pressed", _toggle_candidates_view_button_pressed)
-	toggle_candidate_view_signal.emit(toggle_candidates_view_state)
 
 func _on_input_button_pressed(button: Button_Logic) -> void:
 		new_input_chosen.emit(int(button.text))
@@ -79,8 +79,9 @@ func _update_buttons_colors() -> void:
 	toggle_candidates_mode_button.update_button_styleboxes(candidate_input_mode_stylebox, candidate_input_mode_disabled_stylebox, candidate_input_mode_disabled_stylebox)
 	toggle_candidates_mode_button.toggle_hints(false)
 	
-	_toggle_candidates_mode_button_visual_update()
 	candidates_view_mode_button.toggle_hints(false)
+	_toggle_candidates_mode_button_visual_update()
+	toggle_candidate_view_signal.emit(toggle_candidates_view_state)
 	
 func _toggle_candidates_mode_button_visual_update() -> void:
 	if toggle_candidates_view_state:
