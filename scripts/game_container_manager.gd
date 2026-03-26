@@ -60,6 +60,7 @@ func _ready() -> void:
 	_set_numbers(game_array)
 	
 	_get_game_buttons()
+	_update_buttons_auto_candidates(game_array)
 
 func _on_new_input_chosen(new_input: int) -> void:
 	current_input = new_input
@@ -106,14 +107,16 @@ func after_input_check() -> void:
 	var full_numbers = solver.get_full_numbers(game_array)
 	for f in full_numbers:
 		light_up_complete_number(solver.get_number_locations(f, game_array))
+	
+	_update_buttons_auto_candidates(game_array)
 
 func light_up_complete_number(cell_locations:Array[CellLocation]) -> void:
 	for cl in cell_locations:
 		var btn = (blocks[solver.get_index_from_vector(cl.parent_block_vector)]).buttons[solver.get_index_from_vector(cl.location_vector)]
 		btn.complete_color()
 
-func _update_buttons_auto_candidates() -> void:
+func _update_buttons_auto_candidates(given_game_array) -> void:
 	#this can be optimized by skipping this function when the option is not on
 	for button in game_buttons:
 		if button.disabled: continue
-		button.update_auto_candidate_list(solver.get_non_candidates_in_location(button.cell_data.cell_location))
+		button.update_auto_candidate_list(solver.get_non_candidates_in_location(given_game_array, button.cell_data.cell_location))

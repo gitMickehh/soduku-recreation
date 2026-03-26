@@ -90,6 +90,49 @@ func print_cellLocation_array(array: Array[CellLocation]) -> String:
 	ret_string = ret_string + "]"
 	return ret_string
 
+func _get_numbers_in_horizontal_line(game_array, location: CellLocation) -> Array[int]:
+	var retrn_array:Array[int] = []
+	
+	#x is the same, check y in block locations and inside each block
+	for block_y in range(0,3):
+		if block_y == location.parent_block_vector.y: continue
+		
+		var block_vector = Vector2i(location.parent_block_vector.x, block_y)
+		var block_index = get_index_from_vector(block_vector)
+		for inside_y in range(0,3):
+			var element_vector = Vector2i(location.location_vector.x, inside_y)
+			var element_index = get_index_from_vector(element_vector)
+			
+			if (game_array[block_index])[element_index] != 0:
+				retrn_array.append(game_array[block_index][element_index])
+	
+	return retrn_array
+
+func _get_numbers_in_vertical_line(game_array, location: CellLocation) -> Array[int]:
+	var retrn_array:Array[int] = []
+	
+	#y is the same, check x in block locations and inside each block
+	for block_x in range(0,3):
+		if block_x == location.parent_block_vector.x: continue
+		
+		var block_vector = Vector2i(block_x, location.parent_block_vector.y)
+		var block_index = get_index_from_vector(block_vector)
+		
+		for inside_x in range(0,3):
+			var element_vector = Vector2i(inside_x, location.location_vector.y)
+			var element_index = get_index_from_vector(element_vector)
+			if (game_array[block_index])[element_index] != 0:
+				retrn_array.append(game_array[block_index][element_index])
+	
+	return retrn_array
+
+func _get_numbers_in_block(block: Array[int]) -> Array[int]:
+	var retrn_array:Array[int] = []
+	for elm in range(0,block.size()):
+		if block[elm] == 0: continue
+		retrn_array.append(block[elm])
+	return retrn_array
+
 func get_numbers_counts(game_array: Array) -> Dictionary:
 	var ret_dict:Dictionary = {}
 	
@@ -119,5 +162,9 @@ func get_number_locations(number: int, game_array: Array) -> Array[CellLocation]
 		
 	return ret_array
 
-func get_non_candidates_in_location(location: CellLocation) -> Array[int]:
-	return []
+func get_non_candidates_in_location(game_array, location: CellLocation) -> Array[int]:
+	var ret_array = _get_numbers_in_horizontal_line(game_array, location)
+	ret_array.append_array(_get_numbers_in_vertical_line(game_array, location))
+	ret_array.append_array(_get_numbers_in_block(game_array[get_index_from_vector(location.parent_block_vector)]))
+	
+	return ret_array

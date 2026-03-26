@@ -110,20 +110,48 @@ func update_auto_candidate_list(list_of_non_candidates: Array[int]) -> void:
 func _toggle_auto_candidate_number(num: int, toggle_option: bool) -> void:
 	match num:
 		1:
-			hint_label_1.visible = toggle_option
+			#hint_label_1.visible = toggle_option
+			if toggle_option:
+				hint_label_1.text = str(num)
+			else:
+				hint_label_1.text = " "
 		2:
-			hint_label_2.visible = toggle_option
+			if toggle_option:
+				hint_label_2.text = str(num)
+			else:
+				hint_label_2.text = " "
 		3:
-			hint_label_3.visible = toggle_option
+			if toggle_option:
+				hint_label_3.text = str(num)
+			else:
+				hint_label_3.text = " "
 		4:
-			hint_label_4.visible = toggle_option
+			if toggle_option:
+				hint_label_4.text = str(num)
+			else:
+				hint_label_4.text = " "
 		5:
-			hint_label_7.visible = toggle_option
+			if toggle_option:
+				hint_label_5.text = str(num)
+			else:
+				hint_label_5.text = " "
 		6:
-			hint_label_6.visible = toggle_option
+			if toggle_option:
+				hint_label_6.text = str(num)
+			else:
+				hint_label_6.text = " "
 		7:
-			hint_label_7.visible = toggle_option
+			if toggle_option:
+				hint_label_7.text = str(num)
+			else:
+				hint_label_7.text = " "
 		8:
-			hint_label_8.visible = toggle_option
+			if toggle_option:
+				hint_label_8.text = str(num)
+			else:
+				hint_label_8.text = " "
 		9:
-			hint_label_9.visible = toggle_option
+			if toggle_option:
+				hint_label_9.text = str(num)
+			else:
+				hint_label_9.text = " "
