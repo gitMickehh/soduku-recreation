@@ -30,6 +30,7 @@ func _ready() -> void:
 	connect("pressed", func():
 		pressed_with_info.emit(self)
 	)
+	default_color()
 
 #func set_index_id(index_id: int, block_vector: Vector2i) -> void:
 func set_index_id(index_vector: Vector2i, block_vector: Vector2i) -> void:
