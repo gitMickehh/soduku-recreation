@@ -118,3 +118,6 @@ func get_number_locations(number: int, game_array: Array) -> Array[CellLocation]
 				ret_array.append(CellLocation.new_cell_indexes(n,b))
 		
 	return ret_array
+
+func get_non_candidates_in_location(location: CellLocation) -> Array[int]:
+	return []

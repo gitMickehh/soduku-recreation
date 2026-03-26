@@ -102,3 +102,28 @@ func update_button_styleboxes(normal: StyleBox, hover: StyleBox, disabled_box: S
 
 func connect_candidate_view_signal(input_obj: Input_Line_Manager) -> void:
 	input_obj.toggle_candidate_view_signal.connect(toggle_hints)
+
+func update_auto_candidate_list(list_of_non_candidates: Array[int]) -> void:
+	for x in range(1,10):
+		_toggle_auto_candidate_number(x, !list_of_non_candidates.has(x))
+
+func _toggle_auto_candidate_number(num: int, toggle_option: bool) -> void:
+	match num:
+		1:
+			hint_label_1.visible = toggle_option
+		2:
+			hint_label_2.visible = toggle_option
+		3:
+			hint_label_3.visible = toggle_option
+		4:
+			hint_label_4.visible = toggle_option
+		5:
+			hint_label_7.visible = toggle_option
+		6:
+			hint_label_6.visible = toggle_option
+		7:
+			hint_label_7.visible = toggle_option
+		8:
+			hint_label_8.visible = toggle_option
+		9:
+			hint_label_9.visible = toggle_option
