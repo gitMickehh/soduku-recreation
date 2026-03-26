@@ -25,7 +25,6 @@ var filled: bool = false
 @onready var hint_label_8: Label = $"hints_container/line-3/hint-label-8"
 @onready var hint_label_9: Label = $"hints_container/line-3/hint-label-9"
 
-
 func _ready() -> void:
 	connect("pressed", func():
 		pressed_with_info.emit(self)
@@ -42,6 +41,9 @@ func set_selected(selected: bool) -> void:
 		#toggle_hints(false)
 
 func toggle_hints(toggleHints: bool) -> void:
+	if disabled:
+		hints_container.visible = false
+		return
 	hints_container.visible = toggleHints
 
 func get_hints_status() -> bool:
@@ -64,22 +66,22 @@ func number_is_equal(number: int) -> bool:
 	return number == cell_data.content
 
 func default_color() -> void:
-	update_button_styleboxes(default_color_stylebox, default_color_disabled_stylebox)
+	update_button_styleboxes(default_color_stylebox, default_color_disabled_stylebox, default_color_disabled_stylebox)
 
 func mistake_color() -> void:
-	update_button_styleboxes(duplicate_color_stylebox, duplicate_color_disabled_stylebox)
+	update_button_styleboxes(duplicate_color_stylebox, duplicate_color_disabled_stylebox, duplicate_color_disabled_stylebox)
 
 func complete_color() -> void:
-	update_button_styleboxes(complete_color_stylebox, complete_color_stylebox)
+	update_button_styleboxes(complete_color_stylebox, complete_color_stylebox, complete_color_stylebox)
 
-func update_button_styleboxes(normal: StyleBox, disabled_box: StyleBox) -> void:
+func update_button_styleboxes(normal: StyleBox, hover: StyleBox, disabled_box: StyleBox) -> void:
 	remove_theme_stylebox_override("disabled")
 	remove_theme_stylebox_override("hover")
 	remove_theme_stylebox_override("normal")
 	add_theme_stylebox_override("normal", normal)
 	add_theme_stylebox_override("disabled", disabled_box)
 	add_theme_stylebox_override("pressed", disabled_box)
-	add_theme_stylebox_override("hover", disabled_box)
+	add_theme_stylebox_override("hover", hover)
 
 #func update_button_color(color: Color) -> void:
 	#stylebox_theme = get_theme_stylebox("normal").duplicate()
@@ -92,3 +94,9 @@ func update_button_styleboxes(normal: StyleBox, disabled_box: StyleBox) -> void:
 	#sent_stylebox_theme.bg_color = color
 	#sent_stylebox_theme.border_color = color
 	#add_theme_stylebox_override(style_box_type, sent_stylebox_theme)
+
+#func override_button_styleboxes() -> void:
+	#
+
+func connect_candidate_view_signal(input_obj: Input_Line_Manager) -> void:
+	input_obj.toggle_candidate_view_signal.connect(toggle_hints)

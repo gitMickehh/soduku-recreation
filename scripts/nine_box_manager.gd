@@ -42,6 +42,10 @@ func connect_press(function_to_connect: Callable) -> void:
 	for button in buttons:
 		button.connect("pressed_with_info", function_to_connect)
 
+func attach_input_manager(input_manager: Input_Line_Manager) -> void:
+	for button in buttons:
+		button.connect_candidate_view_signal(input_manager)
+
 func get_string() -> String:
 	var buttons_str = "["
 	var index = 0

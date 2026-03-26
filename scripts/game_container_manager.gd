@@ -68,6 +68,7 @@ func _set_numbers(game_array) -> void:
 	for block_group in horizontal_boxes_containers:
 		block_group.set_blocks_numbers(game_array[index], game_array[index+1],game_array[index+2], loops)
 		block_group.connect_press(_on_board_button_pressed)
+		block_group.attach_input_manager(input_lines_container)
 		index = index + 3
 		loops = loops + 1
 
@@ -81,11 +82,7 @@ func _on_board_button_pressed(button: Button_Logic) -> void:
 	if button.number_is_equal(current_input): return
 	button.set_number_text(current_input)
 	game_array[Soduku_Solver.get_index_from_vector(button.cell_data.cell_location.parent_block_vector)][Soduku_Solver.get_index_from_vector(button.cell_data.cell_location.location_vector)] = current_input
-	
-	#var dupes:Array[CellLocation] = []
-	#if current_input != 0:
-		#dupes = solver.find_duplicates_in_game_array(current_input, CellLocation.new_cell(button.cell_data.cell_location.location_vector, button.cell_data.cell_location.parent_block_vector), game_array)
-	
+		
 	var dupes = solver.check_duplicates_in_location(game_array, button.cell_data.cell_location)
 	print(solver.print_cellLocation_array(dupes))
 	

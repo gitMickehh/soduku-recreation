@@ -23,3 +23,8 @@ func connect_press(function_to_connect: Callable) -> void:
 	blocks[0].connect_press(function_to_connect)
 	blocks[1].connect_press(function_to_connect)
 	blocks[2].connect_press(function_to_connect)
+
+func attach_input_manager(input_manager: Input_Line_Manager) -> void:
+	blocks[0].attach_input_manager(input_manager)
+	blocks[1].attach_input_manager(input_manager)
+	blocks[2].attach_input_manager(input_manager)

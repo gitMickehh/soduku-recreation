@@ -5,19 +5,23 @@ class_name Input_Line_Manager extends VBoxContainer
 
 @export var input_stylebox: StyleBox
 @export var input_disabled_stylebox: StyleBox
+
 @export var clear_stylebox: StyleBox
 @export var clear_disabled_stylebox: StyleBox
-@export var sight_stylebox: StyleBox
-@export var sight_disabled_stylebox: StyleBox
-@export var candidate_stylebox: StyleBox
-@export var candidate_disabled_stylebox: StyleBox
 
-@onready var mode_change: Button_Logic = $Input_Line_2/t
-@onready var toggle_candidates: Button_Logic = $Input_Line_1/s
+@export var candidates_view_stylebox: StyleBox
+@export var disabled_candidates_view_stylebox: StyleBox
+
+@export var candidate_input_mode_stylebox: StyleBox
+@export var candidate_input_mode_disabled_stylebox: StyleBox
+
+@onready var toggle_candidates_mode_button: Button_Logic = $Input_Line_1/candidates_input
+@onready var candidates_view_mode_button: Button_Logic = $Input_Line_2/candidates_view
 
 signal new_input_chosen(new_input: int)
-signal toggle_candidate_signal(togglethingy: bool)
+signal toggle_candidate_view_signal(togglethingy: bool)
 
+var toggle_candidates_view_state: bool = false
 var buttons: Array[Button_Logic] = []
 
 func _ready() -> void:
@@ -44,6 +48,10 @@ func _ready() -> void:
 					)
 	
 	_update_buttons_colors()
+	
+	#toggle candidates button stuff
+	candidates_view_mode_button.connect("pressed", _toggle_candidates_view_button_pressed)
+	toggle_candidate_view_signal.emit(toggle_candidates_view_state)
 
 func _on_input_button_pressed(button: Button_Logic) -> void:
 		new_input_chosen.emit(int(button.text))
@@ -53,18 +61,29 @@ func _set_selected(selected_button: Button_Logic) -> void:
 	for button in buttons:
 		button.set_selected(selected_button == button)
 
+func _toggle_candidates_view_button_pressed() -> void:
+	toggle_candidates_view_state = !toggle_candidates_view_state
+	_toggle_candidates_mode_button_visual_update()
+	
+	toggle_candidate_view_signal.emit(toggle_candidates_view_state)
+
 func _update_buttons_colors() -> void:
 	for button in buttons:
 		if button.text == "X": 
-			button.update_button_styleboxes(clear_stylebox ,clear_disabled_stylebox)
+			button.update_button_styleboxes(clear_stylebox ,clear_disabled_stylebox, clear_disabled_stylebox)
 			button.text = ""
 		else:
-			button.update_button_styleboxes(input_stylebox ,input_disabled_stylebox)
+			button.update_button_styleboxes(input_stylebox ,input_disabled_stylebox, input_disabled_stylebox)
 		button.toggle_hints(false)
 	
-	mode_change.update_button_styleboxes(sight_stylebox, sight_disabled_stylebox)
-	mode_change.toggle_hints(false)
+	toggle_candidates_mode_button.update_button_styleboxes(candidate_input_mode_stylebox, candidate_input_mode_disabled_stylebox, candidate_input_mode_disabled_stylebox)
+	toggle_candidates_mode_button.toggle_hints(false)
 	
-	toggle_candidates.update_button_styleboxes(candidate_stylebox, candidate_disabled_stylebox)
-	toggle_candidates.toggle_hints(false)
+	_toggle_candidates_mode_button_visual_update()
+	candidates_view_mode_button.toggle_hints(false)
 	
+func _toggle_candidates_mode_button_visual_update() -> void:
+	if toggle_candidates_view_state:
+		candidates_view_mode_button.update_button_styleboxes(disabled_candidates_view_stylebox, disabled_candidates_view_stylebox, candidates_view_stylebox)
+	else:
+		candidates_view_mode_button.update_button_styleboxes(candidates_view_stylebox, candidates_view_stylebox, disabled_candidates_view_stylebox)

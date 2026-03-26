@@ -9,10 +9,10 @@
 [ext_resource type="StyleBox" uid="uid://2cpbmovxh251" path="res://texture_stylebox/red_button.tres" id="6_l11xn"]
 [ext_resource type="StyleBox" uid="uid://7pv4i3nt31s5" path="res://texture_stylebox/disabled_red_button.tres" id="7_ibq0h"]
 [ext_resource type="Texture2D" uid="uid://dmqntpq2bfb4p" path="res://art/soduku_ui.png" id="7_qbthg"]
-[ext_resource type="StyleBox" uid="uid://cv6l77y67377y" path="res://texture_stylebox/sight_button.tres" id="8_55thn"]
-[ext_resource type="StyleBox" uid="uid://c3jfd0bqk6bsf" path="res://texture_stylebox/sight_button_disabled.tres" id="9_xfgrl"]
-[ext_resource type="StyleBox" uid="uid://cxvpiv8q0w13y" path="res://texture_stylebox/candidate_button.tres" id="10_807qy"]
-[ext_resource type="StyleBox" uid="uid://dy5pm0kfea5tj" path="res://texture_stylebox/candidate_button_disabled.tres" id="11_g7qan"]
+[ext_resource type="StyleBox" uid="uid://cv6l77y67377y" path="res://texture_stylebox/candidates_view_stylebox.tres" id="8_v8y5b"]
+[ext_resource type="StyleBox" uid="uid://dy5pm0kfea5tj" path="res://texture_stylebox/candidate_input_mode_disabled_stylebox.tres" id="9_k8e5i"]
+[ext_resource type="StyleBox" uid="uid://c3jfd0bqk6bsf" path="res://texture_stylebox/disabled_candidates_view_stylebox.tres" id="9_lxq70"]
+[ext_resource type="StyleBox" uid="uid://cxvpiv8q0w13y" path="res://texture_stylebox/candidate_input_mode_stylebox.tres" id="10_kmmon"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fvs7s"]
 resource_local_to_scene = true
@@ -28,11 +28,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xyhie"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7m7g"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbmh6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4a5au"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -72,11 +72,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuyvq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tiadw"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muqm7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0rgd"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -116,11 +116,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1n7p"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lvgd"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yunil"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvexi"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -160,11 +160,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrntc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y04pi"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmxbq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yh73i"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -204,11 +204,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j03qg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8p1t"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lkf86"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15f44"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -248,11 +248,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_da74y"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvifx"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv031"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i5oh5"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -292,11 +292,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51ko0"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glo1s"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pqf4y"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4tkd"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -336,11 +336,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnf4j"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5q1u0"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0ojo"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwbay"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -380,11 +380,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqjxk"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7kp5h"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0oi7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll0vx"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -424,11 +424,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6fl1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efd7c"]
 resource_local_to_scene = true
 bg_color = Color(0.46, 0.46, 0.46, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_og15q"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3mmd"]
 resource_local_to_scene = true
 bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
@@ -580,10 +580,10 @@ input_stylebox = ExtResource("4_505y8")
 input_disabled_stylebox = ExtResource("5_k3q15")
 clear_stylebox = ExtResource("6_l11xn")
 clear_disabled_stylebox = ExtResource("7_ibq0h")
-sight_stylebox = ExtResource("8_55thn")
-sight_disabled_stylebox = ExtResource("9_xfgrl")
-candidate_stylebox = ExtResource("10_807qy")
-candidate_disabled_stylebox = ExtResource("11_g7qan")
+candidates_view_stylebox = ExtResource("8_v8y5b")
+disabled_candidates_view_stylebox = ExtResource("9_lxq70")
+candidate_input_mode_stylebox = ExtResource("10_kmmon")
+candidate_input_mode_disabled_stylebox = ExtResource("9_k8e5i")
 
 [node name="Input_Line_1" type="HBoxContainer" parent="Game_Container/Whole_Game_Container/input_lines_container"]
 layout_mode = 2
@@ -598,8 +598,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_fvs7s")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_fvs7s")
 theme_override_styles/normal = SubResource("StyleBoxTexture_rnb3f")
 text = "1"
-default_color_stylebox = SubResource("StyleBoxFlat_xyhie")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_nbmh6")
+default_color_stylebox = SubResource("StyleBoxFlat_t7m7g")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_4a5au")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_v38a0")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_ksfl7")
 complete_color_stylebox = SubResource("StyleBoxTexture_rk6jy")
@@ -611,8 +611,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_lpbg1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_lpbg1")
 theme_override_styles/normal = SubResource("StyleBoxTexture_obdvu")
 text = "2"
-default_color_stylebox = SubResource("StyleBoxFlat_xuyvq")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_muqm7")
+default_color_stylebox = SubResource("StyleBoxFlat_tiadw")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_t0rgd")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_wb0g3")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_lf7t4")
 complete_color_stylebox = SubResource("StyleBoxTexture_mad1j")
@@ -624,8 +624,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_f802o")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_f802o")
 theme_override_styles/normal = SubResource("StyleBoxTexture_6a6mp")
 text = "3"
-default_color_stylebox = SubResource("StyleBoxFlat_j1n7p")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_yunil")
+default_color_stylebox = SubResource("StyleBoxFlat_4lvgd")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_tvexi")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_8maoq")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_6hr52")
 complete_color_stylebox = SubResource("StyleBoxTexture_7spsb")
@@ -637,8 +637,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_mtj2a")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_mtj2a")
 theme_override_styles/normal = SubResource("StyleBoxTexture_q5moq")
 text = "4"
-default_color_stylebox = SubResource("StyleBoxFlat_xrntc")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_hmxbq")
+default_color_stylebox = SubResource("StyleBoxFlat_y04pi")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_yh73i")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_p2yl0")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_tuuuk")
 complete_color_stylebox = SubResource("StyleBoxTexture_w3njj")
@@ -650,21 +650,21 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4tq1c")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_4tq1c")
 theme_override_styles/normal = SubResource("StyleBoxTexture_1bnpf")
 text = "5"
-default_color_stylebox = SubResource("StyleBoxFlat_j03qg")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_lkf86")
+default_color_stylebox = SubResource("StyleBoxFlat_e8p1t")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_15f44")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_2wo3a")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_jhuua")
 complete_color_stylebox = SubResource("StyleBoxTexture_ixh7w")
 
-[node name="s" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
+[node name="candidates_input" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
 layout_mode = 2
 theme_override_styles/disabled = SubResource("StyleBoxTexture_qdtke")
 theme_override_styles/hover = SubResource("StyleBoxTexture_qdtke")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qdtke")
 theme_override_styles/normal = SubResource("StyleBoxTexture_onx5x")
 text = "f"
-default_color_stylebox = SubResource("StyleBoxFlat_da74y")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_vv031")
+default_color_stylebox = SubResource("StyleBoxFlat_rvifx")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_i5oh5")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_yrho0")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_f8t76")
 complete_color_stylebox = SubResource("StyleBoxTexture_t715y")
@@ -682,8 +682,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_0634b")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0634b")
 theme_override_styles/normal = SubResource("StyleBoxTexture_5rhqr")
 text = "6"
-default_color_stylebox = SubResource("StyleBoxFlat_51ko0")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_pqf4y")
+default_color_stylebox = SubResource("StyleBoxFlat_glo1s")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_y4tkd")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_6u0c0")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_k5pnj")
 complete_color_stylebox = SubResource("StyleBoxTexture_xf0o3")
@@ -695,8 +695,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_hytfa")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_hytfa")
 theme_override_styles/normal = SubResource("StyleBoxTexture_celni")
 text = "7"
-default_color_stylebox = SubResource("StyleBoxFlat_wnf4j")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_x0ojo")
+default_color_stylebox = SubResource("StyleBoxFlat_5q1u0")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_jwbay")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_0iqfk")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_wm2cp")
 complete_color_stylebox = SubResource("StyleBoxTexture_8ol32")
@@ -708,8 +708,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_nlqx4")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_nlqx4")
 theme_override_styles/normal = SubResource("StyleBoxTexture_7yblu")
 text = "8"
-default_color_stylebox = SubResource("StyleBoxFlat_nqjxk")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_e0oi7")
+default_color_stylebox = SubResource("StyleBoxFlat_7kp5h")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_ll0vx")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_q8hyw")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_qrfl0")
 complete_color_stylebox = SubResource("StyleBoxTexture_s0801")
@@ -721,8 +721,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_gs5h1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_gs5h1")
 theme_override_styles/normal = SubResource("StyleBoxTexture_jjcdc")
 text = "9"
-default_color_stylebox = SubResource("StyleBoxFlat_t6fl1")
-default_color_disabled_stylebox = SubResource("StyleBoxFlat_og15q")
+default_color_stylebox = SubResource("StyleBoxFlat_efd7c")
+default_color_disabled_stylebox = SubResource("StyleBoxFlat_t3mmd")
 duplicate_color_stylebox = SubResource("StyleBoxTexture_frq4v")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_k8wm2")
 complete_color_stylebox = SubResource("StyleBoxTexture_gww8y")
@@ -740,7 +740,7 @@ duplicate_color_stylebox = SubResource("StyleBoxTexture_y48r3")
 duplicate_color_disabled_stylebox = SubResource("StyleBoxTexture_8vgtc")
 complete_color_stylebox = SubResource("StyleBoxTexture_1pthb")
 
-[node name="t" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
+[node name="candidates_view" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
 layout_mode = 2
 theme_override_styles/disabled = SubResource("StyleBoxTexture_ll8ao")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ll8ao")
