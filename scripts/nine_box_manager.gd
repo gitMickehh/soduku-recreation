@@ -31,7 +31,11 @@ func fill_in_square(data_to_fill: Array[int], vec_id: Vector2i) -> void:
 			#button.text = str(data_to_fill[index])
 			#button.set_selected(true)
 		button.set_number_text(data_to_fill[index])
-		button.set_selected(data_to_fill[index] != 0)
+		#button.set_selected(data_to_fill[index] != 0)
+		if data_to_fill[index] != 0:
+			button.set_state(button.BUTTON_STATE.LOCKED)
+		else:
+			button.set_state(button.BUTTON_STATE.DEFAULT)
 		
 		#button.set_index_id(index, vector_identifier)
 		button.set_index_id(Soduku_Solver.get_vector_from_index(index), vector_identifier)
@@ -44,7 +48,7 @@ func connect_press(function_to_connect: Callable) -> void:
 
 func attach_input_manager(input_manager: Input_Line_Manager) -> void:
 	for button in buttons:
-		button.connect_candidate_view_signal(input_manager)
+		button.connect_input_manager_singals(input_manager)
 
 func get_string() -> String:
 	var buttons_str = "["

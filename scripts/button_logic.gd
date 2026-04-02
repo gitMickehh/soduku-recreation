@@ -1,10 +1,13 @@
 class_name Button_Logic extends Button
 
+enum BUTTON_STATE {DEFAULT, DUPLICATE, COMPLETE, HIGHLIGHTED, LOCKED}
+
 var cell_data: CellData = CellData.new()
 signal pressed_with_info(button: Button_Logic)
 var stylebox_theme: StyleBoxFlat
 
-var filled: bool = false
+#var filled: bool = false
+var button_state: BUTTON_STATE = BUTTON_STATE.DEFAULT
 
 @export var N_default_color_stylebox: StyleBox
 @export var H_default_color_stylebox: StyleBox
@@ -17,7 +20,6 @@ var filled: bool = false
 @export var N_complete_color_stylebox: StyleBox
 @export var H_complete_color_stylebox: StyleBox
 @export var D_complete_color_stylebox: StyleBox
-
 
 @onready var hints_container: VBoxContainer = $hints_container
 @onready var hint_label_1: Label = $"hints_container/line-1/hint-label-1"
@@ -42,10 +44,8 @@ func set_index_id(index_vector: Vector2i, block_vector: Vector2i) -> void:
 	cell_data.cell_location.location_vector = index_vector
 	cell_data.cell_location.parent_block_vector = block_vector
 
-func set_selected(selected: bool) -> void:
-	disabled = selected
-	#if selected:
-		#toggle_hints(false)
+#func set_selected(selected: bool) -> void:
+	#disabled = selected
 
 func toggle_hints(toggleHints: bool) -> void:
 	if disabled:
@@ -60,15 +60,18 @@ func set_number_text(number: int) -> void:
 	cell_data.content = number
 	if number == 0: 
 		text = ""
-		set_filled(false)
+		#set_filled(false)
+		set_state(BUTTON_STATE.DEFAULT)
 	else:
 		text = str(number)
-		set_filled(true)
+		set_state(BUTTON_STATE.LOCKED)
+		#set_filled(true)
 
-func set_filled(fill: bool) -> void:
-	filled = fill
-	if filled:
-		toggle_hints(false)
+#func set_filled(fill: bool) -> void:
+	#
+	#filled = fill
+	#if filled:
+		#toggle_hints(false)
 
 func number_is_equal(number: int) -> bool:
 	return number == cell_data.content
@@ -106,8 +109,12 @@ func update_button_styleboxes(normal: StyleBox, hover: StyleBox, disabled_box: S
 #func override_button_styleboxes() -> void:
 	#
 
-func connect_candidate_view_signal(input_obj: Input_Line_Manager) -> void:
+func connect_input_manager_singals(input_obj: Input_Line_Manager) -> void:
 	input_obj.toggle_candidate_view_signal.connect(toggle_hints)
+	input_obj.new_input_chosen.connect(_new_input_chosen)
+
+func _new_input_chosen(new_input: int) -> void:
+	pass
 
 func update_auto_candidate_list(list_of_non_candidates: Array[int]) -> void:
 	for x in range(1,10):
@@ -161,3 +168,24 @@ func _toggle_auto_candidate_number(num: int, toggle_option: bool) -> void:
 				hint_label_9.text = str(num)
 			else:
 				hint_label_9.text = " "
+
+func set_state(new_state: BUTTON_STATE) -> void:
+	var prev_state = button_state
+	button_state = new_state
+	
+	match button_state:
+		BUTTON_STATE.DEFAULT:
+			disabled = false
+			pass
+		BUTTON_STATE.DUPLICATE:
+			pass
+		BUTTON_STATE.COMPLETE:
+			pass
+		BUTTON_STATE.HIGHLIGHTED:
+			pass
+		BUTTON_STATE.LOCKED:
+			disabled = true
+			pass
+
+func is_locked() -> bool:
+	return button_state == BUTTON_STATE.LOCKED
