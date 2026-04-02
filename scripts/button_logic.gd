@@ -1,6 +1,6 @@
 class_name Button_Logic extends Button
 
-enum BUTTON_STATE {DEFAULT, DUPLICATE, COMPLETE, HIGHLIGHTED, LOCKED}
+enum BUTTON_STATE {DEFAULT, DUPLICATE, COMPLETE, HIGHLIGHTED, LOCKED, INPUT_SELECTED}
 
 var cell_data: CellData = CellData.new()
 signal pressed_with_info(button: Button_Logic)
@@ -61,11 +61,12 @@ func set_number_text(number: int) -> void:
 	if number == 0: 
 		text = ""
 		#set_filled(false)
-		set_state(BUTTON_STATE.DEFAULT)
+		#set_state(BUTTON_STATE.DEFAULT)
 	else:
 		text = str(number)
-		set_state(BUTTON_STATE.LOCKED)
+		#set_state(BUTTON_STATE.DEFAULT_FILLED)
 		#set_filled(true)
+	set_state(BUTTON_STATE.DEFAULT)
 
 #func set_filled(fill: bool) -> void:
 	#
@@ -175,17 +176,20 @@ func set_state(new_state: BUTTON_STATE) -> void:
 	
 	match button_state:
 		BUTTON_STATE.DEFAULT:
+			default_color()
 			disabled = false
-			pass
+			if text != "":
+				toggle_hints(false)
 		BUTTON_STATE.DUPLICATE:
-			pass
+			mistake_color()
 		BUTTON_STATE.COMPLETE:
-			pass
+			complete_color()
 		BUTTON_STATE.HIGHLIGHTED:
 			pass
 		BUTTON_STATE.LOCKED:
 			disabled = true
-			pass
+		BUTTON_STATE.INPUT_SELECTED:
+			disabled = true
 
 func is_locked() -> bool:
 	return button_state == BUTTON_STATE.LOCKED

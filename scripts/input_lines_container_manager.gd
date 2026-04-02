@@ -56,7 +56,10 @@ func _on_input_button_pressed(button: Button_Logic) -> void:
 
 func _set_selected(selected_button: Button_Logic) -> void:
 	for button in buttons:
-		button.set_selected(selected_button == button)
+		if selected_button == button:
+			button.set_state(button.BUTTON_STATE.INPUT_SELECTED)
+		else:
+			button.set_state(button.BUTTON_STATE.DEFAULT)
 
 func _toggle_candidates_view_button_pressed() -> void:
 	candidates_view_state = !candidates_view_state

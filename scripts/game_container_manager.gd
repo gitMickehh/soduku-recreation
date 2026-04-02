@@ -93,8 +93,8 @@ func _on_board_button_pressed(button: Button_Logic) -> void:
 	if dupes.size() > 0:
 		for dupe in dupes:
 			var dupe_butt:Button_Logic = blocks[solver.get_index_from_vector(dupe.parent_block_vector)].buttons[solver.get_index_from_vector(dupe.location_vector)]
-			dupe_butt.mistake_color()
-		button.mistake_color()
+			dupe_butt.set_state(dupe_butt.BUTTON_STATE.DUPLICATE)
+		button.set_state(button.BUTTON_STATE.DUPLICATE)
 	
 	after_input_check()
 
@@ -112,8 +112,8 @@ func after_input_check() -> void:
 
 func light_up_complete_number(cell_locations:Array[CellLocation]) -> void:
 	for cl in cell_locations:
-		var btn = (blocks[solver.get_index_from_vector(cl.parent_block_vector)]).buttons[solver.get_index_from_vector(cl.location_vector)]
-		btn.complete_color()
+		var btn: Button_Logic = (blocks[solver.get_index_from_vector(cl.parent_block_vector)]).buttons[solver.get_index_from_vector(cl.location_vector)]
+		btn.set_state(btn.BUTTON_STATE.COMPLETE)
 
 func _update_buttons_auto_candidates(given_game_array) -> void:
 	#this can be optimized by skipping this function when the option is not on
