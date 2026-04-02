@@ -1,134 +1,72 @@
-[gd_scene load_steps=22 format=3 uid="uid://c4kiqkiydnonn"]
+[gd_scene load_steps=12 format=3 uid="uid://c4kiqkiydnonn"]
 
 [ext_resource type="Script" path="res://scripts/nine_box_manager.gd" id="1_loflr"]
 [ext_resource type="PackedScene" uid="uid://w0uogmtdd4fr" path="res://prefabs/button.tscn" id="2_qtcse"]
-[ext_resource type="Texture2D" uid="uid://dmqntpq2bfb4p" path="res://art/soduku_ui.png" id="3_sxi4x"]
+[ext_resource type="Texture2D" uid="uid://b2j764hbadnmr" path="res://art/Soduku_Sheet_BW.png" id="3_sxi4x"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdpvx"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_76q76"]
+resource_local_to_scene = true
+texture = ExtResource("3_sxi4x")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 512, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v2ubw"]
 resource_local_to_scene = true
 texture = ExtResource("3_sxi4x")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(512, 0, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x3d21"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e0sge"]
 resource_local_to_scene = true
 texture = ExtResource("3_sxi4x")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.455, 0.51625, 0.7, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_phhl6"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ttot"]
+resource_local_to_scene = true
+texture = ExtResource("3_sxi4x")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u1hxx"]
 resource_local_to_scene = true
 texture = ExtResource("3_sxi4x")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(512, 0, 512, 512)
+modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3yt0l"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t8vom"]
+resource_local_to_scene = true
+texture = ExtResource("3_sxi4x")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 512, 512, 512)
+modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_slq4e"]
 resource_local_to_scene = true
 texture = ExtResource("3_sxi4x")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7a7yd"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t73ny"]
 resource_local_to_scene = true
 texture = ExtResource("3_sxi4x")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aner2"]
-resource_local_to_scene = true
-texture = ExtResource("3_sxi4x")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sfc34"]
-resource_local_to_scene = true
-texture = ExtResource("3_sxi4x")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_75hpi"]
-resource_local_to_scene = true
-texture = ExtResource("3_sxi4x")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5d72t"]
-resource_local_to_scene = true
-texture = ExtResource("3_sxi4x")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pcmg0"]
-resource_local_to_scene = true
-texture = ExtResource("3_sxi4x")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_biip4"]
-resource_local_to_scene = true
-texture = ExtResource("3_sxi4x")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ixxwj"]
-resource_local_to_scene = true
-texture = ExtResource("3_sxi4x")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_16ndf"]
-resource_local_to_scene = true
-texture = ExtResource("3_sxi4x")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q0g1l"]
-resource_local_to_scene = true
-texture = ExtResource("3_sxi4x")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o7vpr"]
-resource_local_to_scene = true
-texture = ExtResource("3_sxi4x")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tb244"]
-resource_local_to_scene = true
-texture = ExtResource("3_sxi4x")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hivho"]
-resource_local_to_scene = true
-texture = ExtResource("3_sxi4x")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k6fko"]
-resource_local_to_scene = true
-texture = ExtResource("3_sxi4x")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
+region_rect = Rect2(1024, 0, 512, 512)
+modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
 
 [node name="nine-box-container" type="VBoxContainer"]
 size_flags_horizontal = 4
@@ -140,75 +78,156 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="button-1" parent="line1-container" instance=ExtResource("2_qtcse")]
+[node name="button" parent="line1-container" instance=ExtResource("2_qtcse")]
 layout_mode = 2
-theme_override_styles/disabled = SubResource("StyleBoxTexture_kdpvx")
-theme_override_styles/hover = SubResource("StyleBoxTexture_kdpvx")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_kdpvx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_x3d21")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v2ubw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/normal = SubResource("StyleBoxTexture_e0sge")
+N_default_color_stylebox = SubResource("StyleBoxTexture_e0sge")
+H_default_color_stylebox = SubResource("StyleBoxTexture_v2ubw")
+D_default_color_stylebox = SubResource("StyleBoxTexture_76q76")
+N_duplicate_color_stylebox = SubResource("StyleBoxTexture_6ttot")
+H_duplicate_color_stylebox = SubResource("StyleBoxTexture_u1hxx")
+D_duplicate_color_stylebox = SubResource("StyleBoxTexture_t8vom")
+N_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+H_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+D_complete_color_stylebox = SubResource("StyleBoxTexture_t73ny")
 
-[node name="button-2" parent="line1-container" instance=ExtResource("2_qtcse")]
+[node name="button2" parent="line1-container" instance=ExtResource("2_qtcse")]
 layout_mode = 2
-theme_override_styles/disabled = SubResource("StyleBoxTexture_phhl6")
-theme_override_styles/hover = SubResource("StyleBoxTexture_phhl6")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_phhl6")
-theme_override_styles/normal = SubResource("StyleBoxTexture_3yt0l")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v2ubw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/normal = SubResource("StyleBoxTexture_e0sge")
+N_default_color_stylebox = SubResource("StyleBoxTexture_e0sge")
+H_default_color_stylebox = SubResource("StyleBoxTexture_v2ubw")
+D_default_color_stylebox = SubResource("StyleBoxTexture_76q76")
+N_duplicate_color_stylebox = SubResource("StyleBoxTexture_6ttot")
+H_duplicate_color_stylebox = SubResource("StyleBoxTexture_u1hxx")
+D_duplicate_color_stylebox = SubResource("StyleBoxTexture_t8vom")
+N_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+H_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+D_complete_color_stylebox = SubResource("StyleBoxTexture_t73ny")
 
-[node name="button-3" parent="line1-container" instance=ExtResource("2_qtcse")]
+[node name="button3" parent="line1-container" instance=ExtResource("2_qtcse")]
 layout_mode = 2
-theme_override_styles/disabled = SubResource("StyleBoxTexture_7a7yd")
-theme_override_styles/hover = SubResource("StyleBoxTexture_7a7yd")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_7a7yd")
-theme_override_styles/normal = SubResource("StyleBoxTexture_aner2")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v2ubw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/normal = SubResource("StyleBoxTexture_e0sge")
+N_default_color_stylebox = SubResource("StyleBoxTexture_e0sge")
+H_default_color_stylebox = SubResource("StyleBoxTexture_v2ubw")
+D_default_color_stylebox = SubResource("StyleBoxTexture_76q76")
+N_duplicate_color_stylebox = SubResource("StyleBoxTexture_6ttot")
+H_duplicate_color_stylebox = SubResource("StyleBoxTexture_u1hxx")
+D_duplicate_color_stylebox = SubResource("StyleBoxTexture_t8vom")
+N_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+H_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+D_complete_color_stylebox = SubResource("StyleBoxTexture_t73ny")
 
 [node name="line2-container" type="HBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="button-4" parent="line2-container" instance=ExtResource("2_qtcse")]
+[node name="button4" parent="line2-container" instance=ExtResource("2_qtcse")]
 layout_mode = 2
-theme_override_styles/disabled = SubResource("StyleBoxTexture_sfc34")
-theme_override_styles/hover = SubResource("StyleBoxTexture_sfc34")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_sfc34")
-theme_override_styles/normal = SubResource("StyleBoxTexture_75hpi")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v2ubw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/normal = SubResource("StyleBoxTexture_e0sge")
+N_default_color_stylebox = SubResource("StyleBoxTexture_e0sge")
+H_default_color_stylebox = SubResource("StyleBoxTexture_v2ubw")
+D_default_color_stylebox = SubResource("StyleBoxTexture_76q76")
+N_duplicate_color_stylebox = SubResource("StyleBoxTexture_6ttot")
+H_duplicate_color_stylebox = SubResource("StyleBoxTexture_u1hxx")
+D_duplicate_color_stylebox = SubResource("StyleBoxTexture_t8vom")
+N_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+H_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+D_complete_color_stylebox = SubResource("StyleBoxTexture_t73ny")
 
-[node name="button-5" parent="line2-container" instance=ExtResource("2_qtcse")]
+[node name="button5" parent="line2-container" instance=ExtResource("2_qtcse")]
 layout_mode = 2
-theme_override_styles/disabled = SubResource("StyleBoxTexture_5d72t")
-theme_override_styles/hover = SubResource("StyleBoxTexture_5d72t")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_5d72t")
-theme_override_styles/normal = SubResource("StyleBoxTexture_pcmg0")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v2ubw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/normal = SubResource("StyleBoxTexture_e0sge")
+N_default_color_stylebox = SubResource("StyleBoxTexture_e0sge")
+H_default_color_stylebox = SubResource("StyleBoxTexture_v2ubw")
+D_default_color_stylebox = SubResource("StyleBoxTexture_76q76")
+N_duplicate_color_stylebox = SubResource("StyleBoxTexture_6ttot")
+H_duplicate_color_stylebox = SubResource("StyleBoxTexture_u1hxx")
+D_duplicate_color_stylebox = SubResource("StyleBoxTexture_t8vom")
+N_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+H_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+D_complete_color_stylebox = SubResource("StyleBoxTexture_t73ny")
 
-[node name="button-6" parent="line2-container" instance=ExtResource("2_qtcse")]
+[node name="button6" parent="line2-container" instance=ExtResource("2_qtcse")]
 layout_mode = 2
-theme_override_styles/disabled = SubResource("StyleBoxTexture_biip4")
-theme_override_styles/hover = SubResource("StyleBoxTexture_biip4")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_biip4")
-theme_override_styles/normal = SubResource("StyleBoxTexture_ixxwj")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v2ubw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/normal = SubResource("StyleBoxTexture_e0sge")
+N_default_color_stylebox = SubResource("StyleBoxTexture_e0sge")
+H_default_color_stylebox = SubResource("StyleBoxTexture_v2ubw")
+D_default_color_stylebox = SubResource("StyleBoxTexture_76q76")
+N_duplicate_color_stylebox = SubResource("StyleBoxTexture_6ttot")
+H_duplicate_color_stylebox = SubResource("StyleBoxTexture_u1hxx")
+D_duplicate_color_stylebox = SubResource("StyleBoxTexture_t8vom")
+N_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+H_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+D_complete_color_stylebox = SubResource("StyleBoxTexture_t73ny")
 
 [node name="line3-container" type="HBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="button-7" parent="line3-container" instance=ExtResource("2_qtcse")]
+[node name="button7" parent="line3-container" instance=ExtResource("2_qtcse")]
 layout_mode = 2
-theme_override_styles/disabled = SubResource("StyleBoxTexture_16ndf")
-theme_override_styles/hover = SubResource("StyleBoxTexture_16ndf")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_16ndf")
-theme_override_styles/normal = SubResource("StyleBoxTexture_q0g1l")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v2ubw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/normal = SubResource("StyleBoxTexture_e0sge")
+N_default_color_stylebox = SubResource("StyleBoxTexture_e0sge")
+H_default_color_stylebox = SubResource("StyleBoxTexture_v2ubw")
+D_default_color_stylebox = SubResource("StyleBoxTexture_76q76")
+N_duplicate_color_stylebox = SubResource("StyleBoxTexture_6ttot")
+H_duplicate_color_stylebox = SubResource("StyleBoxTexture_u1hxx")
+D_duplicate_color_stylebox = SubResource("StyleBoxTexture_t8vom")
+N_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+H_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+D_complete_color_stylebox = SubResource("StyleBoxTexture_t73ny")
 
-[node name="button-8" parent="line3-container" instance=ExtResource("2_qtcse")]
+[node name="button8" parent="line3-container" instance=ExtResource("2_qtcse")]
 layout_mode = 2
-theme_override_styles/disabled = SubResource("StyleBoxTexture_o7vpr")
-theme_override_styles/hover = SubResource("StyleBoxTexture_o7vpr")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_o7vpr")
-theme_override_styles/normal = SubResource("StyleBoxTexture_tb244")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v2ubw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/normal = SubResource("StyleBoxTexture_e0sge")
+N_default_color_stylebox = SubResource("StyleBoxTexture_e0sge")
+H_default_color_stylebox = SubResource("StyleBoxTexture_v2ubw")
+D_default_color_stylebox = SubResource("StyleBoxTexture_76q76")
+N_duplicate_color_stylebox = SubResource("StyleBoxTexture_6ttot")
+H_duplicate_color_stylebox = SubResource("StyleBoxTexture_u1hxx")
+D_duplicate_color_stylebox = SubResource("StyleBoxTexture_t8vom")
+N_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+H_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+D_complete_color_stylebox = SubResource("StyleBoxTexture_t73ny")
 
-[node name="button-9" parent="line3-container" instance=ExtResource("2_qtcse")]
+[node name="button9" parent="line3-container" instance=ExtResource("2_qtcse")]
 layout_mode = 2
-theme_override_styles/disabled = SubResource("StyleBoxTexture_hivho")
-theme_override_styles/hover = SubResource("StyleBoxTexture_hivho")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_hivho")
-theme_override_styles/normal = SubResource("StyleBoxTexture_k6fko")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v2ubw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_76q76")
+theme_override_styles/normal = SubResource("StyleBoxTexture_e0sge")
+N_default_color_stylebox = SubResource("StyleBoxTexture_e0sge")
+H_default_color_stylebox = SubResource("StyleBoxTexture_v2ubw")
+D_default_color_stylebox = SubResource("StyleBoxTexture_76q76")
+N_duplicate_color_stylebox = SubResource("StyleBoxTexture_6ttot")
+H_duplicate_color_stylebox = SubResource("StyleBoxTexture_u1hxx")
+D_duplicate_color_stylebox = SubResource("StyleBoxTexture_t8vom")
+N_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+H_complete_color_stylebox = SubResource("StyleBoxTexture_slq4e")
+D_complete_color_stylebox = SubResource("StyleBoxTexture_t73ny")
