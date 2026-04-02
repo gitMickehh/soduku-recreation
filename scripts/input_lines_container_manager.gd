@@ -82,6 +82,6 @@ func _update_buttons_colors() -> void:
 	
 func _toggle_candidates_view_button_visual_update() -> void:
 	if candidates_view_state:
-		candidates_view_mode_button.update_button_styleboxes(D_candidates_view_stylebox, D_candidates_view_stylebox, N_candidates_view_stylebox)
+		candidates_view_mode_button.update_button_styleboxes(D_candidates_view_stylebox, N_candidates_view_stylebox, N_candidates_view_stylebox)
 	else:
-		candidates_view_mode_button.update_button_styleboxes(N_candidates_view_stylebox, N_candidates_view_stylebox, D_candidates_view_stylebox)
+		candidates_view_mode_button.update_button_styleboxes(N_candidates_view_stylebox, D_candidates_view_stylebox, D_candidates_view_stylebox)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://b5g2biw27mdvg"]
+[gd_scene load_steps=110 format=3 uid="uid://b5g2biw27mdvg"]
 
 [ext_resource type="Script" path="res://scripts/game_container_manager.gd" id="1_h12q3"]
 [ext_resource type="PackedScene" uid="uid://m5xxplu1ba4p" path="res://prefabs/horizontal_blocks_container.tscn" id="2_fegsa"]
@@ -10,6 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://b5acehfskd8he" path="res://texture_styleboxes_BW/candidates_view_D_button.tres" id="7_sbpcc"]
 [ext_resource type="StyleBox" uid="uid://bqs1chtya1dpg" path="res://texture_styleboxes_BW/candidates_input_N_button.tres" id="8_kfvkw"]
 [ext_resource type="StyleBox" uid="uid://cm5oa44j0djb2" path="res://texture_styleboxes_BW/candidates_input_D_button.tres" id="9_w62hi"]
+[ext_resource type="FontFile" uid="uid://coettj6fe2mfm" path="res://art/Schoolbell-Regular.ttf" id="12_3d25l"]
 [ext_resource type="Texture2D" uid="uid://b2j764hbadnmr" path="res://art/Soduku_Sheet_BW.png" id="14_rpmvt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2c1vr"]
@@ -780,6 +781,17 @@ axis_stretch_vertical = 2
 region_rect = Rect2(1024, 0, 512, 512)
 modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6cff6"]
+texture = ExtResource("14_rpmvt")
+texture_margin_left = 75.0
+texture_margin_top = 60.0
+texture_margin_right = 75.0
+texture_margin_bottom = 60.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.429, 0.66, 0.6292, 1)
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -1053,3 +1065,60 @@ D_duplicate_color_stylebox = SubResource("StyleBoxTexture_xk16q")
 N_complete_color_stylebox = SubResource("StyleBoxTexture_s3khy")
 H_complete_color_stylebox = SubResource("StyleBoxTexture_s3khy")
 D_complete_color_stylebox = SubResource("StyleBoxTexture_b4s37")
+
+[node name="main-menu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main-menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="divider" type="Control" parent="main-menu/VBoxContainer"]
+layout_mode = 2
+
+[node name="easy" type="Button" parent="main-menu/VBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0509804, 0.0705882, 0.0666667, 1)
+theme_override_fonts/font = ExtResource("12_3d25l")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxTexture_6cff6")
+text = "easy"
+
+[node name="med" type="Button" parent="main-menu/VBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0509804, 0.0705882, 0.0666667, 1)
+theme_override_fonts/font = ExtResource("12_3d25l")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxTexture_6cff6")
+text = "medium"
+
+[node name="hard" type="Button" parent="main-menu/VBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0509804, 0.0705882, 0.0666667, 1)
+theme_override_fonts/font = ExtResource("12_3d25l")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxTexture_6cff6")
+text = "hard"
+
+[node name="divider2" type="Control" parent="main-menu/VBoxContainer"]
+layout_mode = 2
