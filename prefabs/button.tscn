@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://w0uogmtdd4fr"]
 
 [ext_resource type="Script" path="res://scripts/button_logic.gd" id="1_2bxnj"]
-[ext_resource type="StyleBox" uid="uid://byyn2s0vnia44" path="res://texture_styleboxes_BW/default_D_button.tres" id="1_kv5rv"]
+[ext_resource type="StyleBox" uid="uid://byyn2s0vnia44" path="res://texture_styleboxes_BW_raw/default_D_button.tres" id="1_kv5rv"]
 [ext_resource type="FontFile" uid="uid://coettj6fe2mfm" path="res://art/Schoolbell-Regular.ttf" id="1_v0gdg"]
-[ext_resource type="StyleBox" uid="uid://c2wb4ksv4s7qo" path="res://texture_styleboxes_BW/default_H_button.tres" id="2_8ndmr"]
-[ext_resource type="StyleBox" uid="uid://cv6l77y67377y" path="res://texture_styleboxes_BW/default_N_button.tres" id="3_beoc1"]
-[ext_resource type="StyleBox" uid="uid://b043y6jn2axkq" path="res://texture_styleboxes_BW/duplicate_N_button.tres" id="5_ylto6"]
-[ext_resource type="StyleBox" uid="uid://j0m0xp3si55f" path="res://texture_styleboxes_BW/duplicate_H_button.tres" id="6_m07xc"]
-[ext_resource type="StyleBox" uid="uid://dkjlepuewqso1" path="res://texture_styleboxes_BW/duplicate_D_button.tres" id="6_rls2w"]
-[ext_resource type="StyleBox" uid="uid://c14l1fs3ho1k1" path="res://texture_styleboxes_BW/full_N_button.tres" id="7_w8xvp"]
-[ext_resource type="StyleBox" uid="uid://c47x74scga6t6" path="res://texture_styleboxes_BW/full_D_button.tres" id="9_n8uuq"]
+[ext_resource type="StyleBox" uid="uid://c2wb4ksv4s7qo" path="res://texture_styleboxes_BW_raw/default_H_button.tres" id="2_8ndmr"]
+[ext_resource type="StyleBox" uid="uid://cv6l77y67377y" path="res://texture_styleboxes_BW_raw/default_N_button.tres" id="3_beoc1"]
+[ext_resource type="StyleBox" uid="uid://b043y6jn2axkq" path="res://texture_styleboxes_BW_raw/duplicate_N_button.tres" id="5_ylto6"]
+[ext_resource type="StyleBox" uid="uid://j0m0xp3si55f" path="res://texture_styleboxes_BW_raw/duplicate_H_button.tres" id="6_m07xc"]
+[ext_resource type="StyleBox" uid="uid://dkjlepuewqso1" path="res://texture_styleboxes_BW_raw/duplicate_D_button.tres" id="6_rls2w"]
+[ext_resource type="StyleBox" uid="uid://c14l1fs3ho1k1" path="res://texture_styleboxes_BW_raw/full_N_button.tres" id="7_w8xvp"]
+[ext_resource type="StyleBox" uid="uid://c47x74scga6t6" path="res://texture_styleboxes_BW_raw/full_D_button.tres" id="9_n8uuq"]
 
 [node name="button" type="Button"]
 custom_minimum_size = Vector2(85, 85)

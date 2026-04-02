@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Stylebox_Group" load_steps=5 format=3 uid="uid://b3walgbyqwln8"]
+
+[ext_resource type="Script" path="res://scripts/utility/StyleboxGroup.gd" id="1_1ox3b"]
+[ext_resource type="StyleBox" uid="uid://byyn2s0vnia44" path="res://texture_styleboxes_BW_raw/default_D_button.tres" id="1_5n22e"]
+[ext_resource type="StyleBox" uid="uid://c2wb4ksv4s7qo" path="res://texture_styleboxes_BW_raw/default_H_button.tres" id="2_mejag"]
+[ext_resource type="StyleBox" uid="uid://cv6l77y67377y" path="res://texture_styleboxes_BW_raw/default_N_button.tres" id="3_5cu72"]
+
+[resource]
+script = ExtResource("1_1ox3b")
+normal_stylebox = ExtResource("3_5cu72")
+hover_stylebox = ExtResource("2_mejag")
+disabled_stylebox = ExtResource("1_5n22e")
