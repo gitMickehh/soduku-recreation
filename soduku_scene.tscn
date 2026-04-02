@@ -935,6 +935,7 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_2gmd8")
 theme_override_styles/hover = SubResource("StyleBoxTexture_q1yam")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2gmd8")
 theme_override_styles/normal = SubResource("StyleBoxTexture_6htgb")
+text = "f"
 N_default_color_stylebox = SubResource("StyleBoxTexture_6htgb")
 H_default_color_stylebox = SubResource("StyleBoxTexture_q1yam")
 D_default_color_stylebox = SubResource("StyleBoxTexture_2gmd8")
@@ -1042,8 +1043,7 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_hdhwy")
 theme_override_styles/hover = SubResource("StyleBoxTexture_l0gnq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_hdhwy")
 theme_override_styles/normal = SubResource("StyleBoxTexture_d2lpu")
-text = "
-"
+text = "f"
 N_default_color_stylebox = SubResource("StyleBoxTexture_d2lpu")
 H_default_color_stylebox = SubResource("StyleBoxTexture_l0gnq")
 D_default_color_stylebox = SubResource("StyleBoxTexture_hdhwy")
