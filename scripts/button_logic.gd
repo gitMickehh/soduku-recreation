@@ -6,12 +6,17 @@ var stylebox_theme: StyleBoxFlat
 
 var filled: bool = false
 
-@export var default_color_stylebox: StyleBox
-@export var default_color_disabled_stylebox: StyleBox
-@export var duplicate_color_stylebox: StyleBox
-@export var duplicate_color_disabled_stylebox: StyleBox
+@export var N_default_color_stylebox: StyleBox
+@export var H_default_color_stylebox: StyleBox
+@export var D_default_color_stylebox: StyleBox
 
-@export var complete_color_stylebox: StyleBox
+@export var N_duplicate_color_stylebox: StyleBox
+@export var H_duplicate_color_stylebox: StyleBox
+@export var D_duplicate_color_stylebox: StyleBox
+
+@export var N_complete_color_stylebox: StyleBox
+@export var H_complete_color_stylebox: StyleBox
+@export var D_complete_color_stylebox: StyleBox
 
 
 @onready var hints_container: VBoxContainer = $hints_container
@@ -69,13 +74,13 @@ func number_is_equal(number: int) -> bool:
 	return number == cell_data.content
 
 func default_color() -> void:
-	update_button_styleboxes(default_color_stylebox, default_color_disabled_stylebox, default_color_disabled_stylebox)
+	update_button_styleboxes(N_default_color_stylebox, H_default_color_stylebox, D_default_color_stylebox)
 
 func mistake_color() -> void:
-	update_button_styleboxes(duplicate_color_stylebox, duplicate_color_disabled_stylebox, duplicate_color_disabled_stylebox)
+	update_button_styleboxes(N_duplicate_color_stylebox, H_duplicate_color_stylebox, D_duplicate_color_stylebox)
 
 func complete_color() -> void:
-	update_button_styleboxes(complete_color_stylebox, complete_color_stylebox, complete_color_stylebox)
+	update_button_styleboxes(N_complete_color_stylebox, H_complete_color_stylebox, D_complete_color_stylebox)
 
 func update_button_styleboxes(normal: StyleBox, hover: StyleBox, disabled_box: StyleBox) -> void:
 	remove_theme_stylebox_override("disabled")

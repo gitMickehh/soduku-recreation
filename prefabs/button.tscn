@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://w0uogmtdd4fr"]
+[gd_scene load_steps=10 format=3 uid="uid://w0uogmtdd4fr"]
 
 [ext_resource type="Script" path="res://scripts/button_logic.gd" id="1_2bxnj"]
-[ext_resource type="StyleBox" uid="uid://bjskxw7f2u6ps" path="res://texture_stylebox/dark_grey_button.tres" id="1_28fcb"]
-[ext_resource type="StyleBox" uid="uid://eio24cdvq0xp" path="res://texture_stylebox/grey_button.tres" id="3_12a4u"]
-[ext_resource type="StyleBox" uid="uid://2cpbmovxh251" path="res://texture_stylebox/red_button.tres" id="4_t5ts8"]
-[ext_resource type="StyleBox" uid="uid://7pv4i3nt31s5" path="res://texture_stylebox/disabled_red_button.tres" id="5_12idx"]
-[ext_resource type="StyleBox" uid="uid://dj4p2q2hdm7s6" path="res://texture_stylebox/complete_button.tres" id="6_m6ugw"]
+[ext_resource type="StyleBox" uid="uid://byyn2s0vnia44" path="res://texture_styleboxes_BW/default_D_button.tres" id="1_kv5rv"]
+[ext_resource type="StyleBox" uid="uid://c2wb4ksv4s7qo" path="res://texture_styleboxes_BW/default_H_button.tres" id="2_8ndmr"]
+[ext_resource type="StyleBox" uid="uid://cv6l77y67377y" path="res://texture_styleboxes_BW/default_N_button.tres" id="3_beoc1"]
+[ext_resource type="StyleBox" uid="uid://b043y6jn2axkq" path="res://texture_styleboxes_BW/duplicate_N_button.tres" id="5_ylto6"]
+[ext_resource type="StyleBox" uid="uid://j0m0xp3si55f" path="res://texture_styleboxes_BW/duplicate_H_button.tres" id="6_m07xc"]
+[ext_resource type="StyleBox" uid="uid://dkjlepuewqso1" path="res://texture_styleboxes_BW/duplicate_D_button.tres" id="6_rls2w"]
+[ext_resource type="StyleBox" uid="uid://c14l1fs3ho1k1" path="res://texture_styleboxes_BW/full_N_button.tres" id="7_w8xvp"]
+[ext_resource type="StyleBox" uid="uid://c47x74scga6t6" path="res://texture_styleboxes_BW/full_D_button.tres" id="9_n8uuq"]
 
 [node name="button" type="Button"]
 custom_minimum_size = Vector2(85, 85)
@@ -14,16 +17,20 @@ offset_bottom = 85.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 50
-theme_override_styles/disabled = ExtResource("1_28fcb")
-theme_override_styles/hover = ExtResource("1_28fcb")
-theme_override_styles/pressed = ExtResource("1_28fcb")
-theme_override_styles/normal = ExtResource("3_12a4u")
+theme_override_styles/disabled = ExtResource("1_kv5rv")
+theme_override_styles/hover = ExtResource("2_8ndmr")
+theme_override_styles/pressed = ExtResource("1_kv5rv")
+theme_override_styles/normal = ExtResource("3_beoc1")
 script = ExtResource("1_2bxnj")
-default_color_stylebox = ExtResource("3_12a4u")
-default_color_disabled_stylebox = ExtResource("1_28fcb")
-duplicate_color_stylebox = ExtResource("4_t5ts8")
-duplicate_color_disabled_stylebox = ExtResource("5_12idx")
-complete_color_stylebox = ExtResource("6_m6ugw")
+N_default_color_stylebox = ExtResource("3_beoc1")
+H_default_color_stylebox = ExtResource("2_8ndmr")
+D_default_color_stylebox = ExtResource("1_kv5rv")
+N_duplicate_color_stylebox = ExtResource("5_ylto6")
+H_duplicate_color_stylebox = ExtResource("6_m07xc")
+D_duplicate_color_stylebox = ExtResource("6_rls2w")
+N_complete_color_stylebox = ExtResource("7_w8xvp")
+H_complete_color_stylebox = ExtResource("7_w8xvp")
+D_complete_color_stylebox = ExtResource("9_n8uuq")
 
 [node name="hints_container" type="VBoxContainer" parent="."]
 layout_mode = 1

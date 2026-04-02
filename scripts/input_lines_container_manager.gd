@@ -3,17 +3,14 @@ class_name Input_Line_Manager extends VBoxContainer
 #@export var input_color: Color = Color("#68a183")
 #@export var clear_color: Color = Color("#a66068")
 
-@export var input_stylebox: StyleBox
-@export var input_disabled_stylebox: StyleBox
+@export var N_remove_stylebox: StyleBox
+@export var D_remove_stylebox: StyleBox
 
-@export var clear_stylebox: StyleBox
-@export var clear_disabled_stylebox: StyleBox
+@export var N_candidates_view_stylebox: StyleBox
+@export var D_candidates_view_stylebox: StyleBox
 
-@export var candidates_view_stylebox: StyleBox
-@export var disabled_candidates_view_stylebox: StyleBox
-
-@export var candidate_input_mode_stylebox: StyleBox
-@export var candidate_input_mode_disabled_stylebox: StyleBox
+@export var N_candidate_input_mode_stylebox: StyleBox
+@export var D_candidate_input_mode_stylebox: StyleBox
 
 @onready var toggle_candidates_mode_button: Button_Logic = $Input_Line_1/candidates_input
 @onready var candidates_view_mode_button: Button_Logic = $Input_Line_2/candidates_view
@@ -70,13 +67,14 @@ func _toggle_candidates_view_button_pressed() -> void:
 func _update_buttons_colors() -> void:
 	for button in buttons:
 		if button.text == "X": 
-			button.update_button_styleboxes(clear_stylebox ,clear_disabled_stylebox, clear_disabled_stylebox)
+			button.update_button_styleboxes(N_remove_stylebox ,D_remove_stylebox, D_remove_stylebox)
 			button.text = ""
 		else:
-			button.update_button_styleboxes(input_stylebox ,input_disabled_stylebox, input_disabled_stylebox)
+			button.default_color()
+			#button.update_button_styleboxes(N_input_stylebox ,D_input_stylebox, D_input_stylebox)
 		button.toggle_hints(false)
 	
-	toggle_candidates_mode_button.update_button_styleboxes(candidate_input_mode_stylebox, candidate_input_mode_disabled_stylebox, candidate_input_mode_disabled_stylebox)
+	toggle_candidates_mode_button.update_button_styleboxes(N_candidate_input_mode_stylebox, D_candidate_input_mode_stylebox, D_candidate_input_mode_stylebox)
 	toggle_candidates_mode_button.toggle_hints(false)
 	
 	candidates_view_mode_button.toggle_hints(false)
@@ -85,6 +83,6 @@ func _update_buttons_colors() -> void:
 	
 func _toggle_candidates_mode_button_visual_update() -> void:
 	if toggle_candidates_view_state:
-		candidates_view_mode_button.update_button_styleboxes(disabled_candidates_view_stylebox, disabled_candidates_view_stylebox, candidates_view_stylebox)
+		candidates_view_mode_button.update_button_styleboxes(D_candidates_view_stylebox, D_candidates_view_stylebox, N_candidates_view_stylebox)
 	else:
-		candidates_view_mode_button.update_button_styleboxes(candidates_view_stylebox, candidates_view_stylebox, disabled_candidates_view_stylebox)
+		candidates_view_mode_button.update_button_styleboxes(N_candidates_view_stylebox, N_candidates_view_stylebox, D_candidates_view_stylebox)
