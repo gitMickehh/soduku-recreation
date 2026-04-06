@@ -1,15 +1,12 @@
-[gd_scene load_steps=110 format=3 uid="uid://b5g2biw27mdvg"]
+[gd_scene load_steps=47 format=3 uid="uid://b5g2biw27mdvg"]
 
 [ext_resource type="Script" path="res://scripts/game_container_manager.gd" id="1_h12q3"]
 [ext_resource type="PackedScene" uid="uid://m5xxplu1ba4p" path="res://prefabs/horizontal_blocks_container.tscn" id="2_fegsa"]
 [ext_resource type="PackedScene" uid="uid://w0uogmtdd4fr" path="res://prefabs/button.tscn" id="2_wdpfm"]
 [ext_resource type="Script" path="res://scripts/input_lines_container_manager.gd" id="3_v4e6g"]
-[ext_resource type="StyleBox" uid="uid://dcxudkudbhmhi" path="res://texture_styleboxes_BW_raw/remove_N_button.tres" id="4_pfo4c"]
-[ext_resource type="StyleBox" uid="uid://dbed54pr0sjvf" path="res://texture_styleboxes_BW_raw/remove_D_button.tres" id="5_q243s"]
-[ext_resource type="StyleBox" uid="uid://b6x81jx3uppm6" path="res://texture_styleboxes_BW_raw/candidates_view_N_button.tres" id="6_tr4be"]
-[ext_resource type="StyleBox" uid="uid://b5acehfskd8he" path="res://texture_styleboxes_BW_raw/candidates_view_D_button.tres" id="7_sbpcc"]
-[ext_resource type="StyleBox" uid="uid://bqs1chtya1dpg" path="res://texture_styleboxes_BW_raw/candidates_input_N_button.tres" id="8_kfvkw"]
-[ext_resource type="StyleBox" uid="uid://cm5oa44j0djb2" path="res://texture_styleboxes_BW_raw/candidates_input_D_button.tres" id="9_w62hi"]
+[ext_resource type="Resource" uid="uid://c4mbs6443jh31" path="res://stylebox_groups/remove_button.tres" id="4_4oyq0"]
+[ext_resource type="Resource" uid="uid://byp4rg7cs6xqc" path="res://stylebox_groups/candidate_view.tres" id="5_3jbic"]
+[ext_resource type="Resource" uid="uid://bs8y7pt03ahv1" path="res://stylebox_groups/candidate_input.tres" id="6_rw2x8"]
 [ext_resource type="FontFile" uid="uid://coettj6fe2mfm" path="res://art/Schoolbell-Regular.ttf" id="12_3d25l"]
 [ext_resource type="Texture2D" uid="uid://b2j764hbadnmr" path="res://art/Soduku_Sheet_BW.png" id="14_rpmvt"]
 
@@ -37,46 +34,6 @@ axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0.455, 0.51625, 0.7, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1sxkq"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pm1kn"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bp45y"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 512, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eap8f"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7agif"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(1024, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pmhaw"]
 resource_local_to_scene = true
 texture = ExtResource("14_rpmvt")
@@ -100,46 +57,6 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0.455, 0.51625, 0.7, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wc4lg"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lg785"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oebh8"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 512, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0h653"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_41hdy"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(1024, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xlatv"]
 resource_local_to_scene = true
@@ -165,46 +82,6 @@ axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0.455, 0.51625, 0.7, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_koj6b"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wqeng"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1xptl"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 512, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4x5kg"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g0omf"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(1024, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pfmr5"]
 resource_local_to_scene = true
 texture = ExtResource("14_rpmvt")
@@ -228,46 +105,6 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0.455, 0.51625, 0.7, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_77i0t"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mywur"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_brwia"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 512, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_itfvt"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3us58"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(1024, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hrv2d"]
 resource_local_to_scene = true
@@ -293,46 +130,6 @@ axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0.455, 0.51625, 0.7, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3w2ap"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6utjv"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ec7lr"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 512, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q2o6i"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tvrmv"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(1024, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2gmd8"]
 resource_local_to_scene = true
 texture = ExtResource("14_rpmvt")
@@ -356,46 +153,6 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0.455, 0.51625, 0.7, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ew087"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s0k0c"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4k51d"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 512, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2nikd"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o756c"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(1024, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bhjvv"]
 resource_local_to_scene = true
@@ -421,46 +178,6 @@ axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0.455, 0.51625, 0.7, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8cu5n"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifxeq"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2be0d"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 512, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_npa5t"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lywyd"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(1024, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xfd2g"]
 resource_local_to_scene = true
 texture = ExtResource("14_rpmvt")
@@ -484,46 +201,6 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0.455, 0.51625, 0.7, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fmori"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dsoyr"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gtk51"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 512, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_enc0f"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_37fqu"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(1024, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vum2i"]
 resource_local_to_scene = true
@@ -549,46 +226,6 @@ axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0.455, 0.51625, 0.7, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sdwpr"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b44py"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2uaee"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 512, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3cw84"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6pohc"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(1024, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tcklt"]
 resource_local_to_scene = true
 texture = ExtResource("14_rpmvt")
@@ -612,46 +249,6 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0.455, 0.51625, 0.7, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hipx3"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tainp"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yibxc"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 512, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yy0v7"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fds8y"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(1024, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n337p"]
 resource_local_to_scene = true
@@ -677,46 +274,6 @@ axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0.455, 0.51625, 0.7, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a38mg"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_leb5i"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2qmsi"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 512, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jr4nh"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eokyk"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(1024, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hdhwy"]
 resource_local_to_scene = true
 texture = ExtResource("14_rpmvt")
@@ -740,46 +297,6 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0.455, 0.51625, 0.7, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1y4ns"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i8h4x"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(512, 0, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xk16q"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 512, 512, 512)
-modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s3khy"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b4s37"]
-resource_local_to_scene = true
-texture = ExtResource("14_rpmvt")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(1024, 0, 512, 512)
-modulate_color = Color(0.823529, 0.490196, 0.172549, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6cff6"]
 texture = ExtResource("14_rpmvt")
@@ -842,12 +359,9 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 10
 script = ExtResource("3_v4e6g")
-N_remove_stylebox = ExtResource("4_pfo4c")
-D_remove_stylebox = ExtResource("5_q243s")
-N_candidates_view_stylebox = ExtResource("6_tr4be")
-D_candidates_view_stylebox = ExtResource("7_sbpcc")
-N_candidate_input_mode_stylebox = ExtResource("8_kfvkw")
-D_candidate_input_mode_stylebox = ExtResource("9_w62hi")
+remove_styleboxGroup = ExtResource("4_4oyq0")
+candidates_view_styleboxGroup = ExtResource("5_3jbic")
+candidate_input_mode_styleboxGroup = ExtResource("6_rw2x8")
 
 [node name="Input_Line_1" type="HBoxContainer" parent="Game_Container/Whole_Game_Container/input_lines_container"]
 layout_mode = 2
@@ -863,15 +377,6 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_2c1vr")
 theme_override_styles/normal = SubResource("StyleBoxTexture_85fft")
 text = "1
 "
-N_default_color_stylebox = SubResource("StyleBoxTexture_85fft")
-H_default_color_stylebox = SubResource("StyleBoxTexture_ko54i")
-D_default_color_stylebox = SubResource("StyleBoxTexture_2c1vr")
-N_duplicate_color_stylebox = SubResource("StyleBoxTexture_1sxkq")
-H_duplicate_color_stylebox = SubResource("StyleBoxTexture_pm1kn")
-D_duplicate_color_stylebox = SubResource("StyleBoxTexture_bp45y")
-N_complete_color_stylebox = SubResource("StyleBoxTexture_eap8f")
-H_complete_color_stylebox = SubResource("StyleBoxTexture_eap8f")
-D_complete_color_stylebox = SubResource("StyleBoxTexture_7agif")
 
 [node name="2" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
 layout_mode = 2
@@ -880,15 +385,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_sf1r7")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_pmhaw")
 theme_override_styles/normal = SubResource("StyleBoxTexture_qhbpo")
 text = "2"
-N_default_color_stylebox = SubResource("StyleBoxTexture_qhbpo")
-H_default_color_stylebox = SubResource("StyleBoxTexture_sf1r7")
-D_default_color_stylebox = SubResource("StyleBoxTexture_pmhaw")
-N_duplicate_color_stylebox = SubResource("StyleBoxTexture_wc4lg")
-H_duplicate_color_stylebox = SubResource("StyleBoxTexture_lg785")
-D_duplicate_color_stylebox = SubResource("StyleBoxTexture_oebh8")
-N_complete_color_stylebox = SubResource("StyleBoxTexture_0h653")
-H_complete_color_stylebox = SubResource("StyleBoxTexture_0h653")
-D_complete_color_stylebox = SubResource("StyleBoxTexture_41hdy")
 
 [node name="3" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
 layout_mode = 2
@@ -897,15 +393,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_d6xpw")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_xlatv")
 theme_override_styles/normal = SubResource("StyleBoxTexture_tpwpb")
 text = "3"
-N_default_color_stylebox = SubResource("StyleBoxTexture_tpwpb")
-H_default_color_stylebox = SubResource("StyleBoxTexture_d6xpw")
-D_default_color_stylebox = SubResource("StyleBoxTexture_xlatv")
-N_duplicate_color_stylebox = SubResource("StyleBoxTexture_koj6b")
-H_duplicate_color_stylebox = SubResource("StyleBoxTexture_wqeng")
-D_duplicate_color_stylebox = SubResource("StyleBoxTexture_1xptl")
-N_complete_color_stylebox = SubResource("StyleBoxTexture_4x5kg")
-H_complete_color_stylebox = SubResource("StyleBoxTexture_4x5kg")
-D_complete_color_stylebox = SubResource("StyleBoxTexture_g0omf")
 
 [node name="4" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
 layout_mode = 2
@@ -914,15 +401,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_0an3e")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_pfmr5")
 theme_override_styles/normal = SubResource("StyleBoxTexture_cpsch")
 text = "4"
-N_default_color_stylebox = SubResource("StyleBoxTexture_cpsch")
-H_default_color_stylebox = SubResource("StyleBoxTexture_0an3e")
-D_default_color_stylebox = SubResource("StyleBoxTexture_pfmr5")
-N_duplicate_color_stylebox = SubResource("StyleBoxTexture_77i0t")
-H_duplicate_color_stylebox = SubResource("StyleBoxTexture_mywur")
-D_duplicate_color_stylebox = SubResource("StyleBoxTexture_brwia")
-N_complete_color_stylebox = SubResource("StyleBoxTexture_itfvt")
-H_complete_color_stylebox = SubResource("StyleBoxTexture_itfvt")
-D_complete_color_stylebox = SubResource("StyleBoxTexture_3us58")
 
 [node name="5" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
 layout_mode = 2
@@ -931,15 +409,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_0e8jq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_hrv2d")
 theme_override_styles/normal = SubResource("StyleBoxTexture_oxyit")
 text = "5"
-N_default_color_stylebox = SubResource("StyleBoxTexture_oxyit")
-H_default_color_stylebox = SubResource("StyleBoxTexture_0e8jq")
-D_default_color_stylebox = SubResource("StyleBoxTexture_hrv2d")
-N_duplicate_color_stylebox = SubResource("StyleBoxTexture_3w2ap")
-H_duplicate_color_stylebox = SubResource("StyleBoxTexture_6utjv")
-D_duplicate_color_stylebox = SubResource("StyleBoxTexture_ec7lr")
-N_complete_color_stylebox = SubResource("StyleBoxTexture_q2o6i")
-H_complete_color_stylebox = SubResource("StyleBoxTexture_q2o6i")
-D_complete_color_stylebox = SubResource("StyleBoxTexture_tvrmv")
 
 [node name="candidates_input" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("2_wdpfm")]
 layout_mode = 2
@@ -948,15 +417,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_q1yam")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2gmd8")
 theme_override_styles/normal = SubResource("StyleBoxTexture_6htgb")
 text = "f"
-N_default_color_stylebox = SubResource("StyleBoxTexture_6htgb")
-H_default_color_stylebox = SubResource("StyleBoxTexture_q1yam")
-D_default_color_stylebox = SubResource("StyleBoxTexture_2gmd8")
-N_duplicate_color_stylebox = SubResource("StyleBoxTexture_ew087")
-H_duplicate_color_stylebox = SubResource("StyleBoxTexture_s0k0c")
-D_duplicate_color_stylebox = SubResource("StyleBoxTexture_4k51d")
-N_complete_color_stylebox = SubResource("StyleBoxTexture_2nikd")
-H_complete_color_stylebox = SubResource("StyleBoxTexture_2nikd")
-D_complete_color_stylebox = SubResource("StyleBoxTexture_o756c")
 
 [node name="Input_Line_2" type="HBoxContainer" parent="Game_Container/Whole_Game_Container/input_lines_container"]
 layout_mode = 2
@@ -971,15 +431,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_i3hal")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_bhjvv")
 theme_override_styles/normal = SubResource("StyleBoxTexture_txytn")
 text = "6"
-N_default_color_stylebox = SubResource("StyleBoxTexture_txytn")
-H_default_color_stylebox = SubResource("StyleBoxTexture_i3hal")
-D_default_color_stylebox = SubResource("StyleBoxTexture_bhjvv")
-N_duplicate_color_stylebox = SubResource("StyleBoxTexture_8cu5n")
-H_duplicate_color_stylebox = SubResource("StyleBoxTexture_ifxeq")
-D_duplicate_color_stylebox = SubResource("StyleBoxTexture_2be0d")
-N_complete_color_stylebox = SubResource("StyleBoxTexture_npa5t")
-H_complete_color_stylebox = SubResource("StyleBoxTexture_npa5t")
-D_complete_color_stylebox = SubResource("StyleBoxTexture_lywyd")
 
 [node name="7" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
 layout_mode = 2
@@ -988,15 +439,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_frvpn")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_xfd2g")
 theme_override_styles/normal = SubResource("StyleBoxTexture_5odkt")
 text = "7"
-N_default_color_stylebox = SubResource("StyleBoxTexture_5odkt")
-H_default_color_stylebox = SubResource("StyleBoxTexture_frvpn")
-D_default_color_stylebox = SubResource("StyleBoxTexture_xfd2g")
-N_duplicate_color_stylebox = SubResource("StyleBoxTexture_fmori")
-H_duplicate_color_stylebox = SubResource("StyleBoxTexture_dsoyr")
-D_duplicate_color_stylebox = SubResource("StyleBoxTexture_gtk51")
-N_complete_color_stylebox = SubResource("StyleBoxTexture_enc0f")
-H_complete_color_stylebox = SubResource("StyleBoxTexture_enc0f")
-D_complete_color_stylebox = SubResource("StyleBoxTexture_37fqu")
 
 [node name="8" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
 layout_mode = 2
@@ -1005,15 +447,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_h6yi1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vum2i")
 theme_override_styles/normal = SubResource("StyleBoxTexture_n5kmr")
 text = "8"
-N_default_color_stylebox = SubResource("StyleBoxTexture_n5kmr")
-H_default_color_stylebox = SubResource("StyleBoxTexture_h6yi1")
-D_default_color_stylebox = SubResource("StyleBoxTexture_vum2i")
-N_duplicate_color_stylebox = SubResource("StyleBoxTexture_sdwpr")
-H_duplicate_color_stylebox = SubResource("StyleBoxTexture_b44py")
-D_duplicate_color_stylebox = SubResource("StyleBoxTexture_2uaee")
-N_complete_color_stylebox = SubResource("StyleBoxTexture_3cw84")
-H_complete_color_stylebox = SubResource("StyleBoxTexture_3cw84")
-D_complete_color_stylebox = SubResource("StyleBoxTexture_6pohc")
 
 [node name="9" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
 layout_mode = 2
@@ -1022,15 +455,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_6ryht")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_tcklt")
 theme_override_styles/normal = SubResource("StyleBoxTexture_7qh2b")
 text = "9"
-N_default_color_stylebox = SubResource("StyleBoxTexture_7qh2b")
-H_default_color_stylebox = SubResource("StyleBoxTexture_6ryht")
-D_default_color_stylebox = SubResource("StyleBoxTexture_tcklt")
-N_duplicate_color_stylebox = SubResource("StyleBoxTexture_hipx3")
-H_duplicate_color_stylebox = SubResource("StyleBoxTexture_tainp")
-D_duplicate_color_stylebox = SubResource("StyleBoxTexture_yibxc")
-N_complete_color_stylebox = SubResource("StyleBoxTexture_yy0v7")
-H_complete_color_stylebox = SubResource("StyleBoxTexture_yy0v7")
-D_complete_color_stylebox = SubResource("StyleBoxTexture_fds8y")
 
 [node name="X" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
 layout_mode = 2
@@ -1039,15 +463,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4ltw0")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_n337p")
 theme_override_styles/normal = SubResource("StyleBoxTexture_4vnac")
 text = "X"
-N_default_color_stylebox = SubResource("StyleBoxTexture_4vnac")
-H_default_color_stylebox = SubResource("StyleBoxTexture_4ltw0")
-D_default_color_stylebox = SubResource("StyleBoxTexture_n337p")
-N_duplicate_color_stylebox = SubResource("StyleBoxTexture_a38mg")
-H_duplicate_color_stylebox = SubResource("StyleBoxTexture_leb5i")
-D_duplicate_color_stylebox = SubResource("StyleBoxTexture_2qmsi")
-N_complete_color_stylebox = SubResource("StyleBoxTexture_jr4nh")
-H_complete_color_stylebox = SubResource("StyleBoxTexture_jr4nh")
-D_complete_color_stylebox = SubResource("StyleBoxTexture_eokyk")
 
 [node name="candidates_view" parent="Game_Container/Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("2_wdpfm")]
 layout_mode = 2
@@ -1056,15 +471,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_l0gnq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_hdhwy")
 theme_override_styles/normal = SubResource("StyleBoxTexture_d2lpu")
 text = "f"
-N_default_color_stylebox = SubResource("StyleBoxTexture_d2lpu")
-H_default_color_stylebox = SubResource("StyleBoxTexture_l0gnq")
-D_default_color_stylebox = SubResource("StyleBoxTexture_hdhwy")
-N_duplicate_color_stylebox = SubResource("StyleBoxTexture_1y4ns")
-H_duplicate_color_stylebox = SubResource("StyleBoxTexture_i8h4x")
-D_duplicate_color_stylebox = SubResource("StyleBoxTexture_xk16q")
-N_complete_color_stylebox = SubResource("StyleBoxTexture_s3khy")
-H_complete_color_stylebox = SubResource("StyleBoxTexture_s3khy")
-D_complete_color_stylebox = SubResource("StyleBoxTexture_b4s37")
 
 [node name="main-menu" type="Control" parent="."]
 visible = false

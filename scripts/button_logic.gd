@@ -9,17 +9,9 @@ var stylebox_theme: StyleBoxFlat
 #var filled: bool = false
 var button_state: BUTTON_STATE = BUTTON_STATE.DEFAULT
 
-@export var N_default_color_stylebox: StyleBox
-@export var H_default_color_stylebox: StyleBox
-@export var D_default_color_stylebox: StyleBox
-
-@export var N_duplicate_color_stylebox: StyleBox
-@export var H_duplicate_color_stylebox: StyleBox
-@export var D_duplicate_color_stylebox: StyleBox
-
-@export var N_complete_color_stylebox: StyleBox
-@export var H_complete_color_stylebox: StyleBox
-@export var D_complete_color_stylebox: StyleBox
+@export var default_color_styleboxGroup: Stylebox_Group
+@export var duplicate_color_styleboxGroup: Stylebox_Group
+@export var complete_color_styleboxGroup: Stylebox_Group
 
 @onready var hints_container: VBoxContainer = $hints_container
 @onready var hint_label_1: Label = $"hints_container/line-1/hint-label-1"
@@ -78,13 +70,13 @@ func number_is_equal(number: int) -> bool:
 	return number == cell_data.content
 
 func default_color() -> void:
-	update_button_styleboxes(N_default_color_stylebox, H_default_color_stylebox, D_default_color_stylebox)
+	update_button_look(default_color_styleboxGroup)
 
 func mistake_color() -> void:
-	update_button_styleboxes(N_duplicate_color_stylebox, H_duplicate_color_stylebox, D_duplicate_color_stylebox)
+	update_button_look(duplicate_color_styleboxGroup)
 
 func complete_color() -> void:
-	update_button_styleboxes(N_complete_color_stylebox, H_complete_color_stylebox, D_complete_color_stylebox)
+	update_button_look(complete_color_styleboxGroup)
 
 func update_button_styleboxes(normal: StyleBox, hover: StyleBox, disabled_box: StyleBox) -> void:
 	remove_theme_stylebox_override("disabled")
@@ -193,3 +185,6 @@ func set_state(new_state: BUTTON_STATE) -> void:
 
 func is_locked() -> bool:
 	return button_state == BUTTON_STATE.LOCKED
+
+func update_button_look(stylebox_group: Stylebox_Group) -> void:
+	update_button_styleboxes(stylebox_group.normal_stylebox, stylebox_group.hover_stylebox, stylebox_group.disabled_stylebox)
