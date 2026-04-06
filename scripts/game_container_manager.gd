@@ -106,9 +106,8 @@ func _get_game_buttons() -> void:
 			game_buttons.append(button)
 
 func after_input_check(duplicate_numbers: Array[int]) -> void:
-	var full_numbers = solver.get_full_numbers(game_array)
+	var full_numbers = solver.get_full_numbers(game_array, duplicate_numbers)
 	for f in full_numbers:
-		if duplicate_numbers.has(f): continue
 		light_up_complete_number(solver.get_number_locations(f, game_array))
 	
 	_update_buttons_auto_candidates(game_array)

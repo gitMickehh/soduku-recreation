@@ -143,12 +143,12 @@ func get_numbers_counts(game_array: Array) -> Dictionary:
 	
 	return ret_dict
 
-func get_full_numbers(game_array: Array) -> Array[int]:
+func get_full_numbers(game_array: Array, duplicate_numbers: Array[int]) -> Array[int]:
 	#to optimize i probably need to send the numbers i know already are full to lessen the numebr of loops
 	var ret_array: Array[int] = []
 	var counts = get_numbers_counts(game_array)
 	for n in range(1,10):
-		if counts[n] == 9:
+		if counts[n] == 9 && !duplicate_numbers.has(n):
 			ret_array.append(n)
 	return ret_array
 
