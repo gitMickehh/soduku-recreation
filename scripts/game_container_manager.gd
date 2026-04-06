@@ -90,22 +90,25 @@ func _on_board_button_pressed(button: Button_Logic) -> void:
 	var dupes = solver.check_duplicates_in_location(game_array, button.cell_data.cell_location)
 	print(solver.print_cellLocation_array(dupes))
 	
+	var dupe_numbers: Array[int] = []
 	if dupes.size() > 0:
 		for dupe in dupes:
 			var dupe_butt:Button_Logic = blocks[solver.get_index_from_vector(dupe.parent_block_vector)].buttons[solver.get_index_from_vector(dupe.location_vector)]
 			dupe_butt.set_state(dupe_butt.BUTTON_STATE.DUPLICATE)
+			dupe_numbers.append(dupe_butt.get_number())
 		button.set_state(button.BUTTON_STATE.DUPLICATE)
 	
-	after_input_check()
+	after_input_check(dupe_numbers)
 
 func _get_game_buttons() -> void:
 	for block in blocks:
 		for button in block.buttons:
 			game_buttons.append(button)
 
-func after_input_check() -> void:
+func after_input_check(duplicate_numbers: Array[int]) -> void:
 	var full_numbers = solver.get_full_numbers(game_array)
 	for f in full_numbers:
+		if duplicate_numbers.has(f): continue
 		light_up_complete_number(solver.get_number_locations(f, game_array))
 	
 	_update_buttons_auto_candidates(game_array)

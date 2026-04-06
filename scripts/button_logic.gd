@@ -186,5 +186,8 @@ func set_state(new_state: BUTTON_STATE) -> void:
 func is_locked() -> bool:
 	return button_state == BUTTON_STATE.LOCKED
 
+func get_number() -> int:
+	return text.to_int()
+
 func update_button_look(stylebox_group: Stylebox_Group) -> void:
 	update_button_styleboxes(stylebox_group.normal_stylebox, stylebox_group.hover_stylebox, stylebox_group.disabled_stylebox)
