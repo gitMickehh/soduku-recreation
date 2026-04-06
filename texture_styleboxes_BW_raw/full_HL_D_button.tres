@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b5vk3w78s5r5i"]
+
+[ext_resource type="Texture2D" uid="uid://b2j764hbadnmr" path="res://art/Soduku_Sheet_BW.png" id="1_xydhy"]
+
+[resource]
+resource_local_to_scene = true
+texture = ExtResource("1_xydhy")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(1024, 0, 512, 512)
+modulate_color = Color(0.870236, 0.542569, 0.330996, 1)

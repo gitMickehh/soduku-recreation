@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://w0uogmtdd4fr"]
+[gd_scene load_steps=12 format=3 uid="uid://w0uogmtdd4fr"]
 
 [ext_resource type="Script" path="res://scripts/button_logic.gd" id="1_2bxnj"]
 [ext_resource type="StyleBox" uid="uid://byyn2s0vnia44" path="res://texture_styleboxes_BW_raw/default_D_button.tres" id="1_kv5rv"]
@@ -8,6 +8,9 @@
 [ext_resource type="Resource" uid="uid://b3walgbyqwln8" path="res://stylebox_groups/default_button.tres" id="6_hntgj"]
 [ext_resource type="Resource" uid="uid://chu0817jhp1eu" path="res://stylebox_groups/mistake_button.tres" id="7_pru2x"]
 [ext_resource type="Resource" uid="uid://d01kibdniqdwy" path="res://stylebox_groups/complete_button.tres" id="8_cjq5w"]
+[ext_resource type="Resource" uid="uid://ndcf08h7hebx" path="res://stylebox_groups/default_highlighted.tres" id="9_u1val"]
+[ext_resource type="Resource" uid="uid://crpajnbja0142" path="res://stylebox_groups/mistake_highlighted.tres" id="10_jgmba"]
+[ext_resource type="Resource" uid="uid://xnvhmloghm3s" path="res://stylebox_groups/complete_highlighted.tres" id="11_27eb0"]
 
 [node name="button" type="Button"]
 custom_minimum_size = Vector2(85, 85)
@@ -28,6 +31,9 @@ script = ExtResource("1_2bxnj")
 default_color_styleboxGroup = ExtResource("6_hntgj")
 duplicate_color_styleboxGroup = ExtResource("7_pru2x")
 complete_color_styleboxGroup = ExtResource("8_cjq5w")
+default_HL_color_styleboxGroup = ExtResource("9_u1val")
+duplicate_HL_color_styleboxGroup = ExtResource("10_jgmba")
+complete_HL_color_styleboxGroup = ExtResource("11_27eb0")
 
 [node name="hints_container" type="VBoxContainer" parent="."]
 layout_mode = 1

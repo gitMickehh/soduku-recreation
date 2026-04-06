@@ -8,10 +8,15 @@ var stylebox_theme: StyleBoxFlat
 
 #var filled: bool = false
 var button_state: BUTTON_STATE = BUTTON_STATE.DEFAULT
+var previous_state: BUTTON_STATE = BUTTON_STATE.DEFAULT
 
 @export var default_color_styleboxGroup: Stylebox_Group
 @export var duplicate_color_styleboxGroup: Stylebox_Group
 @export var complete_color_styleboxGroup: Stylebox_Group
+
+@export var default_HL_color_styleboxGroup: Stylebox_Group
+@export var duplicate_HL_color_styleboxGroup: Stylebox_Group
+@export var complete_HL_color_styleboxGroup: Stylebox_Group
 
 @onready var hints_container: VBoxContainer = $hints_container
 @onready var hint_label_1: Label = $"hints_container/line-1/hint-label-1"
@@ -72,11 +77,20 @@ func number_is_equal(number: int) -> bool:
 func default_color() -> void:
 	update_button_look(default_color_styleboxGroup)
 
+func default_color_HL() -> void:
+	update_button_look(default_HL_color_styleboxGroup)
+
 func mistake_color() -> void:
 	update_button_look(duplicate_color_styleboxGroup)
 
+func mistake_color_HL() -> void:
+	update_button_look(duplicate_HL_color_styleboxGroup)
+
 func complete_color() -> void:
 	update_button_look(complete_color_styleboxGroup)
+
+func complete_color_HL() -> void:
+	update_button_look(complete_HL_color_styleboxGroup)
 
 func update_button_styleboxes(normal: StyleBox, hover: StyleBox, disabled_box: StyleBox) -> void:
 	remove_theme_stylebox_override("disabled")
@@ -107,7 +121,11 @@ func connect_input_manager_singals(input_obj: Input_Line_Manager) -> void:
 	input_obj.new_input_chosen.connect(_new_input_chosen)
 
 func _new_input_chosen(new_input: int) -> void:
-	pass
+	if get_number() == new_input:# && new_input != 0:
+		#print("my numebr is chosen!")
+		set_state(BUTTON_STATE.HIGHLIGHTED)
+	else:
+		_revert_HL()
 
 func update_auto_candidate_list(list_of_non_candidates: Array[int]) -> void:
 	for x in range(1,10):
@@ -163,8 +181,10 @@ func _toggle_auto_candidate_number(num: int, toggle_option: bool) -> void:
 				hint_label_9.text = " "
 
 func set_state(new_state: BUTTON_STATE) -> void:
-	var prev_state = button_state
+	previous_state = button_state
+	#print("previous state: " + str(previous_state))
 	button_state = new_state
+	#print("after: previous state: " + str(previous_state))
 	
 	match button_state:
 		BUTTON_STATE.DEFAULT:
@@ -177,11 +197,30 @@ func set_state(new_state: BUTTON_STATE) -> void:
 		BUTTON_STATE.COMPLETE:
 			complete_color()
 		BUTTON_STATE.HIGHLIGHTED:
-			pass
+			_HL_state_look_update(previous_state)
 		BUTTON_STATE.LOCKED:
 			disabled = true
 		BUTTON_STATE.INPUT_SELECTED:
 			disabled = true
+
+func _revert_HL() -> void:
+	if button_state == BUTTON_STATE.HIGHLIGHTED:
+		#print("reverting this button: " + text + " ps: " + str(previous_state))
+		prev_state()
+
+func prev_state() -> void:
+	set_state(previous_state)
+
+func _HL_state_look_update(state) -> void:
+	match state:
+		BUTTON_STATE.DEFAULT:
+			default_color_HL()
+		BUTTON_STATE.DUPLICATE:
+			mistake_color_HL()
+		BUTTON_STATE.COMPLETE:
+			complete_color_HL()
+		_:
+			default_color_HL()
 
 func is_locked() -> bool:
 	return button_state == BUTTON_STATE.LOCKED
