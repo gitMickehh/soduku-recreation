@@ -12,10 +12,30 @@ var block_8: Array[int] = [3,1,8,7,4,2,9,5,6]
 var block_9: Array[int] = [7,2,6,5,3,9,8,4,1]
 var board_array = [block_1, block_2, block_3, block_4, block_5, block_6, block_7, block_8, block_9]
 
+enum DIFFICULTY {EASY, MEDIUM, HARD}
+
+func _difficulty(diff: DIFFICULTY) -> Dictionary:
+	var dict = {
+		min_hidden = 12,
+		max_hidden = 22
+	}
+	match diff:
+		DIFFICULTY.EASY:
+			pass
+		DIFFICULTY.MEDIUM:
+			dict.min_hidden = 23
+			dict.max_hidden = 35
+		DIFFICULTY.HARD:
+			dict.min_hidden = 36
+			dict.max_hidden = 53
+	return dict
+
 func _init() -> void:
 	pass
 
-func setup_new_game() -> Array:
+func setup_new_game(difficulty: DIFFICULTY) -> Array:
+	
+	var difficulty_dictionary = _difficulty(difficulty)
 	randomize()
 	
 	#shuffle part
@@ -43,7 +63,7 @@ func setup_new_game() -> Array:
 		shuffle_numbers.shuffle()
 	
 	#random cells to take out
-	for rcells in range(randi_range(12,22)):
+	for rcells in range(randi_range(difficulty_dictionary.min_hidden,difficulty_dictionary.max_hidden)):
 		var one_cell = get_cell_location_from_global_index(randi_range(0,80))
 		var other_cell = get_rotational_counterpart(one_cell)
 		
