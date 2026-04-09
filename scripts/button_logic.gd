@@ -121,7 +121,7 @@ func connect_input_manager_singals(input_obj: Input_Line_Manager) -> void:
 	input_obj.new_input_chosen.connect(_new_input_chosen)
 
 func _new_input_chosen(new_input: int) -> void:
-	if get_number() == new_input:# && new_input != 0:
+	if get_number() == new_input && new_input != 0:
 		#print("my numebr is chosen!")
 		set_state(BUTTON_STATE.HIGHLIGHTED)
 	else:
@@ -182,8 +182,8 @@ func _toggle_auto_candidate_number(num: int, toggle_option: bool) -> void:
 
 func set_state(new_state: BUTTON_STATE) -> void:
 	previous_state = button_state
-	#print("previous state: " + str(previous_state))
 	button_state = new_state
+	#print("previous state: " + str(previous_state))
 	#print("after: previous state: " + str(previous_state))
 	
 	match button_state:
@@ -199,6 +199,7 @@ func set_state(new_state: BUTTON_STATE) -> void:
 		BUTTON_STATE.HIGHLIGHTED:
 			_HL_state_look_update(previous_state)
 		BUTTON_STATE.LOCKED:
+			default_color()
 			disabled = true
 		BUTTON_STATE.INPUT_SELECTED:
 			disabled = true
@@ -211,8 +212,8 @@ func _revert_HL() -> void:
 func prev_state() -> void:
 	set_state(previous_state)
 
-func _HL_state_look_update(state) -> void:
-	match state:
+func _HL_state_look_update(old_state) -> void:
+	match old_state:
 		BUTTON_STATE.DEFAULT:
 			default_color_HL()
 		BUTTON_STATE.DUPLICATE:

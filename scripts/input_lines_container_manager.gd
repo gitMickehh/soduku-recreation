@@ -6,6 +6,7 @@ class_name Input_Line_Manager extends VBoxContainer
 
 @onready var toggle_candidates_mode_button: Button_Logic = $Input_Line_1/candidates_input
 @onready var candidates_view_mode_button: Button_Logic = $Input_Line_2/candidates_view
+@onready var remove_button: Button_Logic = $Input_Line_2/X
 
 signal new_input_chosen(new_input: int)
 signal toggle_candidate_view_signal(togglethingy: bool)
@@ -17,7 +18,7 @@ func _ready() -> void:
 	var children = get_children()
 	for child in children:
 		if child is Button_Logic:
-			if child.text == "f": 
+			if child.text == "f" || child.text == "X": 
 				child.text = ""
 				continue
 			buttons.append(child)
@@ -28,7 +29,7 @@ func _ready() -> void:
 			var childrens_children = child.get_children()
 			for child_2 in childrens_children:
 				if child_2 is Button_Logic:
-					if child_2.text == "f": 
+					if child_2.text == "f" || child_2.text == "X": 
 						child_2.text = ""
 						continue
 					buttons.append(child_2)
@@ -61,12 +62,14 @@ func _toggle_candidates_view_button_pressed() -> void:
 
 func _update_buttons_colors() -> void:
 	for button in buttons:
-		if button.text == "X": 
-			button.update_button_look(remove_styleboxGroup)
-			button.text = ""
-		else:
-			button.default_color()
+		button.default_color()
 		button.toggle_hints(false)
+	
+	remove_button.text = ""
+	remove_button.update_button_look(remove_styleboxGroup)
+	remove_button.connect("pressed", func ():
+		_on_input_button_pressed(remove_button)
+	)
 	
 	toggle_candidates_mode_button.update_button_look(candidate_input_mode_styleboxGroup)
 	toggle_candidates_mode_button.toggle_hints(false)
