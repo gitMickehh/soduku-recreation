@@ -1,0 +1,425 @@
+[gd_scene load_steps=42 format=3 uid="uid://by6phyal1dave"]
+
+[ext_resource type="Script" path="res://scripts/game_container_manager.gd" id="1_iwm1t"]
+[ext_resource type="PackedScene" uid="uid://m5xxplu1ba4p" path="res://prefabs/horizontal_blocks_container.tscn" id="2_gq4rb"]
+[ext_resource type="Script" path="res://scripts/input_lines_container_manager.gd" id="3_bookg"]
+[ext_resource type="Resource" uid="uid://c4mbs6443jh31" path="res://stylebox_groups/remove_button.tres" id="4_2tb62"]
+[ext_resource type="Resource" uid="uid://byp4rg7cs6xqc" path="res://stylebox_groups/candidate_view.tres" id="5_8y8bm"]
+[ext_resource type="Resource" uid="uid://bs8y7pt03ahv1" path="res://stylebox_groups/candidate_input.tres" id="6_4ymnf"]
+[ext_resource type="PackedScene" uid="uid://w0uogmtdd4fr" path="res://prefabs/button.tscn" id="7_kh1ev"]
+[ext_resource type="Texture2D" uid="uid://b2j764hbadnmr" path="res://art/Soduku_Sheet_BW.png" id="8_gvbvf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2c1vr"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 512, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ko54i"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(512, 0, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_85fft"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.455, 0.51625, 0.7, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pmhaw"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 512, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sf1r7"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(512, 0, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qhbpo"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.455, 0.51625, 0.7, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xlatv"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 512, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d6xpw"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(512, 0, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tpwpb"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.455, 0.51625, 0.7, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pfmr5"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 512, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0an3e"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(512, 0, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cpsch"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.455, 0.51625, 0.7, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hrv2d"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 512, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0e8jq"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(512, 0, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oxyit"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.455, 0.51625, 0.7, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ybki"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(1024, 512, 512, 512)
+modulate_color = Color(0.52549, 0.647059, 0.898039, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rwx0w"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(512, 512, 512, 512)
+modulate_color = Color(0.525764, 0.648319, 0.898502, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bhjvv"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 512, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i3hal"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(512, 0, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_txytn"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.455, 0.51625, 0.7, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xfd2g"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 512, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_frvpn"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(512, 0, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5odkt"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.455, 0.51625, 0.7, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vum2i"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 512, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h6yi1"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(512, 0, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5kmr"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.455, 0.51625, 0.7, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tcklt"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 512, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ryht"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(512, 0, 512, 512)
+modulate_color = Color(0.454902, 0.517647, 0.701961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7qh2b"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.455, 0.51625, 0.7, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_edioh"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(1536, 512, 512, 512)
+modulate_color = Color(0.32, 0.0576, 0.0663467, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ruxhc"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(1536, 512, 512, 512)
+modulate_color = Color(0.815686, 0.27451, 0.286275, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gsw88"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 512, 512, 512)
+modulate_color = Color(0.52549, 0.647059, 0.898039, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xbjvs"]
+resource_local_to_scene = true
+texture = ExtResource("8_gvbvf")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(1536, 0, 512, 512)
+modulate_color = Color(0.52549, 0.647059, 0.898039, 1)
+
+[node name="Game_Container" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iwm1t")
+
+[node name="Whole_Game_Container" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Soduku_Container" type="VBoxContainer" parent="Whole_Game_Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="big-separator-1" type="Control" parent="Whole_Game_Container/Soduku_Container"]
+layout_mode = 2
+
+[node name="horizontal_blocks_container-1" parent="Whole_Game_Container/Soduku_Container" instance=ExtResource("2_gq4rb")]
+layout_mode = 2
+
+[node name="horizontal_blocks_container-2" parent="Whole_Game_Container/Soduku_Container" instance=ExtResource("2_gq4rb")]
+layout_mode = 2
+
+[node name="horizontal_blocks_container-3" parent="Whole_Game_Container/Soduku_Container" instance=ExtResource("2_gq4rb")]
+layout_mode = 2
+
+[node name="big-separator-2" type="Control" parent="Whole_Game_Container/Soduku_Container"]
+layout_mode = 2
+
+[node name="input_lines_container" type="VBoxContainer" parent="Whole_Game_Container"]
+layout_mode = 2
+theme_override_constants/separation = 10
+script = ExtResource("3_bookg")
+remove_styleboxGroup = ExtResource("4_2tb62")
+candidates_view_styleboxGroup = ExtResource("5_8y8bm")
+candidate_input_mode_styleboxGroup = ExtResource("6_4ymnf")
+
+[node name="Input_Line_1" type="HBoxContainer" parent="Whole_Game_Container/input_lines_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="1" parent="Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("7_kh1ev")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxTexture_2c1vr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ko54i")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2c1vr")
+theme_override_styles/normal = SubResource("StyleBoxTexture_85fft")
+text = "1
+"
+
+[node name="2" parent="Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("7_kh1ev")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxTexture_pmhaw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_sf1r7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pmhaw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qhbpo")
+text = "2"
+
+[node name="3" parent="Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("7_kh1ev")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxTexture_xlatv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d6xpw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xlatv")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tpwpb")
+
+[node name="4" parent="Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("7_kh1ev")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxTexture_pfmr5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0an3e")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pfmr5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cpsch")
+text = "4"
+
+[node name="5" parent="Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("7_kh1ev")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxTexture_hrv2d")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0e8jq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hrv2d")
+theme_override_styles/normal = SubResource("StyleBoxTexture_oxyit")
+text = "5"
+
+[node name="candidates_input" parent="Whole_Game_Container/input_lines_container/Input_Line_1" instance=ExtResource("7_kh1ev")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxTexture_0ybki")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0ybki")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0ybki")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rwx0w")
+text = "f"
+
+[node name="Input_Line_2" type="HBoxContainer" parent="Whole_Game_Container/input_lines_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="6" parent="Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("7_kh1ev")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxTexture_bhjvv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i3hal")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bhjvv")
+theme_override_styles/normal = SubResource("StyleBoxTexture_txytn")
+text = "6"
+
+[node name="7" parent="Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("7_kh1ev")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxTexture_xfd2g")
+theme_override_styles/hover = SubResource("StyleBoxTexture_frvpn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xfd2g")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5odkt")
+text = "7"
+
+[node name="8" parent="Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("7_kh1ev")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vum2i")
+theme_override_styles/hover = SubResource("StyleBoxTexture_h6yi1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vum2i")
+theme_override_styles/normal = SubResource("StyleBoxTexture_n5kmr")
+text = "8"
+
+[node name="9" parent="Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("7_kh1ev")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxTexture_tcklt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6ryht")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tcklt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7qh2b")
+text = "9"
+
+[node name="X" parent="Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("7_kh1ev")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxTexture_edioh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_edioh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_edioh")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ruxhc")
+text = "X"
+
+[node name="candidates_view" parent="Whole_Game_Container/input_lines_container/Input_Line_2" instance=ExtResource("7_kh1ev")]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxTexture_gsw88")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gsw88")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gsw88")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xbjvs")
+text = "f"

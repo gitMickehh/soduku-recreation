@@ -231,3 +231,9 @@ func get_number() -> int:
 
 func update_button_look(stylebox_group: Stylebox_Group) -> void:
 	update_button_styleboxes(stylebox_group.normal_stylebox, stylebox_group.hover_stylebox, stylebox_group.disabled_stylebox)
+
+func candidate_input_mode(mode_on: bool) -> void:
+	if mode_on:
+		add_theme_font_size_override("font_size", 25)
+	else:
+		remove_theme_font_size_override("font_size")

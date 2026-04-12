@@ -10,8 +10,11 @@ class_name Input_Line_Manager extends VBoxContainer
 
 signal new_input_chosen(new_input: int)
 signal toggle_candidate_view_signal(togglethingy: bool)
+signal toggle_candidate_input_state_signal(togglethingy: bool)
 
 var candidates_view_state: bool = false
+var candidate_input_mode_state: bool = false
+
 var buttons: Array[Button_Logic] = []
 
 func _ready() -> void:
@@ -25,6 +28,9 @@ func _ready() -> void:
 			child.connect("pressed", func ():
 				_on_input_button_pressed(child)
 			)
+			
+			toggle_candidate_input_state_signal.connect(child.candidate_input_mode)
+			
 		else:
 			var childrens_children = child.get_children()
 			for child_2 in childrens_children:
@@ -36,12 +42,17 @@ func _ready() -> void:
 					child_2.connect("pressed", func ():
 						_on_input_button_pressed(child_2)
 					)
+					
+					toggle_candidate_input_state_signal.connect(child_2.candidate_input_mode)
 	
 	_update_buttons_colors()
 	
 	#toggle candidates button stuff
 	candidates_view_state = false
 	candidates_view_mode_button.connect("pressed", _toggle_candidates_view_button_pressed)
+	
+	candidate_input_mode_state = false
+	toggle_candidates_mode_button.connect("pressed", _toggle_candidate_input_mode_button)
 
 func _on_input_button_pressed(button: Button_Logic) -> void:
 		new_input_chosen.emit(int(button.text))
@@ -83,3 +94,16 @@ func _toggle_candidates_view_button_visual_update() -> void:
 		candidates_view_mode_button.update_button_styleboxes(candidates_view_styleboxGroup.disabled_stylebox, candidates_view_styleboxGroup.normal_stylebox, candidates_view_styleboxGroup.normal_stylebox)
 	else:
 		candidates_view_mode_button.update_button_styleboxes(candidates_view_styleboxGroup.normal_stylebox, candidates_view_styleboxGroup.disabled_stylebox, candidates_view_styleboxGroup.disabled_stylebox)
+		
+	candidates_view_mode_button.release_focus()
+
+func _toggle_candidate_input_mode_button() -> void:
+	candidate_input_mode_state = !candidate_input_mode_state
+	
+	if candidate_input_mode_state:
+		toggle_candidates_mode_button.update_button_styleboxes(candidate_input_mode_styleboxGroup.disabled_stylebox, candidate_input_mode_styleboxGroup.normal_stylebox, candidate_input_mode_styleboxGroup.normal_stylebox)
+	else:
+		toggle_candidates_mode_button.update_button_styleboxes(candidate_input_mode_styleboxGroup.normal_stylebox, candidate_input_mode_styleboxGroup.disabled_stylebox, candidate_input_mode_styleboxGroup.disabled_stylebox)
+	
+	toggle_candidates_mode_button.release_focus()
+	toggle_candidate_input_state_signal.emit(candidate_input_mode_state)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://w0uogmtdd4fr"]
+[gd_scene load_steps=13 format=3 uid="uid://w0uogmtdd4fr"]
 
 [ext_resource type="Script" path="res://scripts/button_logic.gd" id="1_2bxnj"]
 [ext_resource type="StyleBox" uid="uid://byyn2s0vnia44" path="res://texture_styleboxes_BW_raw/default_D_button.tres" id="1_kv5rv"]
+[ext_resource type="Theme" uid="uid://dj3jtfjmc6exs" path="res://stylebox_groups/button_theme_default.tres" id="1_pfbai"]
 [ext_resource type="FontFile" uid="uid://coettj6fe2mfm" path="res://art/Schoolbell-Regular.ttf" id="1_v0gdg"]
 [ext_resource type="StyleBox" uid="uid://c2wb4ksv4s7qo" path="res://texture_styleboxes_BW_raw/default_H_button.tres" id="2_8ndmr"]
 [ext_resource type="StyleBox" uid="uid://cv6l77y67377y" path="res://texture_styleboxes_BW_raw/default_N_button.tres" id="3_beoc1"]
@@ -18,15 +19,16 @@ offset_right = 100.0
 offset_bottom = 100.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = ExtResource("1_pfbai")
 theme_override_colors/font_disabled_color = Color(0.0945874, 0.0997229, 0.115127, 1)
 theme_override_colors/font_focus_color = Color(0.0588235, 0.0627451, 0.0745098, 1)
 theme_override_colors/font_color = Color(0.0588235, 0.0627451, 0.0745098, 1)
 theme_override_fonts/font = ExtResource("1_v0gdg")
-theme_override_font_sizes/font_size = 50
 theme_override_styles/disabled = ExtResource("1_kv5rv")
 theme_override_styles/hover = ExtResource("2_8ndmr")
 theme_override_styles/pressed = ExtResource("1_kv5rv")
 theme_override_styles/normal = ExtResource("3_beoc1")
+text = "3"
 script = ExtResource("1_2bxnj")
 default_color_styleboxGroup = ExtResource("6_hntgj")
 duplicate_color_styleboxGroup = ExtResource("7_pru2x")
@@ -61,6 +63,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_v0gdg")
+theme_override_font_sizes/font_size = 18
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -69,6 +72,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_v0gdg")
+theme_override_font_sizes/font_size = 18
 text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -77,6 +81,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_v0gdg")
+theme_override_font_sizes/font_size = 18
 text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -95,6 +100,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_v0gdg")
+theme_override_font_sizes/font_size = 18
 text = "4"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -103,6 +109,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_v0gdg")
+theme_override_font_sizes/font_size = 18
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -111,6 +118,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_v0gdg")
+theme_override_font_sizes/font_size = 18
 text = "6"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -129,6 +137,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_v0gdg")
+theme_override_font_sizes/font_size = 18
 text = "7"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -137,6 +146,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_v0gdg")
+theme_override_font_sizes/font_size = 18
 text = "8"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -145,6 +155,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_v0gdg")
+theme_override_font_sizes/font_size = 18
 text = "9"
 horizontal_alignment = 1
 vertical_alignment = 1
