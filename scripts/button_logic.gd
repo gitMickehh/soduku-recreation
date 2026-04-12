@@ -6,7 +6,6 @@ var cell_data: CellData = CellData.new()
 signal pressed_with_info(button: Button_Logic)
 var stylebox_theme: StyleBoxFlat
 
-#var filled: bool = false
 var button_state: BUTTON_STATE = BUTTON_STATE.DEFAULT
 var previous_state: BUTTON_STATE = BUTTON_STATE.DEFAULT
 
@@ -36,7 +35,6 @@ func _ready() -> void:
 	)
 	default_color()
 
-#func set_index_id(index_id: int, block_vector: Vector2i) -> void:
 func set_index_id(index_vector: Vector2i, block_vector: Vector2i) -> void:
 	cell_data.cell_location.location_vector = index_vector
 	cell_data.cell_location.parent_block_vector = block_vector
@@ -100,21 +98,6 @@ func update_button_styleboxes(normal: StyleBox, hover: StyleBox, disabled_box: S
 	add_theme_stylebox_override("disabled", disabled_box)
 	add_theme_stylebox_override("pressed", disabled_box)
 	add_theme_stylebox_override("hover", hover)
-
-#func update_button_color(color: Color) -> void:
-	#stylebox_theme = get_theme_stylebox("normal").duplicate()
-	#var disabled_color = Color(color).lerp(Color.GRAY, 0.5)
-	#
-	#_set_stylebox_color(stylebox_theme,"normal", color)
-	##_set_stylebox_color(stylebox_theme,"disabled", disabled_color)
-
-#func _set_stylebox_color(sent_stylebox_theme: StyleBoxFlat, style_box_type: String, color: Color):
-	#sent_stylebox_theme.bg_color = color
-	#sent_stylebox_theme.border_color = color
-	#add_theme_stylebox_override(style_box_type, sent_stylebox_theme)
-
-#func override_button_styleboxes() -> void:
-	#
 
 func connect_input_manager_singals(input_obj: Input_Line_Manager) -> void:
 	input_obj.toggle_candidate_view_signal.connect(toggle_hints)

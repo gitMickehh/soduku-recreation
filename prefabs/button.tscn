@@ -14,7 +14,7 @@
 [ext_resource type="Resource" uid="uid://xnvhmloghm3s" path="res://stylebox_groups/complete_highlighted.tres" id="11_27eb0"]
 
 [node name="button" type="Button"]
-custom_minimum_size = Vector2(85, 85)
+custom_minimum_size = Vector2(100, 100)
 offset_right = 100.0
 offset_bottom = 100.0
 size_flags_horizontal = 0
