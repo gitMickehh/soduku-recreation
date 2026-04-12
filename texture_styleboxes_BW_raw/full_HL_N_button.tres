@@ -8,4 +8,4 @@ texture = ExtResource("1_wv1js")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.892148, 0.624815, 0.411327, 1)
+modulate_color = Color(0.913725, 0.733333, 0.552941, 1)
