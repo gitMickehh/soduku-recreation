@@ -17,7 +17,7 @@ var solver: Soduku_Solver = Soduku_Solver.new()
 var horizontal_boxes_containers: Array[Horizontal_Boxes_Container] = []
 
 func _ready() -> void:
-	RenderingServer.set_default_clear_color(Color.DARK_GRAY)
+	RenderingServer.set_default_clear_color(Color("59665f"))
 	input_lines_container.new_input_chosen.connect(_on_new_input_chosen)
 	
 	horizontal_boxes_containers.append(horizontal_blocks_container_1)
@@ -25,9 +25,11 @@ func _ready() -> void:
 	horizontal_boxes_containers.append(horizontal_blocks_container_3)
 	blocks = _get_block_objects()
 	
-	game_array = creator.setup_new_game(creator.DIFFICULTY.MEDIUM)
+	#start_game(creator.DIFFICULTY.MEDIUM)
+
+func start_game(difficulty) -> void:
+	game_array = creator.setup_new_game(difficulty)
 	_set_numbers(game_array)
-	
 	_get_game_buttons()
 	_update_buttons_auto_candidates(game_array)
 
