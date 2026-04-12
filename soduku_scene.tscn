@@ -1,42 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5g2biw27mdvg"]
+[gd_scene load_steps=5 format=3 uid="uid://b5g2biw27mdvg"]
 
 [ext_resource type="PackedScene" uid="uid://by6phyal1dave" path="res://prefabs/game_container.tscn" id="1_0n2nm"]
+[ext_resource type="Theme" uid="uid://dj3jtfjmc6exs" path="res://stylebox_groups/button_theme_default.tres" id="2_1hcgw"]
 [ext_resource type="Script" path="res://main_menu.gd" id="9_k3a4o"]
 [ext_resource type="FontFile" uid="uid://coettj6fe2mfm" path="res://art/Schoolbell-Regular.ttf" id="12_3d25l"]
-[ext_resource type="Texture2D" uid="uid://b2j764hbadnmr" path="res://art/Soduku_Sheet_BW.png" id="14_rpmvt"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nmc7c"]
-texture = ExtResource("14_rpmvt")
-texture_margin_left = 50.0
-texture_margin_top = 100.0
-texture_margin_right = 50.0
-texture_margin_bottom = 100.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(512, 1024, 512, 512)
-modulate_color = Color(0.592157, 0.807843, 0.686275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y0pom"]
-texture = ExtResource("14_rpmvt")
-texture_margin_left = 50.0
-texture_margin_top = 100.0
-texture_margin_right = 50.0
-texture_margin_bottom = 100.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(1024, 1024, 512, 512)
-modulate_color = Color(0.592157, 0.807843, 0.686275, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6cff6"]
-texture = ExtResource("14_rpmvt")
-texture_margin_left = 50.0
-texture_margin_top = 100.0
-texture_margin_right = 50.0
-texture_margin_bottom = 100.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(0, 1024, 512, 512)
-modulate_color = Color(0.592157, 0.807843, 0.686275, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -68,6 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_1hcgw")
 script = ExtResource("9_k3a4o")
 
 [node name="difficulty-buttons-container" type="VBoxContainer" parent="main-menu"]
@@ -94,9 +62,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.0509804, 0.0705882, 0.0666667, 1)
 theme_override_fonts/font = ExtResource("12_3d25l")
 theme_override_font_sizes/font_size = 60
-theme_override_styles/hover = SubResource("StyleBoxTexture_nmc7c")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_y0pom")
-theme_override_styles/normal = SubResource("StyleBoxTexture_6cff6")
 text = "easy"
 
 [node name="med" type="Button" parent="main-menu/difficulty-buttons-container"]
@@ -105,9 +70,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.0509804, 0.0705882, 0.0666667, 1)
 theme_override_fonts/font = ExtResource("12_3d25l")
 theme_override_font_sizes/font_size = 60
-theme_override_styles/hover = SubResource("StyleBoxTexture_nmc7c")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_y0pom")
-theme_override_styles/normal = SubResource("StyleBoxTexture_6cff6")
 text = "medium"
 
 [node name="hard" type="Button" parent="main-menu/difficulty-buttons-container"]
@@ -116,9 +78,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.0509804, 0.0705882, 0.0666667, 1)
 theme_override_fonts/font = ExtResource("12_3d25l")
 theme_override_font_sizes/font_size = 60
-theme_override_styles/hover = SubResource("StyleBoxTexture_nmc7c")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_y0pom")
-theme_override_styles/normal = SubResource("StyleBoxTexture_6cff6")
 text = "hard"
 
 [node name="divider2" type="Control" parent="main-menu/difficulty-buttons-container"]
