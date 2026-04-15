@@ -18,7 +18,9 @@ var horizontal_boxes_containers: Array[Horizontal_Boxes_Container] = []
 
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color("59665f"))
+	
 	input_lines_container.new_input_chosen.connect(_on_new_input_chosen)
+	input_lines_container.toggle_candidate_view_signal.connect(_toggle_auto_candidates)
 	
 	horizontal_boxes_containers.append(horizontal_blocks_container_1)
 	horizontal_boxes_containers.append(horizontal_blocks_container_2)
@@ -31,7 +33,7 @@ func start_game(difficulty) -> void:
 	game_array = creator.setup_new_game(difficulty)
 	_set_numbers(game_array)
 	_get_game_buttons()
-	_update_buttons_auto_candidates(game_array)
+	#_update_buttons_auto_candidates(game_array)
 
 func _on_new_input_chosen(new_input: int) -> void:
 	current_input = new_input
@@ -54,6 +56,11 @@ func _get_block_objects() -> Array[Block_Manager]:
 	return in_blocks
 
 func _on_board_button_pressed(button: Button_Logic) -> void:
+	
+	if input_lines_container.candidate_input_mode_state:
+		button.set_manual_candidate(current_input)
+		return
+	
 	if button.number_is_equal(current_input): return
 	button.set_number_text(current_input)
 	game_array[Soduku_Solver.get_index_from_vector(button.cell_data.cell_location.parent_block_vector)][Soduku_Solver.get_index_from_vector(button.cell_data.cell_location.location_vector)] = current_input
@@ -81,7 +88,8 @@ func after_input_check(duplicate_numbers: Array[int]) -> void:
 	for f in full_numbers:
 		light_up_complete_number(solver.get_number_locations(f, game_array))
 	
-	_update_buttons_auto_candidates(game_array)
+	if input_lines_container.candidates_view_state:
+		_update_buttons_auto_candidates(game_array)
 
 func light_up_complete_number(cell_locations:Array[CellLocation]) -> void:
 	for cl in cell_locations:
@@ -93,3 +101,7 @@ func _update_buttons_auto_candidates(given_game_array) -> void:
 	for button in game_buttons:
 		if button.disabled: continue
 		button.update_auto_candidate_list(solver.get_non_candidates_in_location(given_game_array, button.cell_data.cell_location))
+
+func _toggle_auto_candidates(toggle_auto_candidates_mode: bool) -> void:
+	if toggle_auto_candidates_mode:
+		_update_buttons_auto_candidates(game_array)

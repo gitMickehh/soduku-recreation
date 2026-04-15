@@ -28,28 +28,22 @@ var previous_state: BUTTON_STATE = BUTTON_STATE.DEFAULT
 @onready var hint_label_8: Label = $"hints_container/line-3/hint-label-8"
 @onready var hint_label_9: Label = $"hints_container/line-3/hint-label-9"
 
+var manual_candidates: Array[int] = []
+
 func _ready() -> void:
-	toggle_hints(false)
+	_toggle_hints(false)
 	connect("pressed", func():
 		pressed_with_info.emit(self)
 	)
 	default_color()
 
+#actions and logic
 func set_index_id(index_vector: Vector2i, block_vector: Vector2i) -> void:
 	cell_data.cell_location.location_vector = index_vector
 	cell_data.cell_location.parent_block_vector = block_vector
 
 #func set_selected(selected: bool) -> void:
 	#disabled = selected
-
-func toggle_hints(toggleHints: bool) -> void:
-	if disabled:
-		hints_container.visible = false
-		return
-	hints_container.visible = toggleHints
-
-func get_hints_status() -> bool:
-	return hints_container.visible
 
 func set_number_text(number: int) -> void:
 	cell_data.content = number
@@ -69,40 +63,25 @@ func set_number_text(number: int) -> void:
 	#if filled:
 		#toggle_hints(false)
 
+func set_manual_candidate(number: int) -> void:
+	if manual_candidates.has(number):
+		manual_candidates.remove_at(manual_candidates.find(number))
+	else:
+		manual_candidates.append(number)
+	
+	_show_manual_candidates()
+
 func number_is_equal(number: int) -> bool:
 	return number == cell_data.content
 
-func default_color() -> void:
-	update_button_look(default_color_styleboxGroup)
-
-func default_color_HL() -> void:
-	update_button_look(default_HL_color_styleboxGroup)
-
-func mistake_color() -> void:
-	update_button_look(duplicate_color_styleboxGroup)
-
-func mistake_color_HL() -> void:
-	update_button_look(duplicate_HL_color_styleboxGroup)
-
-func complete_color() -> void:
-	update_button_look(complete_color_styleboxGroup)
-
-func complete_color_HL() -> void:
-	update_button_look(complete_HL_color_styleboxGroup)
-
-func update_button_styleboxes(normal: StyleBox, hover: StyleBox, disabled_box: StyleBox) -> void:
-	remove_theme_stylebox_override("disabled")
-	remove_theme_stylebox_override("hover")
-	remove_theme_stylebox_override("normal")
-	add_theme_stylebox_override("normal", normal)
-	add_theme_stylebox_override("disabled", disabled_box)
-	add_theme_stylebox_override("pressed", disabled_box)
-	add_theme_stylebox_override("hover", hover)
-
 func connect_input_manager_singals(input_obj: Input_Line_Manager) -> void:
-	input_obj.toggle_candidate_view_signal.connect(toggle_hints)
+	#input_obj.toggle_candidate_view_signal.connect(_toggle_hints)
+	input_obj.toggle_candidate_input_state_signal.connect(_switch_to_manual_candidates)
+	input_obj.toggle_any_candidate_view_signal.connect(_toggle_hints)
+	
 	input_obj.new_input_chosen.connect(_new_input_chosen)
 
+#signal listeners
 func _new_input_chosen(new_input: int) -> void:
 	if get_number() == new_input && new_input != 0:
 		#print("my numebr is chosen!")
@@ -110,11 +89,76 @@ func _new_input_chosen(new_input: int) -> void:
 	else:
 		_revert_HL()
 
+func _toggle_hints(toggleHints: bool) -> void:
+	if disabled:
+		hints_container.visible = false
+		return
+	hints_container.visible = toggleHints
+
+func _switch_to_manual_candidates(manual_candidates_on: bool) -> void:
+	if manual_candidates_on:
+		_show_manual_candidates()
+
+#button state
+func set_state(new_state: BUTTON_STATE) -> void:
+	previous_state = button_state
+	button_state = new_state
+	#print("previous state: " + str(previous_state))
+	#print("after: previous state: " + str(previous_state))
+	
+	match button_state:
+		BUTTON_STATE.DEFAULT:
+			default_color()
+			disabled = false
+			if text != "":
+				_toggle_hints(false)
+		BUTTON_STATE.DUPLICATE:
+			mistake_color()
+		BUTTON_STATE.COMPLETE:
+			complete_color()
+		BUTTON_STATE.HIGHLIGHTED:
+			_HL_state_look_update(previous_state)
+		BUTTON_STATE.LOCKED:
+			default_color()
+			disabled = true
+		BUTTON_STATE.INPUT_SELECTED:
+			disabled = true
+
+func _revert_HL() -> void:
+	if button_state == BUTTON_STATE.HIGHLIGHTED:
+		#print("reverting this button: " + text + " ps: " + str(previous_state))
+		prev_state()
+
+func _HL_state_look_update(old_state) -> void:
+	match old_state:
+		BUTTON_STATE.DEFAULT:
+			default_color_HL()
+		BUTTON_STATE.DUPLICATE:
+			mistake_color_HL()
+		BUTTON_STATE.COMPLETE:
+			complete_color_HL()
+		_:
+			default_color_HL()
+
+#button info
+func is_locked() -> bool:
+	return button_state == BUTTON_STATE.LOCKED
+
+func get_number() -> int:
+	return text.to_int()
+
+func prev_state() -> void:
+	set_state(previous_state)
+
+func get_hints_status() -> bool:
+	return hints_container.visible
+
+#candidate options
 func update_auto_candidate_list(list_of_non_candidates: Array[int]) -> void:
 	for x in range(1,10):
-		_toggle_auto_candidate_number(x, !list_of_non_candidates.has(x))
+		_toggle_candidate_number(x, !list_of_non_candidates.has(x))
 
-func _toggle_auto_candidate_number(num: int, toggle_option: bool) -> void:
+func _toggle_candidate_number(num: int, toggle_option: bool) -> void:
 	match num:
 		1:
 			#hint_label_1.visible = toggle_option
@@ -163,58 +207,42 @@ func _toggle_auto_candidate_number(num: int, toggle_option: bool) -> void:
 			else:
 				hint_label_9.text = " "
 
-func set_state(new_state: BUTTON_STATE) -> void:
-	previous_state = button_state
-	button_state = new_state
-	#print("previous state: " + str(previous_state))
-	#print("after: previous state: " + str(previous_state))
-	
-	match button_state:
-		BUTTON_STATE.DEFAULT:
-			default_color()
-			disabled = false
-			if text != "":
-				toggle_hints(false)
-		BUTTON_STATE.DUPLICATE:
-			mistake_color()
-		BUTTON_STATE.COMPLETE:
-			complete_color()
-		BUTTON_STATE.HIGHLIGHTED:
-			_HL_state_look_update(previous_state)
-		BUTTON_STATE.LOCKED:
-			default_color()
-			disabled = true
-		BUTTON_STATE.INPUT_SELECTED:
-			disabled = true
+func _show_manual_candidates() -> void:
+	for x in range(1,10):
+		_toggle_candidate_number(x, manual_candidates.has(x))
 
-func _revert_HL() -> void:
-	if button_state == BUTTON_STATE.HIGHLIGHTED:
-		#print("reverting this button: " + text + " ps: " + str(previous_state))
-		prev_state()
+#button look
+func default_color() -> void:
+	update_button_look(default_color_styleboxGroup)
 
-func prev_state() -> void:
-	set_state(previous_state)
+func default_color_HL() -> void:
+	update_button_look(default_HL_color_styleboxGroup)
 
-func _HL_state_look_update(old_state) -> void:
-	match old_state:
-		BUTTON_STATE.DEFAULT:
-			default_color_HL()
-		BUTTON_STATE.DUPLICATE:
-			mistake_color_HL()
-		BUTTON_STATE.COMPLETE:
-			complete_color_HL()
-		_:
-			default_color_HL()
+func mistake_color() -> void:
+	update_button_look(duplicate_color_styleboxGroup)
 
-func is_locked() -> bool:
-	return button_state == BUTTON_STATE.LOCKED
+func mistake_color_HL() -> void:
+	update_button_look(duplicate_HL_color_styleboxGroup)
 
-func get_number() -> int:
-	return text.to_int()
+func complete_color() -> void:
+	update_button_look(complete_color_styleboxGroup)
+
+func complete_color_HL() -> void:
+	update_button_look(complete_HL_color_styleboxGroup)
+
+func update_button_styleboxes(normal: StyleBox, hover: StyleBox, disabled_box: StyleBox) -> void:
+	remove_theme_stylebox_override("disabled")
+	remove_theme_stylebox_override("hover")
+	remove_theme_stylebox_override("normal")
+	add_theme_stylebox_override("normal", normal)
+	add_theme_stylebox_override("disabled", disabled_box)
+	add_theme_stylebox_override("pressed", disabled_box)
+	add_theme_stylebox_override("hover", hover)
 
 func update_button_look(stylebox_group: Stylebox_Group) -> void:
 	update_button_styleboxes(stylebox_group.normal_stylebox, stylebox_group.hover_stylebox, stylebox_group.disabled_stylebox)
 
+#input button options
 func candidate_input_mode(mode_on: bool) -> void:
 	if mode_on:
 		add_theme_font_size_override("font_size", 25)
