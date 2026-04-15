@@ -17,7 +17,7 @@ var solver: Soduku_Solver = Soduku_Solver.new()
 var horizontal_boxes_containers: Array[Horizontal_Boxes_Container] = []
 
 func _ready() -> void:
-	RenderingServer.set_default_clear_color(Color("59665f"))
+	RenderingServer.set_default_clear_color(Color("838085"))
 	
 	input_lines_container.new_input_chosen.connect(_on_new_input_chosen)
 	input_lines_container.toggle_candidate_view_signal.connect(_toggle_auto_candidates)

@@ -8,4 +8,4 @@ texture = ExtResource("1_8r3rs")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.954437, 0.586222, 0.642121, 1)
+modulate_color = Color(0.956863, 0.517647, 0.764706, 1)

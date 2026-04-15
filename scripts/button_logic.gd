@@ -233,11 +233,15 @@ func complete_color_HL() -> void:
 func update_button_styleboxes(normal: StyleBox, hover: StyleBox, disabled_box: StyleBox) -> void:
 	remove_theme_stylebox_override("disabled")
 	remove_theme_stylebox_override("hover")
+	remove_theme_stylebox_override("pressed")
 	remove_theme_stylebox_override("normal")
+	remove_theme_stylebox_override("focus")
+	
 	add_theme_stylebox_override("normal", normal)
 	add_theme_stylebox_override("disabled", disabled_box)
 	add_theme_stylebox_override("pressed", disabled_box)
 	add_theme_stylebox_override("hover", hover)
+	add_theme_stylebox_override("focus", disabled_box)
 
 func update_button_look(stylebox_group: Stylebox_Group) -> void:
 	update_button_styleboxes(stylebox_group.normal_stylebox, stylebox_group.hover_stylebox, stylebox_group.disabled_stylebox)
