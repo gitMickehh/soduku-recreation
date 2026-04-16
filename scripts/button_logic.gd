@@ -208,6 +208,7 @@ func _toggle_candidate_number(num: int, toggle_option: bool) -> void:
 				hint_label_9.text = " "
 
 func _show_manual_candidates() -> void:
+	release_focus()
 	for x in range(1,10):
 		_toggle_candidate_number(x, manual_candidates.has(x))
 
