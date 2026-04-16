@@ -108,13 +108,16 @@ func set_state(new_state: BUTTON_STATE) -> void:
 	
 	match button_state:
 		BUTTON_STATE.DEFAULT:
+			release_focus()
 			default_color()
 			disabled = false
 			if text != "":
 				_toggle_hints(false)
 		BUTTON_STATE.DUPLICATE:
+			release_focus()
 			mistake_color()
 		BUTTON_STATE.COMPLETE:
+			release_focus()
 			complete_color()
 		BUTTON_STATE.HIGHLIGHTED:
 			_HL_state_look_update(previous_state)
