@@ -13,7 +13,7 @@ config_version=5
 config/name="soduku-recreation"
 run/main_scene="res://soduku_scene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-boot_splash/bg_color=Color(0.513726, 0.501961, 0.521569, 1)
+boot_splash/bg_color=Color(0.0196078, 0.054902, 0.101961, 1)
 boot_splash/image="res://art/soduku+title.png"
 config/icon="res://icon.svg"
 

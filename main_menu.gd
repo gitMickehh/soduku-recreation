@@ -6,7 +6,12 @@ extends Control
 @onready var difficulty_buttons_container: VBoxContainer = $"difficulty-buttons-container"
 @onready var game_container: MarginContainer = $"../Game_Container"
 
+@export var stylebox_groups: Array[Stylebox_Group]
+
 func _ready() -> void:
+	RenderingServer.set_default_clear_color(Color("050e1a"))
+	_apply_stylebox_group_colors()
+	
 	var creator = Soduku_Creator.new()
 	easy_button.connect("pressed", func():
 		_open_game(creator.DIFFICULTY.EASY)
@@ -24,3 +29,7 @@ func _open_game(difficulty) -> void:
 	game_container.visible = true
 	game_container.start_game(difficulty)
 	self.visible = false
+
+func _apply_stylebox_group_colors() -> void:
+	for stbxgrp in stylebox_groups:
+		stbxgrp.apply_color()

@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5g2biw27mdvg"]
+[gd_scene load_steps=15 format=3 uid="uid://b5g2biw27mdvg"]
 
 [ext_resource type="PackedScene" uid="uid://by6phyal1dave" path="res://prefabs/game_container.tscn" id="1_0n2nm"]
 [ext_resource type="Theme" uid="uid://dj3jtfjmc6exs" path="res://stylebox_groups/button_theme_default.tres" id="2_1hcgw"]
+[ext_resource type="Script" path="res://scripts/utility/StyleboxGroup.gd" id="4_s1tq5"]
+[ext_resource type="Resource" uid="uid://bs8y7pt03ahv1" path="res://stylebox_groups/candidate_input.tres" id="5_a8xrs"]
+[ext_resource type="Resource" uid="uid://byp4rg7cs6xqc" path="res://stylebox_groups/candidate_view.tres" id="6_7i0on"]
+[ext_resource type="Resource" uid="uid://d01kibdniqdwy" path="res://stylebox_groups/complete_button.tres" id="7_qqrr6"]
+[ext_resource type="Resource" uid="uid://xnvhmloghm3s" path="res://stylebox_groups/complete_highlighted.tres" id="8_0v4cc"]
+[ext_resource type="Resource" uid="uid://b3walgbyqwln8" path="res://stylebox_groups/default_button.tres" id="9_b06yd"]
 [ext_resource type="Script" path="res://main_menu.gd" id="9_k3a4o"]
+[ext_resource type="Resource" uid="uid://ndcf08h7hebx" path="res://stylebox_groups/default_highlighted.tres" id="10_us4wc"]
+[ext_resource type="Resource" uid="uid://chu0817jhp1eu" path="res://stylebox_groups/mistake_button.tres" id="11_1lc0m"]
+[ext_resource type="Resource" uid="uid://crpajnbja0142" path="res://stylebox_groups/mistake_highlighted.tres" id="12_0a768"]
 [ext_resource type="FontFile" uid="uid://coettj6fe2mfm" path="res://art/Schoolbell-Regular.ttf" id="12_3d25l"]
+[ext_resource type="Resource" uid="uid://c4mbs6443jh31" path="res://stylebox_groups/remove_button.tres" id="13_tj2ud"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -37,6 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_1hcgw")
 script = ExtResource("9_k3a4o")
+stylebox_groups = Array[ExtResource("4_s1tq5")]([ExtResource("5_a8xrs"), ExtResource("6_7i0on"), ExtResource("7_qqrr6"), ExtResource("8_0v4cc"), ExtResource("9_b06yd"), ExtResource("10_us4wc"), ExtResource("11_1lc0m"), ExtResource("12_0a768"), ExtResource("13_tj2ud")])
 
 [node name="difficulty-buttons-container" type="VBoxContainer" parent="main-menu"]
 layout_mode = 1
