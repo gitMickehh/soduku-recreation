@@ -5,3 +5,8 @@ extends Resource
 @export var normal_stylebox: StyleBox
 @export var hover_stylebox: StyleBox
 @export var disabled_stylebox: StyleBox
+
+func change_color(color: Color) -> void:
+	normal_stylebox.modulate_color = color
+	hover_stylebox.modulate_color = color
+	disabled_stylebox.modulate_color = color

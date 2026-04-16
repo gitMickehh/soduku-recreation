@@ -49,19 +49,9 @@ func set_number_text(number: int) -> void:
 	cell_data.content = number
 	if number == 0: 
 		text = ""
-		#set_filled(false)
-		#set_state(BUTTON_STATE.DEFAULT)
 	else:
 		text = str(number)
-		#set_state(BUTTON_STATE.DEFAULT_FILLED)
-		#set_filled(true)
 	set_state(BUTTON_STATE.DEFAULT)
-
-#func set_filled(fill: bool) -> void:
-	#
-	#filled = fill
-	#if filled:
-		#toggle_hints(false)
 
 func set_manual_candidate(number: int) -> void:
 	if manual_candidates.has(number):
@@ -103,8 +93,6 @@ func _switch_to_manual_candidates(manual_candidates_on: bool) -> void:
 func set_state(new_state: BUTTON_STATE) -> void:
 	previous_state = button_state
 	button_state = new_state
-	#print("previous state: " + str(previous_state))
-	#print("after: previous state: " + str(previous_state))
 	
 	match button_state:
 		BUTTON_STATE.DEFAULT:
