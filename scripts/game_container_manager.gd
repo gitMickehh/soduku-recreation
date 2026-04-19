@@ -119,4 +119,9 @@ func _on_restart_puzzle_pressed() -> void:
 	game_started.emit()
 
 func _on_check_puzzle_pressed() -> void:
-	pass
+	var correct_game_board = creator.get_complete_board()
+	for block_index in range(9):
+		for cell_index in range(9):
+			if (not (blocks[block_index].buttons[cell_index]).disabled) && blocks[block_index].buttons[cell_index].text != "":
+				var cell_is_right = int(blocks[block_index].buttons[cell_index].text) == correct_game_board[block_index][cell_index]
+				blocks[block_index].buttons[cell_index].cell_checked(cell_is_right)

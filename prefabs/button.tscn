@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cob6iph6m0dbc" path="res://art/wrong.png" id="13_mhnwm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rdw8r"]
+resource_local_to_scene = true
 shader = ExtResource("13_kmtke")
 shader_parameter/my_color = Vector3(0.2, 0.8, 0.2)
 

@@ -59,6 +59,7 @@ func set_number_text(number: int) -> void:
 	else:
 		text = str(number)
 	set_state(BUTTON_STATE.DEFAULT)
+	hide_cell_check()
 
 func set_manual_candidate(number: int) -> void:
 	if manual_candidates.has(number):
@@ -261,8 +262,12 @@ func _set_hint_to_wrong() -> void:
 	checking_texture.texture = texture_wrong
 	checking_texture.material.set_shader_parameter("my_color", Vector3(wrong_color.r, wrong_color.g, wrong_color.b))
 
-func _on_cell_checked(isRight: bool) -> void:
+func cell_checked(isRight: bool) -> void:
+	checking_texture.visible = true
 	if isRight:
 		_set_hint_to_right()
 	else:
 		_set_hint_to_wrong()
+
+func hide_cell_check() -> void:
+	checking_texture.visible = false
