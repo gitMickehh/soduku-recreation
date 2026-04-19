@@ -12,6 +12,9 @@ var block_8: Array[int] = [3,1,8,7,4,2,9,5,6]
 var block_9: Array[int] = [7,2,6,5,3,9,8,4,1]
 var board_array = [block_1, block_2, block_3, block_4, block_5, block_6, block_7, block_8, block_9]
 
+var complete_board_array = []
+var starting_board_array = []
+
 enum DIFFICULTY {EASY, MEDIUM, HARD}
 
 func _difficulty(diff: DIFFICULTY) -> Dictionary:
@@ -62,6 +65,8 @@ func setup_new_game(difficulty: DIFFICULTY) -> Array:
 		shuffle_numbers = shuffle_original.duplicate()
 		shuffle_numbers.shuffle()
 	
+	complete_board_array = board_array.duplicate(true)
+	
 	#random cells to take out
 	for rcells in range(randi_range(difficulty_dictionary.min_hidden,difficulty_dictionary.max_hidden)):
 		var one_cell = get_cell_location_from_global_index(randi_range(0,80))
@@ -70,7 +75,14 @@ func setup_new_game(difficulty: DIFFICULTY) -> Array:
 		(board_array[Soduku_Solver.get_index_from_vector(one_cell.parent_block_vector)])[Soduku_Solver.get_index_from_vector(one_cell.location_vector)] = 0
 		(board_array[Soduku_Solver.get_index_from_vector(other_cell.parent_block_vector)])[Soduku_Solver.get_index_from_vector(other_cell.location_vector)] = 0
 	
+	starting_board_array = board_array.duplicate(true)
 	return board_array
+
+func get_complete_board() -> Array:
+	return complete_board_array.duplicate(true)
+
+func get_starting_board() -> Array:
+	return starting_board_array.duplicate(true)
 
 func _get_rotational_counterpart_int(index: int) -> int:
 	match index:
@@ -151,3 +163,11 @@ func get_cell_location_from_global_index(global_index: int) -> CellLocation:
 	var index_id = (global_index - (9 * block_index))
 	
 	return CellLocation.new_cell(Soduku_Solver.get_vector_from_index(index_id),Soduku_Solver.get_vector_from_index(block_index))
+
+#utility
+static func print_game_array(array_to_print: Array) -> void:
+	var print_str = "[\n"
+	for block in array_to_print:
+		print_str = print_str + str(block) + ",\n"
+	print_str = print_str + "\n]"
+	print(print_str)

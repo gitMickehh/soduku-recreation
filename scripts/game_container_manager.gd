@@ -19,6 +19,10 @@ var horizontal_boxes_containers: Array[Horizontal_Boxes_Container] = []
 
 signal game_started()
 
+func connect_options_screen(optionsScreen: OptionsScreen) -> void:
+	optionsScreen.check_puzzle_signal.connect(_on_check_puzzle_pressed)
+	optionsScreen.restart_puzzle_signal.connect(_on_restart_puzzle_pressed)
+
 func _ready() -> void:
 	input_lines_container.new_input_chosen.connect(_on_new_input_chosen)
 	input_lines_container.toggle_candidate_view_signal.connect(_toggle_auto_candidates)
@@ -34,20 +38,20 @@ func start_game(difficulty) -> void:
 	game_array = creator.setup_new_game(difficulty)
 	_set_numbers(game_array)
 	_get_game_buttons()
-	#_update_buttons_auto_candidates(game_array)
 	game_started.emit()
 
 func _on_new_input_chosen(new_input: int) -> void:
 	current_input = new_input
 	#print(current_input)
 
-func _set_numbers(game_array) -> void:
+func _set_numbers(game_array, initial_setup: bool = true) -> void:
 	var index = 0
 	var loops = 0
 	for block_group in horizontal_boxes_containers:
 		block_group.set_blocks_numbers(game_array[index], game_array[index+1],game_array[index+2], loops)
-		block_group.connect_press(_on_board_button_pressed)
-		block_group.attach_input_manager(input_lines_container)
+		if initial_setup:
+			block_group.connect_press(_on_board_button_pressed)
+			block_group.attach_input_manager(input_lines_container)
 		index = index + 3
 		loops = loops + 1
 
@@ -107,3 +111,12 @@ func _update_buttons_auto_candidates(given_game_array) -> void:
 func _toggle_auto_candidates(toggle_auto_candidates_mode: bool) -> void:
 	if toggle_auto_candidates_mode:
 		_update_buttons_auto_candidates(game_array)
+
+func _on_restart_puzzle_pressed() -> void:
+	game_array = creator.get_starting_board()
+	_set_numbers(game_array, false)
+	_get_game_buttons()
+	game_started.emit()
+
+func _on_check_puzzle_pressed() -> void:
+	pass

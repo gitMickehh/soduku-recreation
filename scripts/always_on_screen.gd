@@ -1,3 +1,4 @@
+class_name OptionsScreen
 extends Control
 
 @onready var opening_screen: VBoxContainer = $"opening-screen"
@@ -22,6 +23,9 @@ var timer_in_seconds :float = 0
 
 var options_opened := false
 
+signal restart_puzzle_signal()
+signal check_puzzle_signal()
+
 func _ready() -> void:
 	confirm_button.connect("pressed", _confirm_opening_message_button_pressed)
 	options_button.connect("pressed", _options_button_pressed)
@@ -30,6 +34,7 @@ func _ready() -> void:
 	check_puzzle_button.connect("pressed", _check_puzzle_button_pressed)
 	timer_on_button.connect("pressed", _timer_on_button_pressed)
 	
+	game_container.connect_options_screen(self)
 	game_container.game_started.connect(_on_game_started)
 	
 	_check_buttons_availability()
@@ -69,13 +74,19 @@ func _confirm_opening_message_button_pressed() -> void:
 
 func _options_button_pressed() -> void:
 	if options_opened:
-		options_menu_color_holder.visible = false
-		options_menu.visible = false
-		options_opened = false
+		_close_options_menu()
 	else:
-		options_menu_color_holder.visible = true
-		options_menu.visible = true
-		options_opened = true
+		_open_options_menu()
+
+func _close_options_menu():
+	options_menu_color_holder.visible = false
+	options_menu.visible = false
+	options_opened = false
+
+func _open_options_menu():
+	options_menu_color_holder.visible = true
+	options_menu.visible = true
+	options_opened = true
 
 func _check_buttons_availability() -> void:
 	restart_button.disabled = not game_is_on
@@ -88,10 +99,12 @@ func _check_buttons_availability() -> void:
 		timer_on_button.text = "Timer On"
 
 func _restart_button_pressed() -> void:
-	pass
+	restart_puzzle_signal.emit()
+	_close_options_menu()
 
 func _check_puzzle_button_pressed() -> void:
-	pass
+	check_puzzle_signal.emit()
+	_close_options_menu()
 
 func _timer_on_button_pressed() -> void:
 	if timer_is_on:

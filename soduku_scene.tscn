@@ -8,14 +8,14 @@
 [ext_resource type="Resource" uid="uid://d01kibdniqdwy" path="res://stylebox_groups/complete_button.tres" id="7_qqrr6"]
 [ext_resource type="Resource" uid="uid://xnvhmloghm3s" path="res://stylebox_groups/complete_highlighted.tres" id="8_0v4cc"]
 [ext_resource type="Resource" uid="uid://b3walgbyqwln8" path="res://stylebox_groups/default_button.tres" id="9_b06yd"]
-[ext_resource type="Script" path="res://main_menu.gd" id="9_k3a4o"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="9_k3a4o"]
 [ext_resource type="Resource" uid="uid://ndcf08h7hebx" path="res://stylebox_groups/default_highlighted.tres" id="10_us4wc"]
 [ext_resource type="Resource" uid="uid://chu0817jhp1eu" path="res://stylebox_groups/mistake_button.tres" id="11_1lc0m"]
 [ext_resource type="Resource" uid="uid://crpajnbja0142" path="res://stylebox_groups/mistake_highlighted.tres" id="12_0a768"]
 [ext_resource type="FontFile" uid="uid://coettj6fe2mfm" path="res://art/Schoolbell-Regular.ttf" id="12_3d25l"]
 [ext_resource type="Resource" uid="uid://c4mbs6443jh31" path="res://stylebox_groups/remove_button.tres" id="13_tj2ud"]
 [ext_resource type="Texture2D" uid="uid://dq3pneyfn2o0v" path="res://art/options-icon.png" id="15_m3f7q"]
-[ext_resource type="Script" path="res://always_on_screen.gd" id="15_mkaoi"]
+[ext_resource type="Script" path="res://scripts/always_on_screen.gd" id="15_mkaoi"]
 
 [sub_resource type="Theme" id="Theme_qojnm"]
 

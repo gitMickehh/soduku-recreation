@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://w0uogmtdd4fr"]
+[gd_scene load_steps=17 format=3 uid="uid://w0uogmtdd4fr"]
 
 [ext_resource type="Script" path="res://scripts/button_logic.gd" id="1_2bxnj"]
 [ext_resource type="StyleBox" uid="uid://byyn2s0vnia44" path="res://texture_styleboxes_BW_raw/default_D_button.tres" id="1_kv5rv"]
@@ -12,6 +12,13 @@
 [ext_resource type="Resource" uid="uid://ndcf08h7hebx" path="res://stylebox_groups/default_highlighted.tres" id="9_u1val"]
 [ext_resource type="Resource" uid="uid://crpajnbja0142" path="res://stylebox_groups/mistake_highlighted.tres" id="10_jgmba"]
 [ext_resource type="Resource" uid="uid://xnvhmloghm3s" path="res://stylebox_groups/complete_highlighted.tres" id="11_27eb0"]
+[ext_resource type="Texture2D" uid="uid://c6qiencijt0mi" path="res://art/right.png" id="13_dyhye"]
+[ext_resource type="Shader" path="res://art/shaders/multiply_color_shader.gdshader" id="13_kmtke"]
+[ext_resource type="Texture2D" uid="uid://cob6iph6m0dbc" path="res://art/wrong.png" id="13_mhnwm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rdw8r"]
+shader = ExtResource("13_kmtke")
+shader_parameter/my_color = Vector3(0.2, 0.8, 0.2)
 
 [node name="button" type="Button"]
 custom_minimum_size = Vector2(100, 100)
@@ -36,6 +43,10 @@ complete_color_styleboxGroup = ExtResource("8_cjq5w")
 default_HL_color_styleboxGroup = ExtResource("9_u1val")
 duplicate_HL_color_styleboxGroup = ExtResource("10_jgmba")
 complete_HL_color_styleboxGroup = ExtResource("11_27eb0")
+texture_wrong = ExtResource("13_mhnwm")
+wrong_color = Color(0.911546, 0.131547, 0.0576239, 1)
+texture_right = ExtResource("13_dyhye")
+right_color = Color(0, 0.778717, 0, 1)
 
 [node name="hints_container" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -165,3 +176,15 @@ layout_mode = 2
 
 [node name="divider2" type="Control" parent="hints_container"]
 layout_mode = 2
+
+[node name="checking-texture" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_rdw8r")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_dyhye")
+expand_mode = 2

@@ -28,6 +28,13 @@ var previous_state: BUTTON_STATE = BUTTON_STATE.DEFAULT
 @onready var hint_label_8: Label = $"hints_container/line-3/hint-label-8"
 @onready var hint_label_9: Label = $"hints_container/line-3/hint-label-9"
 
+#checking puzzle! :D 
+@export var texture_wrong: Texture2D
+@export var wrong_color: Color
+@export var texture_right: Texture2D
+@export var right_color: Color
+@onready var checking_texture: TextureRect = $"checking-texture"
+
 var manual_candidates: Array[int] = []
 
 func _ready() -> void:
@@ -244,3 +251,18 @@ func candidate_input_mode(mode_on: bool) -> void:
 		add_theme_font_size_override("font_size", 25)
 	else:
 		remove_theme_font_size_override("font_size")
+
+#checking puzzle
+func _set_hint_to_right() -> void:
+	checking_texture.texture = texture_right
+	checking_texture.material.set_shader_parameter("my_color", Vector3(right_color.r, right_color.g, right_color.b))
+
+func _set_hint_to_wrong() -> void:
+	checking_texture.texture = texture_wrong
+	checking_texture.material.set_shader_parameter("my_color", Vector3(wrong_color.r, wrong_color.g, wrong_color.b))
+
+func _on_cell_checked(isRight: bool) -> void:
+	if isRight:
+		_set_hint_to_right()
+	else:
+		_set_hint_to_wrong()
