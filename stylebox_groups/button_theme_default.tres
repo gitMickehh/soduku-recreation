@@ -41,3 +41,4 @@ Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/constants/shadow_outline_size = 1
 Label/styles/normal = SubResource("StyleBoxEmpty_al3ox")
+VBoxContainer/constants/separation = 4

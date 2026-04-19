@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5g2biw27mdvg"]
+[gd_scene load_steps=18 format=3 uid="uid://b5g2biw27mdvg"]
 
 [ext_resource type="PackedScene" uid="uid://by6phyal1dave" path="res://prefabs/game_container.tscn" id="1_0n2nm"]
 [ext_resource type="Theme" uid="uid://dj3jtfjmc6exs" path="res://stylebox_groups/button_theme_default.tres" id="2_1hcgw"]
@@ -14,6 +14,10 @@
 [ext_resource type="Resource" uid="uid://crpajnbja0142" path="res://stylebox_groups/mistake_highlighted.tres" id="12_0a768"]
 [ext_resource type="FontFile" uid="uid://coettj6fe2mfm" path="res://art/Schoolbell-Regular.ttf" id="12_3d25l"]
 [ext_resource type="Resource" uid="uid://c4mbs6443jh31" path="res://stylebox_groups/remove_button.tres" id="13_tj2ud"]
+[ext_resource type="Texture2D" uid="uid://dq3pneyfn2o0v" path="res://art/options-icon.png" id="15_m3f7q"]
+[ext_resource type="Script" path="res://always_on_screen.gd" id="15_mkaoi"]
+
+[sub_resource type="Theme" id="Theme_qojnm"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -26,7 +30,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Game_Container" parent="." instance=ExtResource("1_0n2nm")]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -39,6 +42,7 @@ offset_right = 414.5
 offset_bottom = 509.5
 
 [node name="main-menu" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,3 +97,140 @@ text = "hard"
 
 [node name="divider2" type="Control" parent="main-menu/difficulty-buttons-container"]
 layout_mode = 2
+
+[node name="AlwaysOnThingy" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_1hcgw")
+script = ExtResource("15_mkaoi")
+
+[node name="opening-screen" type="VBoxContainer" parent="AlwaysOnThingy"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="AlwaysOnThingy/opening-screen"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme = SubResource("Theme_qojnm")
+theme_override_colors/font_color = Color(0.903598, 0.903598, 0.903598, 1)
+theme_override_font_sizes/font_size = 60
+text = "Hello!
+This might have some bugs, please be patient with it! if you come across anything please let me know and just reset the game!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="divider" type="Control" parent="AlwaysOnThingy/opening-screen"]
+layout_mode = 2
+
+[node name="confirm_button" type="Button" parent="AlwaysOnThingy/opening-screen"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+text = "Okay!1!11!                 Okay"
+
+[node name="always-on-screen" type="Control" parent="AlwaysOnThingy"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="options-menu-color-holder" type="ColorRect" parent="AlwaysOnThingy/always-on-screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0646965, 0.0646965, 0.0646965, 0.498039)
+
+[node name="options-button" type="Button" parent="AlwaysOnThingy/always-on-screen"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="AlwaysOnThingy/always-on-screen/options-button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("15_m3f7q")
+expand_mode = 2
+
+[node name="options-menu" type="VBoxContainer" parent="AlwaysOnThingy/always-on-screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -265.0
+offset_right = 300.0
+offset_bottom = 265.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="divider2" type="Control" parent="AlwaysOnThingy/always-on-screen/options-menu"]
+layout_mode = 2
+
+[node name="restart-button" type="Button" parent="AlwaysOnThingy/always-on-screen/options-menu"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+text = "Restart"
+
+[node name="check-puzzle-button" type="Button" parent="AlwaysOnThingy/always-on-screen/options-menu"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+text = "Check Puzzle"
+
+[node name="timerOn-button" type="Button" parent="AlwaysOnThingy/always-on-screen/options-menu"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+text = "Timer On"
+
+[node name="divider" type="Control" parent="AlwaysOnThingy/always-on-screen/options-menu"]
+layout_mode = 2
+
+[node name="timer-label" type="Label" parent="AlwaysOnThingy/always-on-screen"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_right = 48.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "01:23"

@@ -1,3 +1,4 @@
+class_name GameContainer
 extends MarginContainer
 
 var current_input: int = 0
@@ -16,6 +17,8 @@ var solver: Soduku_Solver = Soduku_Solver.new()
 
 var horizontal_boxes_containers: Array[Horizontal_Boxes_Container] = []
 
+signal game_started()
+
 func _ready() -> void:
 	input_lines_container.new_input_chosen.connect(_on_new_input_chosen)
 	input_lines_container.toggle_candidate_view_signal.connect(_toggle_auto_candidates)
@@ -32,6 +35,7 @@ func start_game(difficulty) -> void:
 	_set_numbers(game_array)
 	_get_game_buttons()
 	#_update_buttons_auto_candidates(game_array)
+	game_started.emit()
 
 func _on_new_input_chosen(new_input: int) -> void:
 	current_input = new_input
